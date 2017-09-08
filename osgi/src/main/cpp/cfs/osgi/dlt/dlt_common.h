@@ -179,7 +179,8 @@
 #define LOG_DAEMON  (3<<3)
 #endif
 
-enum {
+enum 
+{
     DLT_LOG_TO_CONSOLE=0,
     DLT_LOG_TO_SYSLOG=1,
     DLT_LOG_TO_FILE=2,
@@ -195,7 +196,11 @@ enum {
 /* Initial value for file descriptor */
 #define DLT_FD_INIT -1
 
-/* Minimum value for a file descriptor except the POSIX Standards: stdin=0, stdout=1, stderr=2 */
+/* Minimum value for a file descriptor except the POSIX Standards: 
+ *      stdin=0, 
+ *      stdout=1, 
+ *      stderr=2 
+ */
 #define DLT_FD_MINIMUM 3
 
 /**

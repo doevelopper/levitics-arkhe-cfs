@@ -69,8 +69,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "dlt_common.h"
-#include "dlt_user.h"
+#include <cfs/osgi/dlt/dlt_common.h>
+#include <cfs/osgi/dlt/dlt_user.h>
 
 #define MAXSTRLEN 1024
 

@@ -75,8 +75,8 @@
 #include <netinet/in.h>
 #include <errno.h>
 
-#include "dlt_common.h"
-#include "dlt_user.h"
+#include <cfs/osgi/dlt/dlt_common.h>
+#include <cfs/osgi/dlt/dlt_user.h>
 
 /* Port number, to which the syslogd-ng sends its log messages */
 #define RCVPORT               47111

@@ -24,10 +24,10 @@
  * \file dlt_filetransfer.h
 */
 
-#include <limits.h>    /* Needed for LONG_MAX */
-#include <sys/stat.h>  /* Needed for struct stat st*/
+#include <limits.h>                 /* Needed for LONG_MAX */
+#include <sys/stat.h>               /* Needed for struct stat st*/
 #include <cfs/osgi/dlt/dlt.h>       /* Needed for DLT Logs */
-#include <signal.h>    /* Signal handling */
+#include <signal.h>                 /* Signal handling */
 #include <errno.h>
 
 
