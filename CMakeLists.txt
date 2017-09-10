@@ -47,6 +47,7 @@ set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
 set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain) #cucumber-cpp 
 
 
+add_subdirectory (hal)
 add_subdirectory (osal)
 add_subdirectory (osgi)
 
