@@ -38,7 +38,6 @@ list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_SOURCE_DIR}/src/main/resources/config/modules"
     "${CMAKE_SOURCE_DIR}/src/main/resources/config/toolChains"
     "${CMAKE_SOURCE_DIR}/src/main/resources/config/macros"
-    "${CMAKE_SOURCE_DIR}/src/main/resources/config/config"
     "${CMAKE_SOURCE_DIR}/src/test/resources/config/modules"
 )
 
@@ -48,6 +47,7 @@ set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
 set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain) #cucumber-cpp 
 
 
+add_subdirectory (osal)
 add_subdirectory (osgi)
 
 add_subdirectory (src/main/cpp)

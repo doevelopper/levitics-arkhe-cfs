@@ -1,15 +1,14 @@
-# set(cppsrc
-# osgi/Osgi
-# )
-# set(CMAKE_INCLUDE_CURRENT_DIR ON)
-# set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
+ set(cppsrc
+    cfs/osgi/edac/ActivatorTest
+    cfs/osgi/edac/ErrorTest
+    cfs/osgi/edac/ExceptionTest
+ )
 
-# add_library(${PROJECT_NAME}-osgi-test STATIC ${cppsrc})
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
-# PUBLIC adds both:
-#     1) include directories for compile library and
-#     2) include directories for library's interface
-# target_include_directories(${PROJECT_NAME}-osgi-test PUBLIC osgi) # osgi or . or ${CMAKE_CURRENT_LIST_DIR} or ${CMAKE_CURRENT_SOURCE_DIR}
+add_library(${PROJECT_NAME}-osgiTest STATIC ${cppsrc})
+target_include_directories(${PROJECT_NAME}-osgiTest PUBLIC ${CMAKE_CURRENT_LIST_DIR}) # osgi or . or ${CMAKE_CURRENT_LIST_DIR} or ${CMAKE_CURRENT_SOURCE_DIR}
 
 # add_executable(
 # 	gtest_dlt_common 

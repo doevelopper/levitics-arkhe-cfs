@@ -66,11 +66,20 @@ CHECK_FUNCTION_EXISTS( strerror HAVE_FUNC_STRERROR)
 CHECK_FUNCTION_EXISTS( strstr HAVE_FUNC_STRSTR)
 CHECK_FUNCTION_EXISTS( strtol HAVE_FUNC_STRTOL)
 
-if(WITH_CHECK_CONFIG_FILE)
-  configure_file(${CMAKE_PARENT_LIST_FILE}/cmake/config.h.cmake ${PROJECT_BINARY_DIR}/include/dlt/config.h)
-endif(WITH_CHECK_CONFIG_FILE)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+get_filename_component(PARENT_DIR ${CMAKE_PARENT_LIST_FILE} PATH)
 
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/dlt_version.h.cmake ${CMAKE_SOURCE_DIR}/include/dlt/dlt_version.h @ONLY)
+#if(WITH_CHECK_CONFIG_FILE)
+configure_file(${PARENT_DIR}/../resources/config/cmake/config.h.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/cfs/osgi/dlt/config.h
+ )
+#endif(WITH_CHECK_CONFIG_FILE)
+
+
+configure_file(${PARENT_DIR}/../resources/config/cmake/dlt_version.h.cmake 
+    ${CMAKE_CURRENT_BINARY_DIR}/cfs/osgi/dlt/dlt_version.h 
+    @ONLY
+)
 
 
 option(BUILD_SHARED_LIBS      "Set to OFF to build static libraries"                                                ON )
@@ -121,14 +130,16 @@ if(WITH_DLT_USE_IPv6)
 endif(WITH_DLT_USE_IPv6)
 
 
-# set(cppsrc
-# 	cfs/osgi/Osgi
-# )
+ set(cppsrc
+ 	cfs/osgi/edac/Error
+        cfs/osgi/edac/Exception
+ 	cfs/osgi/edac/Activator
+ )
 
-# set(CMAKE_INCLUDE_CURRENT_DIR ON)
-# set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
+ set(CMAKE_INCLUDE_CURRENT_DIR ON)
+ set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
-# add_library(${PROJECT_NAME}-osgi STATIC ${cppsrc})
+ add_library(${PROJECT_NAME}-osgi STATIC ${cppsrc})
 
 # PUBLIC adds both:
 #     1) include directories for compile library and

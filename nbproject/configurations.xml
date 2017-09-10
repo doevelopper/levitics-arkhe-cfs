@@ -41,8 +41,83 @@ Contributor(s):
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="osal">
+        <df name="src">
+          <df name="main">
+            <df name="cpp">
+              <df name="cfs">
+                <df name="osal">
+                  <in>HRTimer.cpp</in>
+                  <in>HRTimer.hpp</in>
+                  <in>Semaphore.cpp</in>
+                  <in>Semaphore.hpp</in>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="test">
+            <df name="cpp">
+              <df name="cfs">
+                <df name="osal">
+                  <in>HRTimerTest.cpp</in>
+                  <in>HRTimerTest.hpp</in>
+                  <in>SemaphoreTest.cpp</in>
+                  <in>SemaphoreTest.hpp</in>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="osgi">
+        <df name="src">
+          <df name="main">
+            <df name="cpp">
+              <df name="cfs">
+                <df name="osgi">
+                  <df name="edac">
+                    <in>Activator.cpp</in>
+                    <in>Activator.hpp</in>
+                    <in>Error.cpp</in>
+                    <in>Error.hpp</in>
+                    <in>Exception.cpp</in>
+                    <in>Exception.hpp</in>
+                  </df>
+                  <df name="pimpl">
+                    <in>cfsPimpl.hpp</in>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="test">
+            <df name="cpp">
+              <df name="cfs">
+                <df name="osgi">
+                  <df name="edac">
+                    <in>ActivatorTest.cpp</in>
+                    <in>ActivatorTest.hpp</in>
+                    <in>ErrorTest.cpp</in>
+                    <in>ErrorTest.hpp</in>
+                    <in>ExceptionTest.cpp</in>
+                    <in>ExceptionTest.hpp</in>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
       <df name="src">
-        <in>welcome.cc</in>
+        <df name="main">
+          <df name="resources">
+            <df name="config">
+              <df name="toolChains">
+                <in>Toolchain-Raspberrypi.cmake</in>
+              </df>
+            </df>
+          </df>
+        </df>
       </df>
       <in>Makefile</in>
     </df>
@@ -77,8 +152,20 @@ Contributor(s):
           <executablePath>build/Debug/src/welcome</executablePath>
           <ccTool>
             <incDir>
-              <pElem>src</pElem>
+              <pElem>build/Debug/osgi/src/main/cpp</pElem>
+              <pElem>osgi/src/main/cpp</pElem>
             </incDir>
+            <preprocessorList>
+              <Elem>APPLICATIONNAME=2</Elem>
+              <Elem>APP_VERSION_STR=".."</Elem>
+              <Elem>BYTE_ORDER=LITTLE_ENDIAN</Elem>
+              <Elem>DLT_USE_IPv6</Elem>
+              <Elem>PROJECT_VERSION_MAJOR=1</Elem>
+              <Elem>PROJECT_VERSION_MICRO=0</Elem>
+              <Elem>PROJECT_VERSION_MINOR=0</Elem>
+              <Elem>PROJECT_VERSION_PATCH=levitics-arkhe-cfs</Elem>
+              <Elem>_GNU_SOURCE</Elem>
+            </preprocessorList>
           </ccTool>
         </makeTool>
         <preBuild>
@@ -87,9 +174,110 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
-      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      <item path="osal/src/main/cpp/cfs/osal/HRTimer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/welcome.cc" ex="false" tool="1" flavor2="0">
+      <item path="osal/src/main/cpp/cfs/osal/HRTimer.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/Semaphore.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/Semaphore.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Error.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/cfsPimpl.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ErrorTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ErrorTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/toolChains/Toolchain-Raspberrypi.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="0">
@@ -98,9 +286,6 @@ Contributor(s):
         <dependencyChecking>false</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
-      <flagsDictionary>
-        <element flagsID="0" commonFlags="-O3 -xO3"/>
-      </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
       <makefileType>
@@ -126,9 +311,115 @@ Contributor(s):
       </makefileType>
       <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/welcome.cc" ex="false" tool="1" flavor2="9">
-        <ccTool flags="0">
-        </ccTool>
+      <item path="osal/src/main/cpp/cfs/osal/HRTimer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/HRTimer.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/Semaphore.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/Semaphore.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Error.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Error.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/cfsPimpl.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ErrorTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ErrorTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/toolChains/Toolchain-Raspberrypi.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
     </conf>
   </confs>
