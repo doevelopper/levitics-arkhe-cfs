@@ -1,7 +1,24 @@
 include(CMakeParseArguments)
 include(CheckCXXCompilerFlag)
 
-set(CMAKE_CXX_STANDARD 17)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
+CHECK_CXX_COMPILER_FLAG("-std=c++17" COMPILER_SUPPORTS_CXX17)
+
+if(COMPILER_SUPPORTS_CXX17)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+    set(CMAKE_CXX_STANDARD 17)
+elseif(COMPILER_SUPPORTS_CXX14)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+    set(CMAKE_CXX_STANDARD 14)
+elseif(COMPILER_SUPPORTS_CXX11)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set(CMAKE_CXX_STANDARD 11)
+else()
+    message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 or later support. Please use a different C++ compiler.")
+endif()
+
+
 set(CMAKE_CXX_EXTENSIONS                           ON) ## on g++ this ensures: -std=c++XX and not -std=gnu++XX
 set(CXX_STANDARD_REQUIRED                          ON)
 set(CMAKE_CXX_FLAGS                                "${CMAKE_CXX_FLAGS} -std=c++17 -W -Wall -Wextra ")

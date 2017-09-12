@@ -49,6 +49,8 @@ set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain) #cucumber-cpp
 include(LibrarySettings)
 include(CompilerOption)
 include(buildLifeCycle)
+include(CMakeSettings)
+include(aol)
 
 add_subdirectory (hal)
 add_subdirectory (osal)

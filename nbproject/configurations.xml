@@ -152,8 +152,10 @@ Contributor(s):
           <df name="resources">
             <df name="config">
               <df name="macros">
+                <in>CMakeSettings.cmake</in>
                 <in>CompilerOption.cmake</in>
                 <in>LibrarySettings.cmake</in>
+                <in>aol.cmake</in>
                 <in>buildLifeCycle.cmake</in>
                 <in>macros.cmake</in>
               </df>
@@ -381,12 +383,22 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/CMakeSettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/CompilerOption.cmake"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/LibrarySettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/aol.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -605,12 +617,22 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/CMakeSettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/CompilerOption.cmake"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/LibrarySettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/aol.cmake"
             ex="false"
             tool="3"
             flavor2="0">
