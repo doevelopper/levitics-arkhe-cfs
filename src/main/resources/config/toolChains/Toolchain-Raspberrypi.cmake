@@ -14,6 +14,16 @@ set(CMAKE_SYSTEM_VERSION 1)
 # SET(CMAKE_C_COMPILER $ENV{HOME}/rpi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc)
 # SET(CMAKE_CXX_COMPILER $ENV{HOME}/rpi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++)
 
+set (CMAKE_C_COMPILER   ${RPI_PREFIX}-gcc     CACHE PATH    "C compiler")
+set (CMAKE_CXX_COMPILER ${RPI_PREFIX}-c++     CACHE PATH    "C++ compiler")
+set (CMAKE_STRIP        ${RPI_PREFIX}-strip   CACHE PATH    "strip")
+set (CMAKE_AR           ${RPI_PREFIX}-ar      CACHE PATH    "archive")
+set (CMAKE_LINKER       ${RPI_PREFIX}-ld      CACHE PATH    "linker")
+set (CMAKE_NM           ${RPI_PREFIX}-nm      CACHE PATH    "nm")
+set (CMAKE_OBJCOPY      ${RPI_PREFIX}-objcopy CACHE PATH    "objcopy")
+set (CMAKE_OBJDUMP      ${RPI_PREFIX}-objdump CACHE PATH    "objdump")
+set (CMAKE_RANLIB       ${RPI_PREFIX}-ranlib  CACHE PATH    "ranlib")
+
 # #Where is the target environment
 # SET(CMAKE_FIND_ROOT_PATH $ENV{HOME}/rpi/rootfs)
 # SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --sysroot=${CMAKE_FIND_ROOT_PATH}")

@@ -47,8 +47,14 @@ Contributor(s):
             <df name="cpp">
               <df name="cfs">
                 <df name="hal">
-                  <in>CpuAffinity.cpp</in>
-                  <in>CpuAffinity.hpp</in>
+                  <df name="cpu">
+                    <in>CpuAffinity.cpp</in>
+                    <in>CpuAffinity.hpp</in>
+                    <in>CpuInfo.cpp</in>
+                    <in>CpuInfo.hpp</in>
+                    <in>Topology.cpp</in>
+                    <in>Topology.hpp</in>
+                  </df>
                 </df>
               </df>
             </df>
@@ -72,8 +78,12 @@ Contributor(s):
             <df name="cpp">
               <df name="cfs">
                 <df name="osal">
-                  <in>HRTimer.cpp</in>
-                  <in>HRTimer.hpp</in>
+                  <df name="time">
+                    <in>HRTimer.cpp</in>
+                    <in>HRTimer.hpp</in>
+                    <in>TimeSpan.cpp</in>
+                    <in>TimeSpan.hpp</in>
+                  </df>
                   <in>Semaphore.cpp</in>
                   <in>Semaphore.hpp</in>
                 </df>
@@ -84,8 +94,12 @@ Contributor(s):
             <df name="cpp">
               <df name="cfs">
                 <df name="osal">
-                  <in>HRTimerTest.cpp</in>
-                  <in>HRTimerTest.hpp</in>
+                  <df name="time">
+                    <in>HRTimerTest.cpp</in>
+                    <in>HRTimerTest.hpp</in>
+                    <in>TimeSpanTest.cpp</in>
+                    <in>TimeSpanTest.hpp</in>
+                  </df>
                   <in>SemaphoreTest.cpp</in>
                   <in>SemaphoreTest.hpp</in>
                 </df>
@@ -137,6 +151,12 @@ Contributor(s):
         <df name="main">
           <df name="resources">
             <df name="config">
+              <df name="macros">
+                <in>CompilerOption.cmake</in>
+                <in>LibrarySettings.cmake</in>
+                <in>buildLifeCycle.cmake</in>
+                <in>macros.cmake</in>
+              </df>
               <df name="toolChains">
                 <in>Toolchain-Raspberrypi.cmake</in>
               </df>
@@ -201,12 +221,32 @@ Contributor(s):
       </makefileType>
       <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="hal/src/main/cpp/cfs/hal/CpuAffinity.cpp"
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="hal/src/main/cpp/cfs/hal/CpuAffinity.hpp"
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuInfo.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuInfo.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -221,16 +261,6 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
-      <item path="osal/src/main/cpp/cfs/osal/HRTimer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/HRTimer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="osal/src/main/cpp/cfs/osal/Semaphore.cpp"
             ex="false"
             tool="1"
@@ -241,12 +271,22 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
-      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.cpp"
+      <item path="osal/src/main/cpp/cfs/osal/time/HRTimer.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.hpp"
+      <item path="osal/src/main/cpp/cfs/osal/time/HRTimer.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -257,6 +297,26 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/HRTimerTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/HRTimerTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/TimeSpanTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/TimeSpanTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -321,6 +381,26 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/CompilerOption.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/LibrarySettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/buildLifeCycle.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/macros.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/toolChains/Toolchain-Raspberrypi.cmake"
             ex="false"
             tool="3"
@@ -360,12 +440,32 @@ Contributor(s):
       </item>
       <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="hal/src/main/cpp/cfs/hal/CpuAffinity.cpp"
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="hal/src/main/cpp/cfs/hal/CpuAffinity.hpp"
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuInfo.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuInfo.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -380,16 +480,6 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
-      <item path="osal/src/main/cpp/cfs/osal/HRTimer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/HRTimer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="osal/src/main/cpp/cfs/osal/Semaphore.cpp"
             ex="false"
             tool="1"
@@ -400,12 +490,22 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
-      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.cpp"
+      <item path="osal/src/main/cpp/cfs/osal/time/HRTimer.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="osal/src/test/cpp/cfs/osal/HRTimerTest.hpp"
+      <item path="osal/src/main/cpp/cfs/osal/time/HRTimer.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -416,6 +516,26 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/HRTimerTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/HRTimerTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/TimeSpanTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osal/src/test/cpp/cfs/osal/time/TimeSpanTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -481,6 +601,26 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/CompilerOption.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/LibrarySettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/buildLifeCycle.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/macros.cmake"
             ex="false"
             tool="3"
             flavor2="0">

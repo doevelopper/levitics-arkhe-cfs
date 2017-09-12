@@ -1,10 +1,11 @@
-#ifndef CFS_HAL_CPUAFFINITY_HPP
-#define CFS_HAL_CPUAFFINITY_HPP
+#ifndef CFS_HAL_CPU_CPUAFFINITY_HPP
+#define CFS_HAL_CPU_CPUAFFINITY_HPP
 
 #include <algorithm>
 #include <atomic>
 #include <thread>
 #include <unistd.h>
+#include <sched.h>
 
 class CpuAffinity 
 {

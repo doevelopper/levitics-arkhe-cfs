@@ -1,5 +1,6 @@
  set(cppsrc
-        cfs/osal/HRTimerTest
+        cfs/osal/time/HRTimerTest
+        cfs/osal/time/TimeSpanTest
  	cfs/osal/SemaphoreTest
  )
 

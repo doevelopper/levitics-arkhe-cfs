@@ -1,5 +1,6 @@
  set(cppsrc
-        cfs/osal/HRTimer
+        cfs/osal/time/HRTimer
+        cfs/osal/time/TimeSpan
  	cfs/osal/Semaphore
  )
 
@@ -7,7 +8,7 @@
  set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
  add_library(${PROJECT_NAME}-osal STATIC ${cppsrc})
-
+#target_compile_features(${PROJECT_NAME}-osal PUBLIC cxx_constexpr cxx_strong_enums cxx_auto_type cxx_range_for)
 # PUBLIC adds both:
 #     1) include directories for compile library and
 #     2) include directories for library's interface

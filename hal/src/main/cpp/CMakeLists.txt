@@ -1,5 +1,7 @@
  set(cppsrc
- 	cfs/hal/CpuAffinity
+ 	cfs/hal/cpu/CpuAffinity
+ 	cfs/hal/cpu/CpuInfo
+ 	cfs/hal/cpu/Topology
  )
 
  set(CMAKE_INCLUDE_CURRENT_DIR ON)

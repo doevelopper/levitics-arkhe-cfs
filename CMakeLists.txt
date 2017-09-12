@@ -46,10 +46,15 @@ set (NAMESPACE "CFSA")
 set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
 set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain) #cucumber-cpp 
 
+include(LibrarySettings)
+include(CompilerOption)
+include(buildLifeCycle)
 
 add_subdirectory (hal)
 add_subdirectory (osal)
 add_subdirectory (osgi)
+add_subdirectory (cf)
+add_subdirectory (cfe)
 
 add_subdirectory (src/main/cpp)
 add_subdirectory (src/test/cpp)
