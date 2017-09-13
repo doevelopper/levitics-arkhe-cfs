@@ -8,13 +8,13 @@ For transparency of our release cycle and in striving to maintain backward compa
 
 | Target Board     | Linux | Xenomai  | Linux RT | Nuttx | FreeRTOS | RTEMS | Picos18 |
 |:----------------:|:-----:|----------|----------|:-----:|:--------:|:-----:|---------|
-|   Fox Board G20  |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
-|  Fox Board LX832 |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
-|  Raspberry PI 2  |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
-|  RaspBerry PI 3  |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
-|      Pic32MZ     |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
-| ARM Cortex M4/M7 |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
-| Intel Edisson    |  []   |     []   |     []   |  []   |     []   |  []   |    []   |
+|   Fox Board G20  |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
+|  Fox Board LX832 |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
+|  Raspberry PI 2  |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
+|  RaspBerry PI 3  |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
+|      Pic32MZ     |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
+| ARM Cortex M4/M7 |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
+| Intel Edisson    |  [ ]  |     []   |     []   |  []   |     []   |  []   |    []   |
 
 ## Host cros copilation
 
