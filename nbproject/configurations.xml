@@ -110,11 +110,27 @@ Contributor(s):
       </df>
       <df name="osgi">
         <df name="src">
+          <df name="it">
+            <df name="cfs">
+              <df name="features">
+                <df name="support">
+                  <in>env.rb</in>
+                  <in>hooks.rb</in>
+                </df>
+              </df>
+              <in>ItTest.cpp</in>
+              <in>ItTest.hpp</in>
+            </df>
+          </df>
           <df name="main">
             <df name="cpp">
               <df name="cfs">
                 <df name="osgi">
                   <df name="edac">
+                    <df name="callstack">
+                      <in>ABIDemangling.cpp</in>
+                      <in>ABIDemangling.hpp</in>
+                    </df>
                     <in>Activator.cpp</in>
                     <in>Activator.hpp</in>
                     <in>Error.cpp</in>
@@ -148,13 +164,26 @@ Contributor(s):
         </df>
       </df>
       <df name="src">
+        <df name="it">
+          <df name="cfs">
+            <df name="features">
+              <df name="support">
+                <in>env.rb</in>
+                <in>hooks.rb</in>
+              </df>
+            </df>
+          </df>
+        </df>
         <df name="main">
           <df name="resources">
             <df name="config">
               <df name="macros">
+                <in>BullseyeCoverage.cmake</in>
                 <in>CMakeSettings.cmake</in>
+                <in>CodingStyle.cmake</in>
                 <in>CompilerOption.cmake</in>
                 <in>LibrarySettings.cmake</in>
+                <in>PreventInSourceBuilds.cmake</in>
                 <in>aol.cmake</in>
                 <in>buildLifeCycle.cmake</in>
                 <in>macros.cmake</in>
@@ -162,6 +191,7 @@ Contributor(s):
               <df name="toolChains">
                 <in>Toolchain-Raspberrypi.cmake</in>
               </df>
+              <in>style.cfg</in>
             </df>
           </df>
         </df>
@@ -323,6 +353,20 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/it/cfs/ItTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="osgi/src/it/cfs/ItTest.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="osgi/src/it/cfs/features/support/env.rb"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/it/cfs/features/support/hooks.rb"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
             ex="false"
             tool="1"
@@ -344,6 +388,16 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -383,7 +437,24 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/it/cfs/features/support/env.rb" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/it/cfs/features/support/hooks.rb"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/CMakeSettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/CodingStyle.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -394,6 +465,11 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/LibrarySettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/PreventInSourceBuilds.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -409,6 +485,11 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/macros.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/style.cfg"
             ex="false"
             tool="3"
             flavor2="0">
@@ -552,6 +633,20 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/it/cfs/ItTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="osgi/src/it/cfs/ItTest.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="osgi/src/it/cfs/features/support/env.rb"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/it/cfs/features/support/hooks.rb"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
             ex="false"
             tool="1"
@@ -578,6 +673,16 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -617,7 +722,24 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/it/cfs/features/support/env.rb" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/it/cfs/features/support/hooks.rb"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/CMakeSettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/CodingStyle.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -628,6 +750,11 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/LibrarySettings.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/PreventInSourceBuilds.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -643,6 +770,11 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/macros.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/style.cfg"
             ex="false"
             tool="3"
             flavor2="0">

@@ -1,3 +1,11 @@
+#The triple has the general format <arch><sub>-<vendor>-<sys>-<abi>, where:
+
+#        arch    = x86, arm, thumb, mips, etc.
+#        sub     = for ex. on ARM: v5, v6m, v7a, v7m, etc.
+#        vendor  = pc, apple, nvidia, ibm, etc.
+#        sys     = none, linux, win32, darwin, cuda, etc.
+#        abi     = eabi, gnu, android, macho, elf, etc.
+
 set(AOL "${CMAKE_HOST_SYSTEM_NAME}-${CMAKE_CXX_COMPILER_ID}_GCC_${CMAKE_CXX_COMPILER_VERSION}-${CMAKE_SYSTEM_PROCESSOR}")
 
 set(TARGET_BUILD_DIRECTORY ${BUILD_DIRECTORY}/${AOL}-${CMAKE_BUILD_TYPE})

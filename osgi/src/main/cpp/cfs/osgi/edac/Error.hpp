@@ -198,6 +198,31 @@ namespace cfs
                  * @brief Invokes the currently registered Error.
                  */
                 static void handle (const std::exception & exc);
+                /*!
+                 * @brief Registers the given handler as the current error handler.
+                 * @return The previously registered handler.
+                 */
+                static Error* set(Error* handler);
+                /*!
+                 * @brief Returns a pointer to the currently registered.
+                 */
+                static Error* get();
+                
+                void throw_error[[noreturn]]();
+                void throw_error[[noreturn]](const char* origin, const char* format = nullptr, ...);
+                void throw_error[[noreturn]](int code);
+                void throw_error[[noreturn]](int code, const char* origin, const char* format = nullptr, ...);
+                void throw_error[[noreturn]](int code, const char* origin, const char* format, va_list args);
+            protected:
+                /*!
+                * @brief Returns the default Error handler.
+                */
+                static Error* defaultHandler();
+                /*!
+                 * @brief Utility function translating numeric error code to string.
+                 */
+                static std::string getErrorDescription(int errorCode);
+
             private:
                 std::string m_message;  ///< Error message
                 std::string m_location; ///< Location of the error (file, line and function)

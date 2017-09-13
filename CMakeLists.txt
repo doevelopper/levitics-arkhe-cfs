@@ -46,6 +46,7 @@ set (NAMESPACE "CFSA")
 set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
 set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain) #cucumber-cpp 
 
+include(PreventInSourceBuilds)
 include(LibrarySettings)
 include(CompilerOption)
 include(buildLifeCycle)
