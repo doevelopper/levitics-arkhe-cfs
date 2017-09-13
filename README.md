@@ -34,12 +34,12 @@ For transparency of our release cycle and in striving to maintain backward compa
 | releases            | [![Build status](https://travis-ci.org/Levitics/levitics-arkhe-gcs.svg?branch=develop "Build status of branch develop")](https://travis-ci.org/Levitics/levitics-arkhe-gcs) |
 
 ## Binaries Distribution management
->__Nightly__            builds created out of the central repository every night. These are not qualified by QA.
->__Aurora__    		   builds created out of the aurora repository, which is synced from mozilla-central every weeks. 
->There is a small amount of QA at the start of the 1 week period before the updates are offered.
->__Beta__               builds created out of the master repository, qualified by QA as being of sufficient quality to release to beta users.
->__Release__            builds created out of the release repository, qualified by QA as being of sufficient quality to release to hundreds of millions of people.
-
+| Distribution  Chanel         | Description                                                                                                                                                                                   |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [__Nightly__](#www.tbd.acme) | Builds created out of the central repository every night. These are not qualified by QA.                                                                                                      |
+| [__Aurora__](#www.tbd.acme)  | Builds created out of the aurora repository, which is synced from mozilla-central every weeks.There is a small amount of QA at the start of the 1 week period before the updates are offered. |
+| [__Beta__](#www.tbd.acme)    | Builds created out of the master repository, qualified by QA as being of sufficient quality to release to beta users.                                                                         |
+| [__Release__](#www.tbd.acme) | Builds created out of the release repository, qualified by QA as being of sufficient quality to release to hundreds of millions of people.                                                    |
 ## Libraries Dependencies  and Installation Ubuntu/Debian
 
 cucumber-cpp
