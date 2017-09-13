@@ -44,6 +44,7 @@ For transparency of our release cycle and in striving to maintain backward compa
 ## Libraries Dependencies  and Installation Ubuntu/Debian
 
 cucumber-cpp
+
     > sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
     > git clone https://github.com/cucumber/cucumber-cpp.git
     > cd cucumber-cpp
@@ -58,6 +59,7 @@ cucumber-cpp
     > cmake --build build --target install
 
 googletest
+
     > git clone https://github.com/google/googletest.git
     > cd googletest
     > cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
@@ -65,6 +67,7 @@ googletest
     > cmake --build build --target install
 
 microbenchmark 
+
     > git clone https://github.com/google/benchmark.git
     > cd benchmark
     > cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
