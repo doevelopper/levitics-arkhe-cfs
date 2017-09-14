@@ -6,6 +6,9 @@
 #include <string>
 #include <iostream>
 
+#define ERROR_LOCATION std::string ("(") + std::string(__FILE__) + std::string (":") + toString(__LINE__) + std::string (")")
+#define RAISE_ERROR(error) throw Exceptions::prepare(error, __FILE__, __LINE__, __func__)
+
 namespace cfs
 {
     namespace osgi
@@ -74,10 +77,20 @@ namespace cfs
                 Exception(const std::string & msg , int code = 0);
                 /*!
                  * @brief Constructor.
-                 * @param code Error code.
+                 * @param _method Mothodd s name raising the exception.
+                 * @param _message Excetion explanation.
+                 * @param _code Error code.
                  * @throw std::runtime_error When socket could not be created.
                  */
-                Exception(const std::string & msg , const Exception & nested , int code = 0);
+                Exception(const std::string& msg, const std::string& arg, int code = 0);
+                /*!
+                 * @brief Constructor.
+                 * @param _method Mothodd s name raising the exception.
+                 * @param _message Excetion explanation.
+                 * @param _code Error code.
+                 * @throw std::runtime_error When socket could not be created.
+                 */
+                Exception(const std::string& msg, const Exception & nested, int code = 0);
                 /*!
                  * @brief methodName Method raising the exception.
                  */

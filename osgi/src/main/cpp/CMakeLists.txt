@@ -132,6 +132,7 @@ endif(WITH_DLT_USE_IPv6)
 
  set(cppsrc
         cfs/osgi/edac/callstack/ABIDemangling
+ 	cfs/osgi/edac/ErrorHandler
  	cfs/osgi/edac/Error
         cfs/osgi/edac/Exception
  	cfs/osgi/edac/Activator

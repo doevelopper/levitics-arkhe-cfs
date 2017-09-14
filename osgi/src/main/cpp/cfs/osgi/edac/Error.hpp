@@ -222,7 +222,11 @@ namespace cfs
                  * @brief Utility function translating numeric error code to string.
                  */
                 static std::string getErrorDescription(int errorCode);
-
+                
+                std::pair<size_t /* bytes */, CfsErrorSeverity> severity();
+                std::pair<size_t /* bytes */, CfeServiceIdentifiers> serviceId();
+                std::pair<size_t /* bytes */, CfeOperationStatus> operationStatus();
+                
             private:
                 std::string m_message;  ///< Error message
                 std::string m_location; ///< Location of the error (file, line and function)

@@ -135,6 +135,8 @@ Contributor(s):
                     <in>Activator.hpp</in>
                     <in>Error.cpp</in>
                     <in>Error.hpp</in>
+                    <in>ErrorHandler.cpp</in>
+                    <in>ErrorHandler.hpp</in>
                     <in>Exception.cpp</in>
                     <in>Exception.hpp</in>
                   </df>
@@ -172,6 +174,8 @@ Contributor(s):
                 <in>hooks.rb</in>
               </df>
             </df>
+            <in>cucumber.wire</in>
+            <in>readme</in>
           </df>
         </df>
         <df name="main">
@@ -182,10 +186,15 @@ Contributor(s):
                 <in>CMakeSettings.cmake</in>
                 <in>CodingStyle.cmake</in>
                 <in>CompilerOption.cmake</in>
+                <in>CpplintWrapper.cmake</in>
                 <in>LibrarySettings.cmake</in>
                 <in>PreventInSourceBuilds.cmake</in>
+                <in>ProcessorCount.cmake</in>
                 <in>aol.cmake</in>
                 <in>buildLifeCycle.cmake</in>
+                <in>cppcheck.cmake</in>
+                <in>cpplint.cmake</in>
+                <in>cyclomatic.cmake</in>
                 <in>macros.cmake</in>
               </df>
               <df name="toolChains">
@@ -193,10 +202,15 @@ Contributor(s):
               </df>
               <in>style.cfg</in>
             </df>
+            <df name="scripts">
+              <in>cppcheck-htmlreport.py</in>
+              <in>cpplint-wrapper.py</in>
+            </df>
           </df>
         </df>
       </df>
       <in>Makefile</in>
+      <in>codecov.yml</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -251,6 +265,8 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
+      <item path="codecov.yml" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
@@ -382,6 +398,16 @@ Contributor(s):
             tool="1"
             flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/ErrorHandler.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/ErrorHandler.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.cpp"
             ex="false"
             tool="1"
@@ -437,12 +463,16 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/it/cfs/cucumber.wire" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/it/cfs/features/support/env.rb" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/it/cfs/features/support/hooks.rb"
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/it/cfs/readme" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
             ex="false"
@@ -464,6 +494,11 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/CpplintWrapper.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/LibrarySettings.cmake"
             ex="false"
             tool="3"
@@ -474,12 +509,32 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/ProcessorCount.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/aol.cmake"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/buildLifeCycle.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/cppcheck.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/cpplint.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/cyclomatic.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -495,6 +550,16 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/toolChains/Toolchain-Raspberrypi.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/scripts/cppcheck-htmlreport.py"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/scripts/cpplint-wrapper.py"
             ex="false"
             tool="3"
             flavor2="0">
@@ -530,6 +595,8 @@ Contributor(s):
         </preBuild>
       </makefileType>
       <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="codecov.yml" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
@@ -667,6 +734,16 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/ErrorHandler.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/ErrorHandler.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.cpp"
             ex="false"
             tool="1"
@@ -722,12 +799,16 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/it/cfs/cucumber.wire" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/it/cfs/features/support/env.rb" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/it/cfs/features/support/hooks.rb"
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/it/cfs/readme" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
             ex="false"
@@ -749,6 +830,11 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/CpplintWrapper.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/LibrarySettings.cmake"
             ex="false"
             tool="3"
@@ -759,12 +845,32 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/main/resources/config/macros/ProcessorCount.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/main/resources/config/macros/aol.cmake"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/buildLifeCycle.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/cppcheck.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/cpplint.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/cyclomatic.cmake"
             ex="false"
             tool="3"
             flavor2="0">
@@ -780,6 +886,16 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/toolChains/Toolchain-Raspberrypi.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/scripts/cppcheck-htmlreport.py"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/scripts/cpplint-wrapper.py"
             ex="false"
             tool="3"
             flavor2="0">

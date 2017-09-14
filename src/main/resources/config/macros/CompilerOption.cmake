@@ -98,8 +98,12 @@ endif()
 set(CMAKE_CXX_FLAGS_DEBUG               "${CMAKE_CXX_FLAGS_DEBUG}         ${COMMON_CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS_RELEASE             "${CMAKE_CXX_FLAGS_RELEASE}       ${COMMON_CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS                     "${CMAKE_CXX_FLAGS}               ${COMMON_CMAKE_CXX_FLAGS}")
-set(CMAKE_CXX_FLAGS_COVERAGE            "${CMAKE_CXX_FLAGS_DEBUG}         -fprofile-arcs -ftest-coverage --coverage")
+set(CMAKE_CXX_FLAGS_COVERAGE            "${CMAKE_CXX_FLAGS_DEBUG}         --coverage") # == old -fprofile-arcs -ftest-coverage
 set(CMAKE_EXE_LINKER_FLAGS_COVERAGE     "${CMAKE_EXE_LINKER_FLAGS_DEBUG}  --coverage")#-lgcov
+set(CMAKE_EXE_LINKER_FLAGS_COVERAGE     "${CMAKE_EXE_LINKER_FLAGS_DEBUG}")
+set(CMAKE_SHARED_LINKER_FLAGS_COVERAGE  "${CMAKE_SHARED_LINKER_FLAGS_DEBUG}")
+set(CMAKE_STATIC_LINKER_FLAGS_COVERAGE  "${CMAKE_STATIC_LINKER_FLAGS_DEBUG}")
+set(CMAKE_MODULE_LINKER_FLAGS_COVERAGE  "${CMAKE_MODULE_LINKER_FLAGS_DEBUG}")
 
 # foreach(compilerFeatures ${CMAKE_CXX_COMPILE_FEATURES})
 #     message("compile Feature ${compilerFeatures}")

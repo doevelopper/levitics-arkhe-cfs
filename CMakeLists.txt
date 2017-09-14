@@ -33,6 +33,8 @@ option(ANALYZE_ADDRESS                  "Dynamic analyzer: fast memory error det
 option(ANALYZE_THREAD                   "Dynamic analyzer: tool that detects data races. "          OFF)
 option(ANALYZE_UNDEFINED                "Dynamic analyzer: undefined behavior checker. "            OFF)
 option(ANALYZE_DATAFLOW                 "Dynamic analyzer: general dynamic dataflow analysis."      OFF)
+option(WARNINGS_ARE_ERRORS              "Treat warnings as errors"                                  OFF)
+option(WARNINGS_ANSI_ISO                "Issue all the mandatory diagnostics Listed in C standard"  ON)
 
 list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_SOURCE_DIR}/src/main/resources/config/modules"
