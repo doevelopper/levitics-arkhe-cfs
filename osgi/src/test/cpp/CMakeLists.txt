@@ -9,6 +9,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
 add_library(${PROJECT_NAME}-osgiTest STATIC ${cppsrc})
 target_include_directories(${PROJECT_NAME}-osgiTest PUBLIC ${CMAKE_CURRENT_LIST_DIR}) # osgi or . or ${CMAKE_CURRENT_LIST_DIR} or ${CMAKE_CURRENT_SOURCE_DIR}
+target_link_libraries (${PROJECT_NAME}-osgiTest 
+    ${TEST_THIRD_PARTY_LIB_MAIN}
+    pthread
+    ${PROJECT_NAME}-osgi
+)
 
 # add_executable(
 # 	gtest_dlt_common 

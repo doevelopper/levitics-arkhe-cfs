@@ -8,10 +8,19 @@
 #include <cfs/osgi/edac/Error.hpp>
 
 using namespace cfs::osgi::edac;
-//
-//Error::Error() 
-//{
-//}
+
+Error::Error()
+:m_codeMask(~0)
+,m_facilityMask(~0)
+,m_ErrorCode(~0)
+,m_ErrorFacility(~0)
+{
+//    this->m_codeMask >>= 16;
+//    this->m_facilityMask >>= 21;
+//    this->m_facilityMask <<= 16;
+//    this->m_ErrorCode = (/*hresult*/ & this->m_codeMask);;
+//    this->m_ErrorFacility = (/*hresult*/ & this->m_facilityMask) >> 16;
+}
 
 const char* 
 Error::what() const throw()

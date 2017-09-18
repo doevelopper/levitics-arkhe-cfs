@@ -125,13 +125,28 @@ namespace cfs
                  */
                 virtual std::string summary () const;               
 
-
+                virtual std::string stackTrace() const;
             private:
-
+                std::string m_stackTrace;
                 std::string m_message;        ///< Error message.
                 std::string m_location;       ///< Location of the error : file, line and procedure)
                 int m_code;                   ///< Error code
             };
+
+            std::ostream& operator <<(std::ostream& out, const Exception& ex)
+            {
+                out << "CFS Exception: " << ex.what();
+                return out;
+            }
+            
+            /*!
+            * @biref Signals an error condition in a program by throwing an
+            *        <code>Exception</code> with the specified message.
+            */
+            [[noreturn]] void error(const std::string& msg)
+            {
+                throw Exception(msg);
+            }
         }
     }
 }

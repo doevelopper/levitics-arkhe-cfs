@@ -43,6 +43,14 @@ Contributor(s):
     <df root="." name="0">
       <df name="hal">
         <df name="src">
+          <df name="it">
+            <df name="cfs">
+              <df name="hal">
+                <in>Hal.cpp</in>
+                <in>Hal.hpp</in>
+              </df>
+            </df>
+          </df>
           <df name="main">
             <df name="cpp">
               <df name="cfs">
@@ -74,6 +82,14 @@ Contributor(s):
       </df>
       <df name="osal">
         <df name="src">
+          <df name="it">
+            <df name="cfs">
+              <df name="osal">
+                <in>Osal.cpp</in>
+                <in>Osal.hpp</in>
+              </df>
+            </df>
+          </df>
           <df name="main">
             <df name="cpp">
               <df name="cfs">
@@ -118,8 +134,8 @@ Contributor(s):
                   <in>hooks.rb</in>
                 </df>
               </df>
-              <in>ItTest.cpp</in>
-              <in>ItTest.hpp</in>
+              <in>Osgi.cpp</in>
+              <in>Osgi.hpp</in>
             </df>
           </df>
           <df name="main">
@@ -130,6 +146,10 @@ Contributor(s):
                     <df name="callstack">
                       <in>ABIDemangling.cpp</in>
                       <in>ABIDemangling.hpp</in>
+                      <in>CallStack.cpp</in>
+                      <in>CallStack.hpp</in>
+                      <in>CallStackDataStructure.cpp</in>
+                      <in>CallStackDataStructure.hpp</in>
                     </df>
                     <in>Activator.cpp</in>
                     <in>Activator.hpp</in>
@@ -140,7 +160,15 @@ Contributor(s):
                     <in>Exception.cpp</in>
                     <in>Exception.hpp</in>
                   </df>
+                  <df name="file">
+                    <in>Config.cpp</in>
+                    <in>Config.hpp</in>
+                    <in>File.cpp</in>
+                    <in>File.hpp</in>
+                  </df>
                   <df name="pimpl">
+                    <in>CFSObject.cpp</in>
+                    <in>CFSObject.hpp</in>
                     <in>cfsPimpl.hpp</in>
                   </df>
                 </df>
@@ -159,6 +187,12 @@ Contributor(s):
                     <in>ExceptionTest.cpp</in>
                     <in>ExceptionTest.hpp</in>
                   </df>
+                  <df name="file">
+                    <in>ConfigTest.cpp</in>
+                    <in>ConfigTest.hpp</in>
+                    <in>FileTest.cpp</in>
+                    <in>FileTest.hpp</in>
+                  </df>
                 </df>
               </df>
             </df>
@@ -174,11 +208,19 @@ Contributor(s):
                 <in>hooks.rb</in>
               </df>
             </df>
+            <in>Cfs.cpp</in>
+            <in>Cfs.hpp</in>
             <in>cucumber.wire</in>
             <in>readme</in>
           </df>
         </df>
         <df name="main">
+          <df name="cpp">
+            <df name="cfs">
+              <in>App.cpp</in>
+              <in>App.hpp</in>
+            </df>
+          </df>
           <df name="resources">
             <df name="config">
               <df name="macros">
@@ -208,6 +250,14 @@ Contributor(s):
             </df>
           </df>
         </df>
+        <df name="test">
+          <df name="cpp">
+            <df name="cfs">
+              <in>AppTest.cpp</in>
+              <in>AppTest.hpp</in>
+            </df>
+          </df>
+        </df>
       </df>
       <in>Makefile</in>
       <in>codecov.yml</in>
@@ -233,6 +283,10 @@ Contributor(s):
         <dependencyChecking>false</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0"
+                 commonFlags="-std=c++17 -std=c++17 -fstack-protector-all -fstack-protector-all -fstack-protector-all -std=c++17 -std=c++17 -std=gnu++1z"/>
+      </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
       <makefileType>
@@ -242,20 +296,13 @@ Contributor(s):
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
           <executablePath>build/Debug/src/welcome</executablePath>
           <ccTool>
-            <incDir>
-              <pElem>build/Debug/osgi/src/main/cpp</pElem>
-              <pElem>osgi/src/main/cpp</pElem>
-            </incDir>
             <preprocessorList>
               <Elem>APPLICATIONNAME=2</Elem>
               <Elem>APP_VERSION_STR=".."</Elem>
-              <Elem>BYTE_ORDER=LITTLE_ENDIAN</Elem>
-              <Elem>DLT_USE_IPv6</Elem>
               <Elem>PROJECT_VERSION_MAJOR=1</Elem>
               <Elem>PROJECT_VERSION_MICRO=0</Elem>
               <Elem>PROJECT_VERSION_MINOR=0</Elem>
               <Elem>PROJECT_VERSION_PATCH=levitics-arkhe-cfs</Elem>
-              <Elem>_GNU_SOURCE</Elem>
             </preprocessorList>
           </ccTool>
         </makeTool>
@@ -265,170 +312,257 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
-      <item path="codecov.yml" ex="false" tool="3" flavor2="0">
+      <folder path="0/hal">
+        <ccTool>
+          <preprocessorList>
+            <Elem>_DEBUG</Elem>
+            <Elem>_FORTIFY_SOURCE=2</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/hal/src/main">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/hal/src/main/cpp</pElem>
+            <pElem>hal/src/main/cpp</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="0/hal/src/test">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/hal/src/test/cpp</pElem>
+            <pElem>hal/src/test/cpp</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="0/osal">
+        <ccTool>
+          <preprocessorList>
+            <Elem>_DEBUG</Elem>
+            <Elem>_FORTIFY_SOURCE=2</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/osal/src/main">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/osal/src/main/cpp</pElem>
+            <pElem>osal/src/main/cpp</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="0/osal/src/test">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/osal/src/test/cpp</pElem>
+            <pElem>osal/src/test/cpp</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="0/osgi/src/it">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/osgi/src/main/cpp</pElem>
+            <pElem>osgi/src/main/cpp</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BYTE_ORDER=LITTLE_ENDIAN</Elem>
+            <Elem>DLT_USE_IPv6</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/osgi/src/main">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/osgi/src/main/cpp</pElem>
+            <pElem>osgi/src/main/cpp</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BYTE_ORDER=LITTLE_ENDIAN</Elem>
+            <Elem>DLT_USE_IPv6</Elem>
+            <Elem>_DEBUG</Elem>
+            <Elem>_FORTIFY_SOURCE=2</Elem>
+            <Elem>_GNU_SOURCE</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/osgi/src/test">
+        <ccTool>
+          <incDir>
+            <pElem>build/Debug/osgi/src/test/cpp</pElem>
+            <pElem>osgi/src/test/cpp</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>_DEBUG</Elem>
+            <Elem>_FORTIFY_SOURCE=2</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <item path="hal/src/it/cfs/hal/Hal.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      <item path="hal/src/it/cfs/hal/Hal.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/CpuInfo.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/cpu/CpuInfo.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="hal/src/test/cpp/cfs/hal/CpuAffinityTest.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
-      <item path="hal/src/test/cpp/cfs/hal/CpuAffinityTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="osal/src/it/cfs/osal/Osal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="osal/src/it/cfs/osal/Osal.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="osal/src/main/cpp/cfs/osal/Semaphore.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/Semaphore.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osal/src/main/cpp/cfs/osal/time/HRTimer.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/time/HRTimer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osal/src/test/cpp/cfs/osal/time/HRTimerTest.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/test/cpp/cfs/osal/time/HRTimerTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osal/src/test/cpp/cfs/osal/time/TimeSpanTest.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
-      <item path="osal/src/test/cpp/cfs/osal/time/TimeSpanTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="osgi/src/it/cfs/Osgi.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="osgi/src/it/cfs/ItTest.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="osgi/src/it/cfs/ItTest.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="osgi/src/it/cfs/features/support/env.rb"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/it/cfs/features/support/hooks.rb"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="osgi/src/it/cfs/Osgi.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Error.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/ErrorHandler.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/edac/ErrorHandler.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.cpp"
             ex="false"
             tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStack.cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.hpp"
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStack.hpp"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/cfsPimpl.hpp"
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStackDataStructure.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStackDataStructure.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/Config.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/Config.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/File.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/File.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/CFSObject.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/CFSObject.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -436,133 +570,55 @@ Contributor(s):
       <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osgi/src/test/cpp/cfs/osgi/edac/ErrorTest.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/test/cpp/cfs/osgi/edac/ErrorTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.cpp"
             ex="false"
             tool="1"
+            flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/file/ConfigTest.cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
-      <item path="osgi/src/test/cpp/cfs/osgi/edac/ExceptionTest.hpp"
+      <item path="osgi/src/test/cpp/cfs/osgi/file/ConfigTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/it/cfs/cucumber.wire" ex="false" tool="3" flavor2="0">
+      <item path="osgi/src/test/cpp/cfs/osgi/file/FileTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/it/cfs/features/support/env.rb" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/it/cfs/features/support/hooks.rb"
+      <item path="osgi/src/test/cpp/cfs/osgi/file/FileTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/it/cfs/readme" ex="false" tool="3" flavor2="0">
+      <item path="src/it/cfs/Cfs.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/it/cfs/Cfs.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/main/resources/config/macros/CMakeSettings.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/main/cpp/cfs/App.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/main/resources/config/macros/CodingStyle.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/main/cpp/cfs/App.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/main/resources/config/macros/CompilerOption.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/test/cpp/cfs/AppTest.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/main/resources/config/macros/CpplintWrapper.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/LibrarySettings.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/PreventInSourceBuilds.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/ProcessorCount.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/aol.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/buildLifeCycle.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/cppcheck.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/cpplint.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/cyclomatic.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/macros/macros.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/style.cfg"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/config/toolChains/Toolchain-Raspberrypi.cmake"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/scripts/cppcheck-htmlreport.py"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/main/resources/scripts/cpplint-wrapper.py"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/test/cpp/cfs/AppTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="0">
@@ -600,6 +656,10 @@ Contributor(s):
       </item>
       <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="hal/src/it/cfs/hal/Hal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="hal/src/it/cfs/hal/Hal.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
             ex="false"
             tool="1"
@@ -639,6 +699,10 @@ Contributor(s):
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="osal/src/it/cfs/osal/Osal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="osal/src/it/cfs/osal/Osal.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="osal/src/main/cpp/cfs/osal/Semaphore.cpp"
             ex="false"
@@ -700,9 +764,9 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
-      <item path="osgi/src/it/cfs/ItTest.cpp" ex="false" tool="1" flavor2="0">
+      <item path="osgi/src/it/cfs/Osgi.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="osgi/src/it/cfs/ItTest.hpp" ex="false" tool="3" flavor2="0">
+      <item path="osgi/src/it/cfs/Osgi.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="osgi/src/it/cfs/features/support/env.rb"
             ex="false"
@@ -764,6 +828,56 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStack.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStack.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStackDataStructure.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/CallStackDataStructure.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/Config.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/Config.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/File.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/file/File.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/CFSObject.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/CFSObject.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/pimpl/cfsPimpl.hpp"
             ex="false"
             tool="3"
@@ -799,6 +913,30 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/file/ConfigTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/file/ConfigTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/file/FileTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/file/FileTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/it/cfs/Cfs.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/it/cfs/Cfs.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/it/cfs/cucumber.wire" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/it/cfs/features/support/env.rb" ex="false" tool="3" flavor2="0">
@@ -809,6 +947,10 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/it/cfs/readme" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main/cpp/cfs/App.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/main/cpp/cfs/App.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
             ex="false"
@@ -899,6 +1041,10 @@ Contributor(s):
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/test/cpp/cfs/AppTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/test/cpp/cfs/AppTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

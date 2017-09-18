@@ -9,8 +9,11 @@
 #include <experimental/system_error>
 #include <vector>
 
+#define ERRMSG std::cerr << __FILE__ << ":" << __LINE__ << ":"<< __FUNCTION__ << "(): "
 
 /*
+ * 
+    https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/defining-new-ntstatus-values
  * 
 |        | Sev   |  Res  |   Serv   |      Mission  Defined      |                       Code                      |
 |:------:|:-----:|:-----:|:--------:|:--------------------------:|:-----------------------------------------------:|
@@ -44,7 +47,9 @@
 #define CFS_DECLARE(type)           type
 #define CFS_SUCCESS                 (0x00000000L)    //! no error.
 #define CFE_SUCCESS                 (0x00000000L)    //! no error.
-#define CFE_ERROR                  ~(0x00000000L)    //! no error.
+#define CFE_ERROR                  ~(CFS_SUCCESS)    //! error.
+#define CFS_ERROR                  ~(CFE_SUCCESS)    //! error.
+
 /// Macro for generating bit masks using bit index from the spec
 #define CFE_BIT_MASK(bit_index,field_bit_count) ( (1 << ((field_bit_count) - 1)) >> (bit_index) )
 
@@ -62,29 +67,29 @@ namespace cfs
 //https://stackoverflow.com/questions/18335861/why-is-enum-class-preferred-over-plain-enum
     enum class CfsErrorSeverity : std::uint32_t 
     {
-        CFE_SEVERITY_BITMASK =      (0xc0000000L),
+        CFE_SEVERITY_BITMASK =      (0xC0000000L),
         CFE_SEVERITY_SUCCESS =      (0x00000000L),
         CFE_SEVERITY_INFO =         (0x40000000L),
-        CFE_SEVERITY_ERROR =        (0xc0000000L)
+        CFE_SEVERITY_ERROR =        (0x80000000L),
+        CFE_SEVERITY_CRITICAL =     (0xC0000000L)
     };
 
     enum class CfeServiceIdentifiers : std::uint32_t 
     {
-        CFE_SERVICE_BITMASK =       (0x0e000000L),
+        CFE_SERVICE_BITMASK =       (0x0C000000L),
         CFE_EVENTS_SERVICE =        (0x02000000L),
         CFE_EXECUTIVE_SERVICE =     (0x04000000L),
         CFE_FILE_SERVICE =          (0x06000000L),
         CFE_OSAPI_SERVICE =         (0x08000000L),
-        CFE_SOFTWARE_BUS_SERVICE =  (0x0a000000L),
-        CFE_TABLE_SERVICE =         (0x0c000000L),
-        CFE_TIME_SERVICE =          (0x0e000000L)
+        CFE_SOFTWARE_BUS_SERVICE =  (0x0A000000L),
+        CFE_TABLE_SERVICE =         (0x0C000000L),
+        CFE_TIME_SERVICE =          (0x0E000000L)
     };
 
     enum class CfeOperationStatus : std::uint32_t 
     {
         STATUS_OK                    = 0, ///< Operation has completed successfully.
         STATUS_FAILURE               = 1, ///< Operation has failed for some undefined reason.
-
         STATUS_UNIMPLEMENTED         = 2, ///< Given operation has not been implemented.
         STATUS_INVALID_ARGUMENT      = 3, ///< An argument to the operation is invalid.
         STATUS_INVALID_STATE         = 4, ///< This operation is invalid for the current device state.
@@ -207,7 +212,9 @@ namespace cfs
                  * @brief Returns a pointer to the currently registered.
                  */
                 static Error* get();
-                
+                static int lastErrno();
+                static const char* lastErrmsg();
+
                 void throw_error[[noreturn]]();
                 void throw_error[[noreturn]](const char* origin, const char* format = nullptr, ...);
                 void throw_error[[noreturn]](int code);
@@ -226,11 +233,30 @@ namespace cfs
                 std::pair<size_t /* bytes */, CfsErrorSeverity> severity();
                 std::pair<size_t /* bytes */, CfeServiceIdentifiers> serviceId();
                 std::pair<size_t /* bytes */, CfeOperationStatus> operationStatus();
+
+                using ErrorMessageMap = std::map<std::string,CfsErrorSeverity>;
                 
+                std::map<int, std::string> const errorsList
+                {
+                    { 0, "No Error" },
+                    { 1, "Wrong ID" },
+                    /* ... */
+                    { 75000, "Unknown" },
+                };
+
+                std::string const & getErrorString(int errorId)
+                {
+                    auto it = errorsList.find(errorId);
+                    return it != errorsList.end() ? it->second : errorsList.find(2500)->second;
+                }
             private:
                 std::string m_message;  ///< Error message
                 std::string m_location; ///< Location of the error (file, line and function)
                 std::vector<std::pair<std::string , std::string> > errorProperties;
+                std::uint32_t m_codeMask;
+                std::uint32_t m_facilityMask;
+                std::uint32_t m_ErrorCode;
+                std::uint32_t m_ErrorFacility;
             };            
         }
     }

@@ -17,10 +17,10 @@ namespace cfs
                 Activator();
                 virtual ~Activator();
                 
-                void value (const T &value);
+                [[noreturn]] void value (const T &value);
                 T value () const;
                 const bool isValid () const;
-                void isValid (bool value);
+                [[noreturn]] void isValid (bool value);
             private:
                 T    m_value;
                 bool m_isValid;

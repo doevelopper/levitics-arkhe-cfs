@@ -46,7 +46,18 @@ list(APPEND CMAKE_MODULE_PATH
 set (NAMESPACE "CFSA")
 
 set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
-set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain) #cucumber-cpp 
+set(TEST_THIRD_PARTY_LIB_MAIN gmock gtest benchmark gmock_main.d)
+set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain)
+set(INTEG_TEST_THIRD_PARTY_LIB_MAIN cucumber-cpp)
+
+#set(CMAKE_C_COMPILER        "/usr/bin/gcc-7")
+#set(CMAKE_C_COMPILER_AR     "/usr/bin/gcc-ar-7")
+#set(CMAKE_C_COMPILER_RANLIB "/usr/bin/gcc-ranlib-7")
+#set(CMAKE_CXX_COMPILER        "/usr/bin/g++-7")
+#set(CMAKE_CXX_COMPILER_AR     "/usr/bin/gcc-ar-7")
+#set(CMAKE_CXX_COMPILER_RANLIB "/usr/bin/gcc-ranlib-7")
+#set(CMAKE_CXX_COMPILER_VERSION "7.0.1")
+
 
 include(PreventInSourceBuilds)
 include(LibrarySettings)

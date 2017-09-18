@@ -1,4 +1,14 @@
 include(CMakeParseArguments)
+include(CheckCCompilerFlag)
+#check_c_compiler_flag("-std=c11" COMPILER_SUPPORTS_C11)
+#
+#if(COMPILER_SUPPORTS_C11)
+#    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11")
+#    set(CMAKE_C_STANDARD 11)
+#else()
+#    message(FATAL_ERROR "The compiler ${CMAKE_C_COMPILER} has no C11 or later support. Please use a different C++ compiler.")
+#endif()
+
 include(CheckCXXCompilerFlag)
 
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)

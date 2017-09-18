@@ -1,8 +1,17 @@
+
  set(cppsrc
  	cfs/hal/CpuAffinityTest
  )
 
- set(CMAKE_INCLUDE_CURRENT_DIR ON)
- set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
+get_filename_component(MODULE_ROOT_DIRECTORY ${CMAKE_PARENT_LIST_FILE} PATH)
 
- add_library(${PROJECT_NAME}-halTest STATIC ${cppsrc})
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
+
+add_library(${PROJECT_NAME}-halTest STATIC ${cppsrc})
+target_include_directories(${PROJECT_NAME}-halTest PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+target_link_libraries (${PROJECT_NAME}-halTest 
+    ${TEST_THIRD_PARTY_LIB_MAIN}
+    pthread
+    ${PROJECT_NAME}-hal
+)

@@ -46,6 +46,8 @@ public:
      * @brief Receive notification that system is unusable.
      */    
     virtual void emergencyError(/*const Exception& exc*/) = 0;
+    
+    virtual void dispatchCleanup() = 0;
 private:
     virtual ~ErrorHandler() = default;
 };

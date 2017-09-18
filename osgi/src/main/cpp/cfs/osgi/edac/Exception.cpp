@@ -18,3 +18,8 @@ Exception::where () const throw ()
 {
     return (m_location.c_str());
 }
+
+std::string Exception::stackTrace() const
+{
+    
+}

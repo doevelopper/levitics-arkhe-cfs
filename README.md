@@ -47,7 +47,12 @@ Build tools
 
     > make 
     > cmake 3.8 or later
- 
+
+D-Bus
+
+    >  [dbus interprocess messaging system]( https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) [sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev
+
+
 cucumber-cpp
 
     > sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
