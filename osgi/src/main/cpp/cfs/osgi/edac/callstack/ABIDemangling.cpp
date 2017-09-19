@@ -56,3 +56,9 @@ ABIDemangling::demangle(const std::type_info& type, char* buf, size_t bufSize)
 {
     //return (demangle(type.name(), buf, bufSize));
 }
+
+void 
+ABIDemangling::printExceptionStack( const std::exception & e, std::ostream & output)
+{
+    output << "Issue on " << abi::__cxa_demangle( typeid( e ).name(), nullptr, nullptr, nullptr ) << ": " << e.what() << std::endl;
+}

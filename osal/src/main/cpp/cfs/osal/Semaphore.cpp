@@ -8,6 +8,11 @@ Semaphore::Semaphore(sem_t semID)
     ::sem_init(&semID, 0, 1);
 }
 
+//Semaphore::~Semaphore()
+//{
+//    int status = sem_close(&m_semaphoreId);
+//}
+
 int Semaphore::wait(sem_t * semaphore)
 {
     return (::sem_wait(&this->m_semaphoreId));

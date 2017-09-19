@@ -1,4 +1,15 @@
-
+//    class error_code;
+//    class error_condition;
+//    class error_category;
+//    class system_error;
+//        std::error_condition ec;
+//        ec = std::errc::not_enough_memory;
+//        assert(ec.value() == static_cast<int>(std::errc::not_enough_memory));
+//assert(ec.category() == std::generic_category());
+//    const std::error_category& e_cat = std::generic_category();
+//    std::error_condition e_cond = e_cat.default_error_condition(static_cast<int>(std::errc::not_a_directory));
+//    assert(e_cond.category() == e_cat);
+//assert(e_cond.value() == static_cast<int>(std::errc::not_a_directory));
 #ifndef CFS_OSGI_EDAC_ERROR_HPP
 #define CFS_OSGI_EDAC_ERROR_HPP
 
@@ -6,7 +17,7 @@
 #include <cstdint>
 #include <string>
 #include <exception>
-#include <experimental/system_error>
+#include <system_error>
 #include <vector>
 
 #define ERRMSG std::cerr << __FILE__ << ":" << __LINE__ << ":"<< __FUNCTION__ << "(): "
@@ -15,7 +26,7 @@
  * 
     https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/defining-new-ntstatus-values
  * 
-|        | Sev   |  Res  |   Serv   |      Mission  Defined      |                       Code                      |
+|        | Sev   |  Res  |   Serv   | Mission Defined /Facility  |                       Code                      |
 |:------:|:-----:|:-----:|:--------:|:--------------------------:|:-----------------------------------------------:|
 | Class  | 3  3  | 2  2  | 2  2  2  | 2  2  2  2  2  1  1  1  1  | 1  1  1  1  1  1  -  -  -  -  -  -  -  -  -  -  |
 | Index  | 1  0  | 9  8  | 7  6  5  | 4  3  2  1  0  9  8  7  6  | 5  4  3  2  1  0  9  8  7  6  5  4  3  2  1  0  |
@@ -59,6 +70,7 @@ namespace cfs
      * @brief Type for specifying an error or status code.
      */
     using cfs_status_t = int8_t;
+    using HRESULT = std::uint32_t;
 
     enum CfsError : std::uint32_t 
     {
@@ -164,46 +176,6 @@ namespace cfs
                  */
                 virtual const char* where() const throw();
                 /*!
-                 * @brief Receive notification of a warning.
-                 */
-                virtual void onWarning () = 0;
-                /*!
-                 * @brief Receive notification of a recoverable error(system is in error conditions).
-                 */
-                virtual void error () = 0;
-                /*!
-                 * @brief Receive notification of a non-recoverable error.
-                 */
-                virtual void fatalError () = 0;
-                /*!
-                 * @brief Receive notification of a critical conditions.
-                 */
-                virtual void criticalError () = 0;
-                /*!
-                 * @brief Receive notification that an action must be taken immediately.
-                 */
-                virtual void alertError () = 0;
-                /*!
-                 * @brief Receive notification that system is unusable.
-                 */
-                virtual void emergencyError () = 0;
-                /*!
-                 * @brief Called when a Exception (or a subclass) caused the thread to terminate.
-                 */
-                virtual void exception (const Exception & exc);
-                /*!
-                 * @brief Called when a std::exception (or a subclass) caused the thread to terminate.
-                 */
-                virtual void exception (const std::exception & exc);
-                /*!
-                 * @brief Invokes the currently registered Error.
-                 */
-                static void handle (const Exception & exc);
-                /*!
-                 * @brief Invokes the currently registered Error.
-                 */
-                static void handle (const std::exception & exc);
-                /*!
                  * @brief Registers the given handler as the current error handler.
                  * @return The previously registered handler.
                  */
@@ -214,6 +186,76 @@ namespace cfs
                 static Error* get();
                 static int lastErrno();
                 static const char* lastErrmsg();
+                /*!
+                 * 
+                 */
+                std::system_error systemError(int e, const char * msg)
+                {
+                    return std::system_error(std::error_code(e, std::system_category()), msg);
+                }
+                /*!
+                 * 
+                 */
+                std::system_error systemError(int e, const std::string & msg)
+                { 
+                    return systemError(e, msg.c_str()); 
+                }
+                /*!
+                 * 
+                 */
+                std::system_error systemError(const std::string & msg)
+                { 
+                    return systemError(errno, msg); 
+                }
+                /*!
+                 * 
+                 */
+                std::system_error systemError(const char * msg)
+                { 
+                    return systemError(errno, msg); 
+                }
+                /*!
+                 * 
+                 */
+                std::error_code systemErrorCode(int code)
+                {
+                    return( std::error_code(code, std::system_category()));
+                }
+                /*!
+                 * 
+                 */
+                std::error_code genericErrorCode(int code)
+                {
+                    return( std::error_code(code, std::generic_category()));
+                }
+                /*!
+                 * 
+                 */
+                std::error_condition systemErrorConditionCode(int code)
+                {
+                    return( std::error_condition(code, std::system_category()));
+                }
+                /*!
+                 * 
+                 */
+                std::error_condition genericErrorConditionCode(int code)
+                {
+                    return( std::error_condition(code, std::generic_category()));
+                }                
+                /*!
+                 * 
+                 */
+                auto systemErrorCode()
+                {
+                    return(systemErrorCode(errno).default_error_condition());
+                }
+                /*!
+                 * 
+                 */
+                auto genericErrorCode()
+                {
+                    return(genericErrorCode(errno).default_error_condition());
+                }
 
                 void throw_error[[noreturn]]();
                 void throw_error[[noreturn]](const char* origin, const char* format = nullptr, ...);
@@ -252,6 +294,7 @@ namespace cfs
             private:
                 std::string m_message;  ///< Error message
                 std::string m_location; ///< Location of the error (file, line and function)
+                std::error_code m_ec;
                 std::vector<std::pair<std::string , std::string> > errorProperties;
                 std::uint32_t m_codeMask;
                 std::uint32_t m_facilityMask;

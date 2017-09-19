@@ -25,6 +25,7 @@ public:
     std::string type(const T& t);
     std::string demangle(const std::type_info& type);
     size_t demangle(const std::type_info& type, char* buf, size_t bufSize);
+    void printExceptionStack( const std::exception & e, std::ostream & output = std::cerr );
 private:
 
 };
