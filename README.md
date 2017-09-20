@@ -50,7 +50,7 @@ Build tools
 
 D-Bus
 
-    > ![dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) [sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev
+> [dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) [sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev
 
 
 cucumber-cpp
@@ -86,11 +86,11 @@ microbenchmark
 
 Style and coverage
 
-    > ![Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). [sudo] pip install cpplint
-    > ![Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) [sudo] pip install lizard
-    > ![Source Code Beautifier](http://uncrustify.sourceforge.net) [sudo] apt-get install Uncrustify
-    > ![Static analysis tool ](http://uncrustify.sourceforge.net) [sudo] apt-get install  cppcheck
-    > ![Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) [sudo] apt-get install/--upgrade  cpplint-junit
+> [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). [sudo] pip install cpplint
+> [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) [sudo] pip install lizard
+> [Source Code Beautifier](http://uncrustify.sourceforge.net) [sudo] apt-get install Uncrustify
+> [Static analysis tool ](http://uncrustify.sourceforge.net) [sudo] apt-get install  cppcheck
+> [Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) [sudo] apt-get install/--upgrade  cpplint-junit
 
 ## Contributions
 
