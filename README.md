@@ -68,15 +68,14 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Matrix |
 
 ## Libraries Dependencies  and Installation Ubuntu/Debian
 
-_Build tools_
+* _Build tools_
 
 ```
 make 
 cmake 3.8 or later
 ```
 
-_D-Bus_
-
+* _D-Bus_
 
 > [dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) `[sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev`
 
@@ -96,7 +95,7 @@ _D-Bus_
 > cmake --build build --target install
 
 
-_googletest_
+* _googletest_
 
 ```
 git clone https://github.com/google/googletest.git
@@ -106,7 +105,7 @@ cmake --build build
 cmake --build build --target install
 ```
 
-_microbenchmark_
+* _microbenchmark_
 
 ```
 git clone https://github.com/google/benchmark.git
@@ -116,16 +115,12 @@ cmake --build build
 cmake --build build --target install
 ```
 
-_Style and coverage_
+* _Style and coverage_
 
 > [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). `[sudo] pip install cpplint`
-
 > [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) `[sudo] pip install lizard`
-
 > [Source Code Beautifier](http://uncrustify.sourceforge.net) `[sudo] apt-get install Uncrustify`
-
 > [Static analysis tool ](http://uncrustify.sourceforge.net) `[sudo] apt-get install  cppcheck`
-
 > [Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) `[sudo] apt-get install/--upgrade  cpplint-junit`
 
 ## Contributions
