@@ -265,6 +265,35 @@ Contributor(s):
       <in>Makefile</in>
       <in>codecov.yml</in>
     </df>
+    <df root="." name="1">
+      <df name="hs">
+        <df name="src">
+          <df name="it">
+            <in>CMakeLists.txt</in>
+          </df>
+          <df name="main">
+            <df name="cpp">
+              <in>CMakeLists.txt</in>
+            </df>
+          </df>
+          <df name="test">
+            <df name="cpp">
+              <in>CMakeLists.txt</in>
+            </df>
+          </df>
+        </df>
+      </df>
+      <in>.appveyor.yml</in>
+      <in>.travis.yml</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>CMakeLists.txt</itemPath>
+      <itemPath>build/Debug/Makefile</itemPath>
+      <itemPath>build/Release/Makefile</itemPath>
+    </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false"
@@ -276,6 +305,7 @@ Contributor(s):
   </logicalFolder>
   <sourceFolderFilter>^(nbproject|build)$</sourceFolderFilter>
   <sourceRootList>
+    <Elem>.</Elem>
     <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>build/Debug/Makefile</projectmakefile>
@@ -315,6 +345,10 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
+      <item path=".appveyor.yml" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path=".travis.yml" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="0/hal">
         <ccTool>
           <preprocessorList>
@@ -434,6 +468,12 @@ Contributor(s):
             flavor2="11">
         <ccTool flags="0">
         </ccTool>
+      </item>
+      <item path="hs/src/it/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hs/src/main/cpp/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hs/src/test/cpp/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="osal/src/it/cfs/osal/Osal.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -658,6 +698,10 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
+      <item path=".appveyor.yml" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path=".travis.yml" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>
       <item path="codecov.yml" ex="false" tool="3" flavor2="0">
@@ -707,6 +751,12 @@ Contributor(s):
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="hs/src/it/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hs/src/main/cpp/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hs/src/test/cpp/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="osal/src/it/cfs/osal/Osal.cpp" ex="false" tool="1" flavor2="0">
       </item>

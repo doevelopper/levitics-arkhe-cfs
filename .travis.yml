@@ -1,0 +1,91 @@
+language: cpp
+sudo: false
+dist: zesty
+
+matrix:
+  include:
+    # gcc-6
+    - env: GCC_VERSION=6 BUILD_TYPE=Debug
+      os: linux
+      addons: &gcc6
+        apt:
+          packages:
+            - cmake
+            - cmake-data
+            - g++-6
+            - cppcheck
+          sources:
+            - george-edison55-precise-backports
+            - ubuntu-toolchain-r-test
+
+    - env: GCC_VERSION=6 BUILD_TYPE=Release
+      os: linux
+      addons: *gcc6
+
+    # gcc-7
+    - env: GCC_VERSION=7 BUILD_TYPE=Debug
+      os: linux
+      addons: &gcc7
+        apt:
+          packages:
+            - cmake
+            - cmake-data
+            - g++-7
+            - cppcheck
+          sources:
+            - george-edison55-precise-backports
+            - ubuntu-toolchain-r-test
+
+    - env: GCC_VERSION=6 BUILD_TYPE=Release
+      os: linux
+      addons: *gcc7
+
+    # clang-5
+    - env: CLANG_VERSION=5.0 BUILD_TYPE=Debug
+      os: linux
+      addons: &clang5
+        apt:
+          packages:
+            - cmake
+            - cmake-data
+            - clang-5.0
+            - cppcheck
+          sources:
+            - george-edison55-precise-backports
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty
+
+    - env: CLANG_VERSION=5.0 BUILD_TYPE=Release
+      os: linux
+      addons: *clang5
+
+before_install:
+  - export PATH=~/usr/bin:$PATH
+
+  - if [ -n "$GCC_VERSION" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
+  - if [ -n "$CLANG_VERSION" ]; then export CXX="clang++-${CLANG_VERSION}" CC="clang-${CLANG_VERSION}"; fi
+
+  - which $CXX
+  - $CXX --version
+  - which cmake
+  - cmake --version
+  - which cppcheck
+  - cppcheck --version
+  - if [ "$BUILD_TYPE" == "Debug" ]; then which lcov; fi
+  - if [ "$BUILD_TYPE" == "Debug" ]; then lcov --version; fi
+
+install:
+  - mkdir build
+  - cd build
+  - export CXXFLAGS="${CXXFLAGS} -Wall -Wextra -Werror"
+  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXXFLAGS="${CXXFLAGS}" ..
+  - make VERBOSE=1
+
+script:
+  - make -k
+  - ctest -VV
+  - cppcheck --enable=all --std=c++11 --error-exitcode=1 -I../include ../src ../test
+  - if [ "$BUILD_TYPE" == "Debug" ]; then make coverage; fi
+
+notifications:
+  email: false
