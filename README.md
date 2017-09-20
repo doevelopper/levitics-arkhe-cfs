@@ -16,7 +16,7 @@ For transparency of our release cycle and in striving to maintain backward compa
 | ARM Cortex M4/M7 |  [ ]  |     [ ]  |     [ ]  |  [ ]  |     [ ]  |  [ ]  |    [ ]  |
 | Intel Edisson    |  [ ]  |     [ ]  |     [ ]  |  [ ]  |     [ ]  |  [ ]  |    [ ]  |
 
-## Host cros copilation
+## Host cross copilation
 
 | Version/Architecture        | Build Status |
 | --------------------------- | ------------ |
@@ -50,7 +50,7 @@ Build tools
 
 D-Bus
 
-    > [dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) [sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev
+    > ![dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) [sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev
 
 
 cucumber-cpp
@@ -86,11 +86,11 @@ microbenchmark
 
 Style and coverage
 
-    > [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint).  [sudo] pip install cpplint
-    > [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) [sudo] pip install lizard
-    > [Source Code Beautifier](http://uncrustify.sourceforge.net) [sudo] apt-get install Uncrustify
-    > [Static analysis tool ](http://uncrustify.sourceforge.net) [sudo] apt-get install  cppcheck
-    > [Converts cpplint output to JUnit format. ](https://pypi.python.org/pypi/cpplint-junit) [sudo] apt-get install/--upgrade  cpplint-junit
+    > ![Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). [sudo] pip install cpplint
+    > ![Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) [sudo] pip install lizard
+    > ![Source Code Beautifier](http://uncrustify.sourceforge.net) [sudo] apt-get install Uncrustify
+    > ![Static analysis tool ](http://uncrustify.sourceforge.net) [sudo] apt-get install  cppcheck
+    > ![Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) [sudo] apt-get install/--upgrade  cpplint-junit
 
 ## Contributions
 
@@ -105,10 +105,9 @@ No Warranty: THE SUBJECT SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY WARRANTY OF AN
 Waiver and Indemnity: RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS AGAINST THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT.  IF RECIPIENT'S USE OF THE SUBJECT SOFTWARE RESULTS IN ANY LIABILITIES, DEMANDS, DAMAGES, EXPENSES OR LOSSES ARISING FROM SUCH USE, INCLUDING ANY DAMAGES FROM PRODUCTS BASED ON, OR RESULTING FROM, RECIPIENT'S USE OF THE SUBJECT SOFTWARE, RECIPIENT SHALL INDEMNIFY AND HOLD HARMLESS THE UNITED STATES GOVERNMENT, ITS CONTRACTORS AND SUBCONTRACTORS, AS WELL AS ANY PRIOR RECIPIENT, TO THE EXTENT PERMITTED BY LAW.  RECIPIENT'S SOLE REMEDY FOR ANY SUCH MATTER SHALL BE THE IMMEDIATE, UNILATERAL TERMINATION OF THIS AGREEMENT.
 
 -   Code and documentation copyright 2011-2017 ACME SYSTEMS, Inc. 
--   Code released under [Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0). 
+-   Code released under [Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)(https://opensource.org/licenses/Apache-2.0). 
 -   Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE). 
 -   [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](http://www.gnu.org/licenses/lgpl-3.0)  
--   [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](http://www.gnu.org/licenses/lgpl-3.0)
 
 ### Contact
 
