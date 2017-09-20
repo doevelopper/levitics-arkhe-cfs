@@ -43,8 +43,7 @@ For transparency of our release cycle and in striving to maintain backward compa
 
 ## Libraries Dependencies  and Installation Ubuntu/Debian
 
-###Build tools
-
+_Build tools_
 > make 
 > cmake 3.8 or later
 
