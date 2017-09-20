@@ -43,48 +43,47 @@ For transparency of our release cycle and in striving to maintain backward compa
 
 ## Libraries Dependencies  and Installation Ubuntu/Debian
 
-Build tools
+###Build tools
 
-    > make 
-    > cmake 3.8 or later
+> make 
+> cmake 3.8 or later
 
-D-Bus
+###D-Bus
 
 > [dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) [sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev
 
+###cucumber-cpp
 
-cucumber-cpp
+> sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
+> git clone https://github.com/cucumber/cucumber-cpp.git
+> cd cucumber-cpp
+> gem install bundler
+> bundle install
+> git submodule init
+> git submodule update
+> cmake -E chdir build cmake -DCUKE_ENABLE_EXAMPLES=on -DCMAKE_INSTALL_PREFIX=/usr/ ..
+> cmake --build build
+> cmake --build build --target test
+> cmake --build build --target features
+> cmake --build build --target install
 
-    > sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
-    > git clone https://github.com/cucumber/cucumber-cpp.git
-    > cd cucumber-cpp
-    > gem install bundler
-    > bundle install
-    > git submodule init
-    > git submodule update
-    > cmake -E chdir build cmake -DCUKE_ENABLE_EXAMPLES=on -DCMAKE_INSTALL_PREFIX=/usr/ ..
-    > cmake --build build
-    > cmake --build build --target test
-    > cmake --build build --target features
-    > cmake --build build --target install
+###googletest
 
-googletest
+> git clone https://github.com/google/googletest.git
+> cd googletest
+> cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
+> cmake --build build
+> cmake --build build --target install
 
-    > git clone https://github.com/google/googletest.git
-    > cd googletest
-    > cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
-    > cmake --build build
-    > cmake --build build --target install
+###microbenchmark 
 
-microbenchmark 
+> git clone https://github.com/google/benchmark.git
+> cd benchmark
+> cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
+> cmake --build build
+> cmake --build build --target install
 
-    > git clone https://github.com/google/benchmark.git
-    > cd benchmark
-    > cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
-    > cmake --build build
-    > cmake --build build --target install
-
-Style and coverage
+###Style and coverage
 
 > [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). [sudo] pip install cpplint
 > [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) [sudo] pip install lizard
