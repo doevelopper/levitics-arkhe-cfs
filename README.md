@@ -48,11 +48,11 @@ For transparency of our release cycle and in striving to maintain backward compa
 > make 
 > cmake 3.8 or later
 
-###D-Bus
+_D-Bus_
 
 > [dbus interprocess messaging system](https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz) `[sudo] apt-get install libdbus-cpp-dev/libdbus-cpp5/ libdbusmenu-jsonloader-dev`
 
-###cucumber-cpp
+_cucumber-cpp_
 
 > sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
 > git clone https://github.com/cucumber/cucumber-cpp.git
@@ -67,7 +67,7 @@ For transparency of our release cycle and in striving to maintain backward compa
 > cmake --build build --target features
 > cmake --build build --target install
 
-###googletest
+_googletest_
 
 > git clone https://github.com/google/googletest.git
 > cd googletest
@@ -75,7 +75,7 @@ For transparency of our release cycle and in striving to maintain backward compa
 > cmake --build build
 > cmake --build build --target install
 
-###microbenchmark 
+_microbenchmark_
 
 > git clone https://github.com/google/benchmark.git
 > cd benchmark
@@ -83,13 +83,13 @@ For transparency of our release cycle and in striving to maintain backward compa
 > cmake --build build
 > cmake --build build --target install
 
-###Style and coverage
+_Style and coverage_
 
-> [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). [sudo] pip install cpplint
-> [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) [sudo] pip install lizard
-> [Source Code Beautifier](http://uncrustify.sourceforge.net) [sudo] apt-get install Uncrustify
-> [Static analysis tool ](http://uncrustify.sourceforge.net) [sudo] apt-get install  cppcheck
-> [Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) [sudo] apt-get install/--upgrade  cpplint-junit
+> [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). `[sudo] pip install cpplint`
+> [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) `[sudo] pip install lizard`
+> [Source Code Beautifier](http://uncrustify.sourceforge.net) `[sudo] apt-get install Uncrustify`
+> [Static analysis tool ](http://uncrustify.sourceforge.net) `[sudo] apt-get install  cppcheck`
+> [Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) `[sudo] apt-get install/--upgrade  cpplint-junit`
 
 ## Contributions
 
