@@ -128,7 +128,7 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
     $ cmake --build build --target install
 ```
 
-* _Style and coverage_ (https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/google/styleguide)
+* _Style and coverage_ [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/google/styleguide)
 
 - [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). `[sudo] pip install cpplint`
 - [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) `[sudo] pip install lizard`
