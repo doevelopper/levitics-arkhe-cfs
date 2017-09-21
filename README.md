@@ -1,5 +1,17 @@
 # Levitics Arkhe Core Flight System Software
 
+## Links
+
+* [Web site](http://www.tbd.acme/)
+* [Project forums](http://services.tbd.acme/)
+* [Wiki, docs and manuals](http://documentations.tbd.acme/)
+* [Bug and issue tracker](http://defects.tbd.acme/)
+* [Project build server](http://cicd.tbd.acme/)
+* [Repository browser](http://code.tbd.acmeg/)
+* [Read/write git repository](ssh://git@code.tbd.acme)
+* [Read-only official mirror](https://github.com/doevelopper/levitics-arkhe-cfs)
+* [Toolchain downloads](http://downloads.tbd.acme)
+
 ## Versioning
 
 For transparency of our release cycle and in striving to maintain backward compatibility, **LACFSS** is maintained under the Semantic Versioning guidelines [![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html). Sometimes we screw up, but we'll adhere to those rules whenever possible.
