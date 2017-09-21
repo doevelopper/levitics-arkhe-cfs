@@ -96,38 +96,38 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 * _cucumber-cpp_
 
 ```
-    sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
-    git clone https://github.com/cucumber/cucumber-cpp.git
-    cd cucumber-cpp
-    gem install bundler
-    bundle install
-    git submodule init
-    git submodule update
-    cmake -E chdir build cmake -DCUKE_ENABLE_EXAMPLES=on -DCMAKE_INSTALL_PREFIX=/usr/ ..
-    cmake --build build
-    cmake --build build --target test
-    cmake --build build --target features
-    cmake --build build --target install
+    $ sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
+    $ git clone https://github.com/cucumber/cucumber-cpp.git
+    $ cd cucumber-cpp
+    $ gem install bundler
+    $ bundle install
+    $ git submodule init
+    $ git submodule update
+    $ cmake -E chdir build cmake -DCUKE_ENABLE_EXAMPLES=on -DCMAKE_INSTALL_PREFIX=/usr/ ..
+    $ cmake --build build
+    $ cmake --build build --target test
+    $ cmake --build build --target features
+    $ cmake --build build --target install
 ```
 
 * _googletest_
 
 ```
-    git clone https://github.com/google/googletest.git
-    cd googletest
-    cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
-    cmake --build build
-    cmake --build build --target install
+    $ git clone https://github.com/google/googletest.git
+    $ cd googletest
+    $ cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
+    $ cmake --build build
+    $ cmake --build build --target install
 ```
 
 * _microbenchmark_
 
 ```
-git clone https://github.com/google/benchmark.git
-cd benchmark
-cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
-cmake --build build
-cmake --build build --target install
+    $ git clone https://github.com/google/benchmark.git
+    $ cd benchmark
+    $ cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
+    $ cmake --build build
+    $ cmake --build build --target install
 ```
 
 * _Style and coverage_
