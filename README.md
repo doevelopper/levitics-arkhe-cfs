@@ -51,11 +51,6 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 [releases](https://github.com/doevelopper/levitics-arkhe-cfs/tree/releases) | [![Build Status](https://travis-ci.org/Levitics/levitics-arkhe-gcs.svg?branch=develop "Build status of branch releases")](https://travis-ci.org/Levitics/levitics-arkhe-gcs) | [![Build status](https://ci.appveyor.com/api/projects/status/g0llpbvhpjuxjnlw/branch/develop?svg=true)](https://ci.appveyor.com/project/vinniefalco/beast/branch/develop) | [![codecov](https://codecov.io/gh/boostorg/Beast/branch/develop/graph/badge.svg)](https://codecov.io/gh/boostorg/beast/branch/develop) | [![Documentation](https://img.shields.io/badge/documentation-develop-brightgreen.svg)](http://www.boost.org/doc/libs/develop/libs/beast/) | [![Matrix](https://img.shields.io/badge/matrix-develop-brightgreen.svg)](http://www.boost.org/development/tests/develop/developer/beast.html)
 
 
-
-
-
-
-
 | Version/Architecture        | Build Status |
 | --------------------------- | ------------ |
 | Debian 8 - x86_64           | [![Build Status](https://ci.centos.org/buildStatus/icon?job=CentOS-Core-QA-t_functional-c7-64)](https://ci.centos.org/job/CentOS-Core-QA-t_functional-c7-64/) |
@@ -80,12 +75,16 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 | [__Release__](#www.tbd.acme) | Builds created out of the release repository, qualified by QA as being of sufficient quality to release to hundreds of millions of people.                                                    |
 
 ## Libraries Dependencies  and Installation Ubuntu/Debian
+![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 
 > * _Build tools_
 
-```
-    make
-    cmake 3.8 or later
+```sh
+    # Intall boost libraries
+    $ sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
+    $ sudo apt-get install
+    # Intall make and cmake 3.8 or later
+    $ sudo apt-get install  make cmake  cmake-extra cmake-data 
 ```
 
 * _D-Bus_
@@ -95,8 +94,7 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 
 * _cucumber-cpp_
 
-```
-    $ sudo apt-get install libboost1.63-dev libboost1.63-all-dev libboost1.63-tools-dev
+```sh
     $ git clone https://github.com/cucumber/cucumber-cpp.git
     $ cd cucumber-cpp
     $ gem install bundler
@@ -112,7 +110,7 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 
 * _googletest_
 
-```
+```sh
     $ git clone https://github.com/google/googletest.git
     $ cd googletest
     $ cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
@@ -122,7 +120,7 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 
 * _microbenchmark_
 
-```
+```sh
     $ git clone https://github.com/google/benchmark.git
     $ cd benchmark
     $ cmake -E chdir build cmake -DCMAKE_INSTALL_PREFIX=/usr/ ..
@@ -143,7 +141,7 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 ## Contributions
 
 Any contributions you make to this effort **are of course greatly appreciated**.
-
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 ### Copyright Notice and License
 
 © 2011-2017 ACME SYSTEMS, Inc.All Rights Reserved.
@@ -161,3 +159,9 @@ Waiver and Indemnity: RECIPIENT AGREES TO WAIVE ANY AND ALL CLAIMS AGAINST THE U
 
 * [![Email](https://img.shields.io/badge/mailto-sabertazimi-brightgreen.svg?style=flat-square)](mailto:happyman@hotmail.fr)
 * [![GitHub](https://img.shields.io/badge/contact-github-000000.svg?style=flat-square)](https://github.com/doevelopper)
+
+---
+
+> [tbd.acme](https://www.tbd.acme) &nbsp;&middot;&nbsp;
+> GitHub [@doevelopper](https://github.com/doevelopper) &nbsp;&middot;&nbsp;
+> Twitter [@doevelopper](https://twitter.com/doevelopper)
