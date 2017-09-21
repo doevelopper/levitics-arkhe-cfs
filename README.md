@@ -14,7 +14,7 @@
 
 ## Versioning
 
-For transparency of our release cycle and in striving to maintain backward compatibility, **LACFSS** is maintained under the Semantic Versioning guidelines [![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html). Sometimes we screw up, but we'll adhere to those rules whenever possible.
+For transparency of our release cycle and in striving to maintain backward compatibility, **LACFSS** is maintained under the Semantic Versioning guidelines [![Semver v2.0.0](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
 ## Code Review
 Here are some resources to learn more about
@@ -130,7 +130,21 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
 
 Any contributions you make to this effort **are of course greatly appreciated**.
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+
 ### Copyright Notice and License
+
+All our own materials are released under a [Creative Commons](http://creativecommons.org/) licence.
+
+## Choosing a licence
+
+You are free to select whatever licence you feel comfortable with, and you are entitled to use the methods described in this document without sharing your work. If you would like to share your resources with other educators, we would recommend you follow our lead and use the CC BY-SA licence as above.
+Submissions of resources are appreciated, provided they are available under a Creative Commons license such as CC BY-SA. Please [contact us](http://www.tbd.acme/contact-us/) for more information.
+
+## Software licences
+
+Creative Commons covers use of creative works such as written material, music or photography. Software projects use a different set of licences which state the use and distribution of software. Such licences are suitable for software libraries or products/services, but small examples of code used in the context of a learning resource can be covered by the Creative Commons licence relating to the creative works.
+
+In most cases, software licences would be unnecessary in learning resources, but if you created a general-purpose software library to go with your resource, you should look at choosing an appropriate licence for the library.
 
 © 2011-2017 ACME SYSTEMS, Inc.All Rights Reserved.
 
