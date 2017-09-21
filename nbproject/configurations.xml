@@ -290,6 +290,7 @@ Contributor(s):
       <in>.appveyor.yml</in>
       <in>.travis.yml</in>
       <in>CONTRIBUTING.md</in>
+      <in>conduct.md</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -355,6 +356,8 @@ Contributor(s):
       <item path=".travis.yml" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CONTRIBUTING.md" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="conduct.md" ex="false" tool="3" flavor2="0">
       </item>
       <folder path="0/hal">
         <ccTool>
@@ -734,6 +737,8 @@ Contributor(s):
       <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>
       <item path="codecov.yml" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="conduct.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hal/CMakeLists.txt" ex="false" tool="3" flavor2="0">
       </item>

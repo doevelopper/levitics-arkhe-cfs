@@ -128,15 +128,14 @@ Branch      | Linux/OSX | Windows | Coverage | Documentation | Test |
     $ cmake --build build --target install
 ```
 
-* _Style and coverage_
+* _Style and coverage_ (https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/google/styleguide)
 
-```
-    [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). `[sudo] pip install cpplint`
-    [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) `[sudo] pip install lizard`
-    [Source Code Beautifier](http://uncrustify.sourceforge.net) `[sudo] apt-get install Uncrustify`
-    [Static analysis tool ](http://uncrustify.sourceforge.net) `[sudo] apt-get install  cppcheck`
-    [Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) `[sudo] apt-get install/--upgrade  cpplint-junit`
-```
+- [Automated C++ style guide checker](https://pypi.python.org/pypi/cpplint). `[sudo] pip install cpplint`
+- [Cyclomatic Complexity Analyzer](https://pypi.python.org/pypi/lizard) `[sudo] pip install lizard`
+- [Source Code Beautifier](http://uncrustify.sourceforge.net) `[sudo] apt-get install Uncrustify`
+- [Static analysis tool ](http://uncrustify.sourceforge.net) `[sudo] apt-get install  cppcheck`
+- [Converts cpplint output to JUnit format.](https://pypi.python.org/pypi/cpplint-junit) `[sudo] apt-get install/--upgrade  cpplint-junit`
+
 
 ## Contributions
 
