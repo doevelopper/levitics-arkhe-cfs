@@ -135,12 +135,12 @@ Any contributions you make to this effort **are of course greatly appreciated**.
 
 All our own materials are released under a [Creative Commons](http://creativecommons.org/) licence.
 
-## Choosing a licence
+#### Choosing a licence
 
 You are free to select whatever licence you feel comfortable with, and you are entitled to use the methods described in this document without sharing your work. If you would like to share your resources with other educators, we would recommend you follow our lead and use the CC BY-SA licence as above.
 Submissions of resources are appreciated, provided they are available under a Creative Commons license such as CC BY-SA. Please [contact us](http://www.tbd.acme/contact-us/) for more information.
 
-## Software licences
+#### Software licences
 
 Creative Commons covers use of creative works such as written material, music or photography. Software projects use a different set of licences which state the use and distribution of software. Such licences are suitable for software libraries or products/services, but small examples of code used in the context of a learning resource can be covered by the Creative Commons licence relating to the creative works.
 
