@@ -1,14 +1,18 @@
 #ifndef CFS_APP_HPP
 #define CFS_APP_HPP
 
-class App 
+namespace cfs
 {
-public:
-    App();
-    virtual ~App() = default;
-private:
+    class App 
+    {
+    public:
+        App();
+        virtual ~App() = default;
+    private:
 
-};
+    };    
+}
+
 
 #endif
 

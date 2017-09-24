@@ -106,26 +106,26 @@ check_function_exists( getmsg                 HAVE_GETMSG)
 check_function_exists( poll                   HAVE_POLL)
 check_function_exists( select                 HAVE_SELECT)
 CHECK_FUNCTION_EXISTS( sysconf                HAVE_SYSCONF )
-CHECK_FUNCTION_EXISTS(posix_memalign HAVE_POSIX_MEMALIGN)
-CHECK_FUNCTION_EXISTS(clock_gettime HAVE_CLOCK_GETTIME)
-CHECK_FUNCTION_EXISTS(nanosleep HAVE_NANOSLEEP)
-CHECK_FUNCTION_EXISTS(pthread_condattr_setclock HAVE_PTHREAD_CONDATTR_SETCLOCK)
-CHECK_FUNCTION_EXISTS(pthread_self HAVE_PTHREAD_SELF)
-CHECK_FUNCTION_EXISTS(sched_get_priority_min HAVE_SCHED_GET_PRIORITY_MIN)
-CHECK_FUNCTION_EXISTS(sched_get_priority_max HAVE_SCHED_GET_PRIORITY_MAX)
-CHECK_FUNCTION_EXISTS(sched_setaffinity HAVE_SCHED_SETAFFINITY)
-CHECK_FUNCTION_EXISTS(sched_setscheduler HAVE_SCHED_SETSCHEDULER)
-CHECK_FUNCTION_EXISTS(processor_bind HAVE_PROCESSOR_BIND)
-CHECK_FUNCTION_EXISTS(epoll_create HAVE_EPOLL_CREATE)
-CHECK_FUNCTION_EXISTS(memalign HAVE_MEMALIGN)
-CHECK_FUNCTION_EXISTS(sysconf HAVE_SYSCONF)
-CHECK_FUNCTION_EXISTS(directio HAVE_DIRECTIO)
-CHECK_FUNCTION_EXISTS(atomic_swap_32 HAVE_ATOMIC_SWAP32)
-CHECK_FUNCTION_EXISTS(mlock HAVE_MLOCK)
-CHECK_FUNCTION_EXISTS(ffs HAVE_FFS)
-CHECK_FUNCTION_EXISTS(pthread_mutexattr_init HAVE_PTHREAD_MUTEXATTR_INIT)
-CHECK_FUNCTION_EXISTS(pthread_mutexattr_settype HAVE_PTHREAD_MUTEXATTR_SETTYPE)
-CHECK_FUNCTION_EXISTS(pthread_setschedparam HAVE_PTHREAD_SETSCHEDPARAM)
+CHECK_FUNCTION_EXISTS( posix_memalign         HAVE_POSIX_MEMALIGN)
+CHECK_FUNCTION_EXISTS( clock_gettime          HAVE_CLOCK_GETTIME)
+CHECK_FUNCTION_EXISTS( nanosleep              HAVE_NANOSLEEP)
+CHECK_FUNCTION_EXISTS( pthread_condattr_setclock HAVE_PTHREAD_CONDATTR_SETCLOCK)
+CHECK_FUNCTION_EXISTS( pthread_self           HAVE_PTHREAD_SELF)
+CHECK_FUNCTION_EXISTS( sched_get_priority_min HAVE_SCHED_GET_PRIORITY_MIN)
+CHECK_FUNCTION_EXISTS( sched_get_priority_max HAVE_SCHED_GET_PRIORITY_MAX)
+CHECK_FUNCTION_EXISTS( sched_setaffinity      HAVE_SCHED_SETAFFINITY)
+CHECK_FUNCTION_EXISTS( sched_setscheduler     HAVE_SCHED_SETSCHEDULER)
+CHECK_FUNCTION_EXISTS( processor_bind         HAVE_PROCESSOR_BIND)
+CHECK_FUNCTION_EXISTS( epoll_create           HAVE_EPOLL_CREATE)
+CHECK_FUNCTION_EXISTS( memalign               HAVE_MEMALIGN)
+CHECK_FUNCTION_EXISTS( sysconf                HAVE_SYSCONF)
+CHECK_FUNCTION_EXISTS( directio               HAVE_DIRECTIO)
+CHECK_FUNCTION_EXISTS( atomic_swap_32         HAVE_ATOMIC_SWAP32)
+CHECK_FUNCTION_EXISTS( mlock                  HAVE_MLOCK)
+CHECK_FUNCTION_EXISTS( ffs                    HAVE_FFS)
+CHECK_FUNCTION_EXISTS( pthread_mutexattr_init HAVE_PTHREAD_MUTEXATTR_INIT)
+CHECK_FUNCTION_EXISTS( pthread_mutexattr_settype HAVE_PTHREAD_MUTEXATTR_SETTYPE)
+CHECK_FUNCTION_EXISTS( pthread_setschedparam  HAVE_PTHREAD_SETSCHEDPARAM)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 get_filename_component(PARENT_DIR ${CMAKE_PARENT_LIST_FILE} PATH)
@@ -135,7 +135,6 @@ configure_file(${PARENT_DIR}/../resources/config/cmake/config.h.cmake
     ${CMAKE_CURRENT_BINARY_DIR}/cfs/osgi/dlt/config.h
  )
 #endif(WITH_CHECK_CONFIG_FILE)
-
 
 configure_file(${PARENT_DIR}/../resources/config/cmake/dlt_version.h.cmake 
     ${CMAKE_CURRENT_BINARY_DIR}/cfs/osgi/dlt/dlt_version.h 
@@ -194,6 +193,9 @@ endif(WITH_DLT_USE_IPv6)
  set(cppsrc
         cfs/osgi/file/File
         cfs/osgi/pimpl/CFSObject
+        cfs/osgi/pimpl/NonConstructible
+        cfs/osgi/pimpl/NonCopyable
+        cfs/osgi/pimpl/NonMoveable
         cfs/osgi/file/Config
         cfs/osgi/edac/callstack/ABIDemangling
         cfs/osgi/edac/callstack/CallStack
@@ -202,11 +204,12 @@ endif(WITH_DLT_USE_IPv6)
  	cfs/osgi/edac/Error
         cfs/osgi/edac/Exception
  	cfs/osgi/edac/Activator
+        cfs/osgi/edac/Result
  )
 
 #add_subdirectory(cfs/osgi/dlt/adaptor)
-# set(CMAKE_INCLUDE_CURRENT_DIR ON)
-# set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
+ set(CMAKE_INCLUDE_CURRENT_DIR ON)
+ set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
  add_library(${PROJECT_NAME}-osgi STATIC ${cppsrc})
 

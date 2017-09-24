@@ -2,6 +2,10 @@
     cfs/osgi/edac/ActivatorTest
     cfs/osgi/edac/ErrorTest
     cfs/osgi/edac/ExceptionTest
+    cfs/osgi/file/ConfigTest
+    cfs/osgi/file/FileTest
+    cfs/osgi/pimpl/CFSObjectTest
+    cfs/osgi/pimpl/cfsPimplTest
  )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

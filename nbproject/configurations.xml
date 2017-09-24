@@ -63,6 +63,8 @@ Contributor(s):
                     <in>Topology.cpp</in>
                     <in>Topology.hpp</in>
                   </df>
+                  <in>SystemInfo.cpp</in>
+                  <in>SystemInfo.hpp</in>
                 </df>
               </df>
             </df>
@@ -163,6 +165,8 @@ Contributor(s):
                     <in>ErrorHandler.hpp</in>
                     <in>Exception.cpp</in>
                     <in>Exception.hpp</in>
+                    <in>Result.cpp</in>
+                    <in>Result.hpp</in>
                   </df>
                   <df name="file">
                     <in>Config.cpp</in>
@@ -173,6 +177,12 @@ Contributor(s):
                   <df name="pimpl">
                     <in>CFSObject.cpp</in>
                     <in>CFSObject.hpp</in>
+                    <in>NonConstructible.cpp</in>
+                    <in>NonConstructible.hpp</in>
+                    <in>NonCopyable.cpp</in>
+                    <in>NonCopyable.hpp</in>
+                    <in>NonMoveable.cpp</in>
+                    <in>NonMoveable.hpp</in>
                     <in>cfsPimpl.hpp</in>
                   </df>
                 </df>
@@ -199,6 +209,12 @@ Contributor(s):
                     <in>ConfigTest.hpp</in>
                     <in>FileTest.cpp</in>
                     <in>FileTest.hpp</in>
+                  </df>
+                  <df name="pimpl">
+                    <in>CFSObjectTest.cpp</in>
+                    <in>CFSObjectTest.hpp</in>
+                    <in>cfsPimplTest.cpp</in>
+                    <in>cfsPimplTest.hpp</in>
                   </df>
                 </df>
               </df>
@@ -283,6 +299,21 @@ Contributor(s):
           <df name="test">
             <df name="cpp">
               <in>CMakeLists.txt</in>
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="osgi">
+        <df name="src">
+          <df name="main">
+            <df name="cpp">
+              <df name="cfs">
+                <df name="osgi">
+                  <df name="dlt">
+                    <in>logging.md</in>
+                  </df>
+                </df>
+              </df>
             </df>
           </df>
         </df>
@@ -451,6 +482,16 @@ Contributor(s):
       </item>
       <item path="hal/src/it/cfs/hal/Hal.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="hal/src/main/cpp/cfs/hal/SystemInfo.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/SystemInfo.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
             ex="false"
             tool="1"
@@ -535,6 +576,11 @@ Contributor(s):
       </item>
       <item path="osgi/src/it/cfs/Osgi.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/dlt/logging.md"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
             ex="false"
             tool="1"
@@ -582,6 +628,16 @@ Contributor(s):
             flavor2="11">
         <ccTool flags="0">
         </ccTool>
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Result.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Result.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/callstack/ABIDemangling.cpp"
             ex="false"
@@ -640,6 +696,36 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonConstructible.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonConstructible.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonCopyable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonCopyable.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonMoveable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonMoveable.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/resources/ErrorList.cfg"
             ex="false"
             tool="3"
@@ -682,6 +768,26 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/test/cpp/cfs/osgi/file/FileTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/CFSObjectTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/CFSObjectTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/cfsPimplTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/cfsPimplTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -745,6 +851,16 @@ Contributor(s):
       <item path="hal/src/it/cfs/hal/Hal.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="hal/src/it/cfs/hal/Hal.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/SystemInfo.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/main/cpp/cfs/hal/SystemInfo.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/CpuAffinity.cpp"
             ex="false"
@@ -870,6 +986,11 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/dlt/logging.md"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Activator.cpp"
             ex="false"
             tool="1"
@@ -926,6 +1047,16 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/edac/Exception.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Result.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/edac/Result.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -990,6 +1121,36 @@ Contributor(s):
             tool="3"
             flavor2="0">
       </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonConstructible.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonConstructible.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonCopyable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonCopyable.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonMoveable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/main/cpp/cfs/osgi/pimpl/NonMoveable.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="osgi/src/main/cpp/cfs/osgi/pimpl/cfsPimpl.hpp"
             ex="false"
             tool="3"
@@ -1046,6 +1207,26 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/test/cpp/cfs/osgi/file/FileTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/CFSObjectTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/CFSObjectTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/cfsPimplTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="osgi/src/test/cpp/cfs/osgi/pimpl/cfsPimplTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">

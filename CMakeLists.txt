@@ -22,12 +22,25 @@ add_definitions(-DPROJECT_VERSION_PATCH=${PROJECT_NAME})
 add_definitions(-DAPPLICATIONNAME=${PROJECT_VERSION_PATCH})
 add_definitions(-DAPP_VERSION_STR="${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_MICRO_VERSION}")
 
+list(APPEND CMAKE_MODULE_PATH
+    "${CMAKE_SOURCE_DIR}/src/main/resources/config/modules"
+    "${CMAKE_SOURCE_DIR}/src/main/resources/config/toolChains"
+    "${CMAKE_SOURCE_DIR}/src/main/resources/config/macros"
+    "${CMAKE_SOURCE_DIR}/src/test/resources/config/modules"
+)
+
+include(CodingStyle)
+include(cppcheck)
+#include(cpplint)
+include(cyclomatic)
+include(CpplintWrapper)
+
 option(ENABLE_QA_CHECK                  "Software quality. Conformance to one or more standards"    OFF)
 option(ENABLE_COVERAGE                  "Build the project with coverage support"                   OFF)
 option(ENABLE_CPPLINT                   "Ensure that code conforms to Google's coding style guides" OFF)
-option(ENABLE_FORMATING_STYLE           "Code Beautifier"                                           OFF)
+option(ENABLE_FORMATING_STYLE           "Code Beautifier"                                           ON)
 option(ENABLE_CYCLOMATIC_COMPLEXITY     "Cyclomatic Complexity Analyzer"                            OFF)
-option(ENABLE_CPPCHECK                  "Static code analysis tool "                                OFF)
+option(ENABLE_CPPCHECK                  "Static code analysis tool "                                ON)
 option(ANALYZE_MEMORY                   "Dynamic analyzer: detector of uninitialized reads."        OFF)
 option(ANALYZE_ADDRESS                  "Dynamic analyzer: fast memory error detector. "            OFF)
 option(ANALYZE_THREAD                   "Dynamic analyzer: tool that detects data races. "          OFF)
@@ -35,13 +48,6 @@ option(ANALYZE_UNDEFINED                "Dynamic analyzer: undefined behavior ch
 option(ANALYZE_DATAFLOW                 "Dynamic analyzer: general dynamic dataflow analysis."      OFF)
 option(WARNINGS_ARE_ERRORS              "Treat warnings as errors"                                  OFF)
 option(WARNINGS_ANSI_ISO                "Issue all the mandatory diagnostics Listed in C standard"  ON)
-
-list(APPEND CMAKE_MODULE_PATH
-    "${CMAKE_SOURCE_DIR}/src/main/resources/config/modules"
-    "${CMAKE_SOURCE_DIR}/src/main/resources/config/toolChains"
-    "${CMAKE_SOURCE_DIR}/src/main/resources/config/macros"
-    "${CMAKE_SOURCE_DIR}/src/test/resources/config/modules"
-)
 
 set (NAMESPACE "CFSA")
 

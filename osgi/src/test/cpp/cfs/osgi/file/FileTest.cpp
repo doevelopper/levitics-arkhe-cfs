@@ -1,22 +1,22 @@
-#include "FileTest.hpp"
+#include <cfs/osgi/file/FileTest.hpp>
 
-FileTest::FileTest() {
+FileTest::FileTest()
+:m_objectUnderTest(nullptr)
+{
 }
 
-FileTest::FileTest(const FileTest& orig) {
+void FileTest::SetUp ()
+{
+    m_objectUnderTest = new cfs::osgi::file::File();
 }
 
-FileTest::FileTest(FileTest&& other) {
+void FileTest::TearDown ()
+{
+    delete m_objectUnderTest;
 }
 
-FileTest & FileTest::operator=(const FileTest& other) {
-    return *this;
-}
 
-FileTest& FileTest::operator=(FileTest&& other) {
-    return *this;
+TEST_F(FileTest , testopenFile)
+{
+    
 }
-
-FileTest::~FileTest() {
-}
-

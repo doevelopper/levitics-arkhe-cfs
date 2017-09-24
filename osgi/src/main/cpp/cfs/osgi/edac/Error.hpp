@@ -50,6 +50,16 @@
 |                  |                                      Error codes                                         |
 |:----------------:|:----------------------------------------------------------------------------------------:|
 | 0000000000000000 | Used to classify error codes   related  to mission specific library function calls, etc. |
+
+
+Severity    Meaning
+    00      Informational: This level is used to convey information to the user. No error has occurred. Informational messages are listed only when the FLAG (00) option is specified. 
+    10      Warning: This level indicates that an error was detected but is not serious enough to interfere with the running of the program. 
+    20      Error: This level indicates that an error was made, but the compiler is taking a recovery that might yield the desired code. 
+    30      Severe Error: This level indicates that a serious error was detected. Compilation is completed, but the module object is not created and running of the program cannot be attempted. 
+    40      Unrecoverable: This level usually indicates a user error that forces termination of processing. 
+    50      Unrecoverable: This level usually indicates a compiler error that forces termination of processing. 
+    99      Action: Some manual action is required, such as entering a reply, changing printer forms, or replacing diskettes.
  
 * 
 * 
@@ -81,7 +91,7 @@ namespace cfs
     {
         CFE_SEVERITY_BITMASK =      (0xC0000000L),
         CFE_SEVERITY_SUCCESS =      (0x00000000L),
-        CFE_SEVERITY_INFO =         (0x40000000L),
+        CFE_SEVERITY_INFO =         (0x40000000L), 
         CFE_SEVERITY_ERROR =        (0x80000000L),
         CFE_SEVERITY_CRITICAL =     (0xC0000000L)
     };

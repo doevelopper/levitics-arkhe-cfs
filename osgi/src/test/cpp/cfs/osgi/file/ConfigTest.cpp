@@ -1,35 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+#include <cfs/osgi/file/ConfigTest.hpp>
 
-/* 
- * File:   ConfigTest.cpp
- * Author: F
- * 
- * Created on 17 septembre 2017, 19:38
- */
-
-#include "ConfigTest.hpp"
-
-ConfigTest::ConfigTest() {
+ConfigTest::ConfigTest() 
+:m_objectUnderTest(nullptr)
+{
 }
 
-ConfigTest::ConfigTest(const ConfigTest& orig) {
+void ConfigTest::SetUp ()
+{
+    m_objectUnderTest = new cfs::osgi::file::Config();
 }
 
-ConfigTest::ConfigTest(ConfigTest&& other) {
+void ConfigTest::TearDown ()
+{
+    delete m_objectUnderTest;
 }
-
-ConfigTest & ConfigTest::operator=(const ConfigTest& other) {
-    return *this;
-}
-
-ConfigTest& ConfigTest::operator=(ConfigTest&& other) {
-    return *this;
-}
-
-ConfigTest::~ConfigTest() {
-}
-

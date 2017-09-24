@@ -36,7 +36,7 @@ if(ENABLE_COVERAGE)
             --demangle-cpp
             --title "${PROJECT_NAME}")
 
-    set(COVERAGE_FLAGS "-g -O0 --coverage -Wall -Wextra -Wpedantic")
+    set(COVERAGE_FLAGS "-pg -O0 --coverage -Wall -Wextra -Wpedantic")
     set(COVERAGE_LINK_FLAGS "--coverage -fprofile-arcs -ftest-coverage ") # -lgcov
 
     set(CMAKE_CXX_FLAGS_COVERAGE

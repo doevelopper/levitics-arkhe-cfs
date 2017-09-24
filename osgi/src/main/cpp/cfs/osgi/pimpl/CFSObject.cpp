@@ -1,5 +1,7 @@
 #include <cfs/osgi/pimpl/CFSObject.hpp>
 
+using namespace cfs::osgi::pimpl;
+
 CFSObject::None::None()
 {
 

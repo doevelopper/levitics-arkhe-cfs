@@ -1,5 +1,6 @@
  set(cppsrc
- 	cfs/hal/cpu/CpuAffinity
+ 	cfs/hal/SystemInfo
+        cfs/hal/cpu/CpuAffinity
  	cfs/hal/cpu/CpuInfo
  	cfs/hal/cpu/Topology
  )
