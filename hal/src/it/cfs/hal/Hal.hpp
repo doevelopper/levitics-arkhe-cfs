@@ -1,3 +1,4 @@
+
 #ifndef HAL_HPP
 #define HAL_HPP
 
@@ -6,14 +7,14 @@
 
 using cucumber::ScenarioScope;
 
-class Hal 
+class Hal
 {
-public:
-    Hal();
-    virtual ~Hal() = default;
-private:
+    public:
 
+        Hal();
+        virtual ~Hal() = default;
+
+    private:
 };
 
 #endif
-

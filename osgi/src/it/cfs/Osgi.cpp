@@ -1,5 +1,6 @@
+
 #include <cfs/Osgi.hpp>
 
-Osgi::Osgi() 
+Osgi::Osgi()
 {
 }

@@ -4,18 +4,22 @@
 #include <gmock/gmock.h>
 #include <cfs/osgi/file/Config.hpp>
 
-class ConfigTest : public ::testing::Test
+class ConfigTest :
+                 public ::testing::Test
 {
-public:
-    ConfigTest();
-    virtual ~ConfigTest() = default;
-    
-    virtual void SetUp ();
-    virtual void TearDown ();
+    public:
 
-private:
+        ConfigTest();
+        virtual ~ConfigTest() = default;
+
+        virtual void
+        SetUp ();
+        virtual void
+        TearDown ();
+
+    private:
+
         cfs::osgi::file::Config * m_objectUnderTest;
 };
 
 #endif
-

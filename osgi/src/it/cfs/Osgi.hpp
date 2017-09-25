@@ -8,15 +8,15 @@
 using cucumber::ScenarioScope;
 
 
-class Osgi 
+class Osgi
 {
-public:
-    Osgi();
-    Osgi(int argc, char* argv[]);
-    virtual ~Osgi() = default;
-private:
+    public:
 
+        Osgi();
+        Osgi( int argc, char * argv[] );
+        virtual ~Osgi() = default;
+
+    private:
 };
 
 #endif
-

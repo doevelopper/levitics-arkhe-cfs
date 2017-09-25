@@ -163,7 +163,7 @@ mark_as_advanced(LINT_LINELENGTH)
 #    The root folder used to determine desired include-guard comments.
 #  bin_folder:
 #    The temporary build folder to store a cpplint history file.
-function(CPPLINT_RECURSIVE target_name src_folder root_folder)
+function(CPPLINT_RECURSIVE target_name src_folder)# root_folder
     if(RUN_CPPLINT)
 #        message(STATUS "${target_name}: src=${src_folder}, root=${root_folder}, bin=${bin_folder}")
         if(NOT TARGET ${target_name}-lint)

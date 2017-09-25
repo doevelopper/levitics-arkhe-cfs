@@ -1,7 +1,8 @@
+
 #include <cfs/osgi/file/ConfigTest.hpp>
 
-ConfigTest::ConfigTest() 
-:m_objectUnderTest(nullptr)
+ConfigTest::ConfigTest()
+    : m_objectUnderTest( nullptr )
 {
 }
 

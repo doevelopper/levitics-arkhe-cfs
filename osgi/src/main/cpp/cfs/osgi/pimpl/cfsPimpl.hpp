@@ -1,3 +1,4 @@
+
 #ifndef CFSPIMPL_HPP
 #define CFSPIMPL_HPP
 
@@ -7,10 +8,8 @@ namespace cfs
     {
         namespace file
         {
-            
         }
-    }    
+    }
 }
 
 #endif
-

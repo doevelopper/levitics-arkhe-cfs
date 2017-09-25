@@ -1,7 +1,8 @@
+
 #include <cfs/osgi/file/FileTest.hpp>
 
 FileTest::FileTest()
-:m_objectUnderTest(nullptr)
+    : m_objectUnderTest( nullptr )
 {
 }
 
@@ -15,8 +16,6 @@ void FileTest::TearDown ()
     delete m_objectUnderTest;
 }
 
-
-TEST_F(FileTest , testopenFile)
+TEST_F( FileTest, testopenFile )
 {
-    
 }

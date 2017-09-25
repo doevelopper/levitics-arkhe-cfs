@@ -1,3 +1,4 @@
+
 /*
  * @licence app begin@
  * SPDX license identifier: MPL-2.0
@@ -93,10 +94,12 @@ extern "C"
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_init*/
-TEST(t_dlt_gateway_init, normal)
+TEST( t_dlt_gateway_init, normal )
 {
     DltDaemonLocal daemon_local;
     DltGatewayConnection connections;
+
+
     daemon_local.pGateway.connections = &connections;
     daemon_local.pGateway.num_connections = 1;
 
@@ -106,53 +109,56 @@ TEST(t_dlt_gateway_init, normal)
     daemon_local.pEvent.connections->receiver = &receiver;
     daemon_local.pEvent.connections->next = NULL;
 
-    memset(daemon_local.flags.gatewayConfigFile,0,DLT_DAEMON_FLAG_MAX);
-    strncpy(daemon_local.flags.gatewayConfigFile, "/tmp/dlt_gateway.conf", DLT_DAEMON_FLAG_MAX - 1);
+    memset( daemon_local.flags.gatewayConfigFile, 0, DLT_DAEMON_FLAG_MAX );
+    strncpy( daemon_local.flags.gatewayConfigFile, "/tmp/dlt_gateway.conf", DLT_DAEMON_FLAG_MAX - 1 );
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_init(&daemon_local, 1));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_init( &daemon_local, 1 ));
 }
 
-TEST(t_dlt_gateway_init, nullpointer)
+TEST( t_dlt_gateway_init, nullpointer )
 {
-   // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_init(NULL, 0));
+    // NULL-Pointer, expect -1
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_init( NULL, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_send_control_message*/
-TEST(t_dlt_gateway_send_control_message, Normal)
+TEST( t_dlt_gateway_send_control_message, Normal )
 {
     int ret = 0;
     DltDaemonLocal daemon_local;
     DltGatewayConnection connections;
     DltConnection connections1;
     DltReceiver receiver1;
+
+
     daemon_local.pGateway.connections = &connections;
     daemon_local.pEvent.connections = &connections1;
     daemon_local.pEvent.connections->next = NULL;
     daemon_local.pEvent.connections->receiver = &receiver1;
-    memset(daemon_local.flags.gatewayConfigFile,0,DLT_DAEMON_FLAG_MAX);
-    strncpy(daemon_local.flags.gatewayConfigFile, "/tmp/dlt_gateway.conf", DLT_DAEMON_FLAG_MAX - 1);
+    memset( daemon_local.flags.gatewayConfigFile, 0, DLT_DAEMON_FLAG_MAX );
+    strncpy( daemon_local.flags.gatewayConfigFile, "/tmp/dlt_gateway.conf", DLT_DAEMON_FLAG_MAX - 1 );
 
-    ret = dlt_gateway_init(&daemon_local, 0);
-    EXPECT_EQ(DLT_RETURN_OK, ret);
+    ret = dlt_gateway_init( &daemon_local, 0 );
+    EXPECT_EQ( DLT_RETURN_OK, ret );
 
-    dlt_gateway_send_control_message(daemon_local.pGateway.connections, &daemon_local.pGateway, &daemon_local, 0);
+    dlt_gateway_send_control_message( daemon_local.pGateway.connections, &daemon_local.pGateway, &daemon_local, 0 );
 }
 
-TEST(t_dlt_gateway_send_control_message, nullpointer)
+TEST( t_dlt_gateway_send_control_message, nullpointer )
 {
-    //NULL-Pointer, expect -1
-    dlt_gateway_send_control_message(NULL, NULL, NULL, 0);
+    // NULL-Pointer, expect -1
+    dlt_gateway_send_control_message( NULL, NULL, NULL, 0 );
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_store_connection*/
-TEST(t_dlt_gateway_store_connection, normal)
+TEST( t_dlt_gateway_store_connection, normal )
 {
     char ip_address[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "10.113.100.100";
     char ecuid[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "1234";
     DltGateway gateway;
     DltGatewayConnection tmp;
     DltGatewayConnection tmp1;
+
 
     gateway.num_connections = 1;
     gateway.connections = &tmp1;
@@ -167,233 +173,263 @@ TEST(t_dlt_gateway_store_connection, normal)
     tmp.trigger = DLT_GATEWAY_ON_STARTUP;
     tmp.timeout = 500;
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_store_connection(&gateway, &tmp, 0));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_store_connection( &gateway, &tmp, 0 ));
 }
 
-TEST(t_dlt_gateway_store_connection, nullpointer)
+TEST( t_dlt_gateway_store_connection, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_store_connection(NULL , NULL, 0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_store_connection( NULL, NULL, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_ip*/
-TEST(t_dlt_gateway_check_ip, normal)
+TEST( t_dlt_gateway_check_ip, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "10.113.100.100";
+
+
     con = &tmp;
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_ip(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_ip( con, value ));
 }
 
-TEST(t_dlt_gateway_check_ip, nullpointer)
+TEST( t_dlt_gateway_check_ip, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_ip(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_ip( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_send_serial*/
-TEST(t_dlt_gateway_check_send_serial, normal)
+TEST( t_dlt_gateway_check_send_serial, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "134dltgatway";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_send_serial(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_send_serial( con, value ));
 }
 
-TEST(t_dlt_gateway_check_send_serial, nullpointer)
+TEST( t_dlt_gateway_check_send_serial, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_send_serial(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_send_serial( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_control_messages*/
-TEST(t_dlt_gateway_check_control_messages, normal)
+TEST( t_dlt_gateway_check_control_messages, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "1,2,3,4,5";
+
+
     con = &tmp;
     con->control_msgs[0] = DLT_SERVICE_ID_LAST_ENTRY;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_control_messages(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_control_messages( con, value ));
 }
 
-TEST(t_dlt_gateway_check_control_messages, nullpointer)
+TEST( t_dlt_gateway_check_control_messages, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_control_messages(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_control_messages( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_port*/
-TEST(t_dlt_gateway_check_port, normal)
+TEST( t_dlt_gateway_check_port, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "3490";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_port(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_port( con, value ));
 }
 
-TEST(t_dlt_gateway_check_port, abnormal)
+TEST( t_dlt_gateway_check_port, abnormal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "9999999999";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_port(con, value));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_port( con, value ));
 }
 
-TEST(t_dlt_gateway_check_port, nullpointer)
+TEST( t_dlt_gateway_check_port, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_port(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_port( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_ecu*/
-TEST(t_dlt_gateway_check_ecu, normal)
+TEST( t_dlt_gateway_check_ecu, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "ECU2";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_ecu(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_ecu( con, value ));
 }
 
-TEST(t_dlt_gateway_check_ecu, nullpointer)
+TEST( t_dlt_gateway_check_ecu, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_ecu(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_ecu( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_connect_trigger*/
-TEST(t_dlt_gateway_check_connect_trigger, normal)
+TEST( t_dlt_gateway_check_connect_trigger, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "OnStartup";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_connect_trigger(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_connect_trigger( con, value ));
 }
 
-TEST(t_dlt_gateway_check_connect_trigger, abnormal)
+TEST( t_dlt_gateway_check_connect_trigger, abnormal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "wrong_parameter";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_connect_trigger(con, value));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_connect_trigger( con, value ));
 }
 
-TEST(t_dlt_gateway_check_connect_trigger, nullpointer)
+TEST( t_dlt_gateway_check_connect_trigger, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_connect_trigger(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_connect_trigger( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_timeout*/
-TEST(t_dlt_gateway_check_timeout, normal)
+TEST( t_dlt_gateway_check_timeout, normal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "10";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_timeout(con, value));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_timeout( con, value ));
 }
 
-TEST(t_dlt_gateway_check_timeout, abnormal)
+TEST( t_dlt_gateway_check_timeout, abnormal )
 {
     DltGatewayConnection tmp;
-    DltGatewayConnection *con;
+    DltGatewayConnection * con;
     char value[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "0";
+
+
     con = &tmp;
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_timeout(con, value));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_timeout( con, value ));
 }
 
-TEST(t_dlt_gateway_check_timeout, nullpointer)
+TEST( t_dlt_gateway_check_timeout, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_timeout(NULL,NULL));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_timeout( NULL, NULL ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_establish_connections*/
-TEST(t_dlt_gateway_establish_connections, normal)
+TEST( t_dlt_gateway_establish_connections, normal )
 {
     DltDaemonLocal daemon_local;
-    DltGateway *gateway = &daemon_local.pGateway;
+    DltGateway * gateway = &daemon_local.pGateway;
     DltGatewayConnection connections;
+
+
     gateway->num_connections = 1;
     gateway->connections = &connections;
     gateway->connections->status = DLT_GATEWAY_CONNECTED;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_establish_connections(gateway, &daemon_local, 0));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_establish_connections( gateway, &daemon_local, 0 ));
 }
 
-TEST(t_dlt_gateway_establish_connections, nullpointer)
+TEST( t_dlt_gateway_establish_connections, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_establish_connections(NULL,NULL,0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_establish_connections( NULL, NULL, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_get_connection_receiver*/
-TEST(t_dlt_gateway_get_connection_receiver, normal)
+TEST( t_dlt_gateway_get_connection_receiver, normal )
 {
-    DltReceiver *ret = NULL;
+    DltReceiver * ret = NULL;
     DltGateway gateway;
     DltGatewayConnection connections;
+
+
     gateway.connections = &connections;
     int fd = 10;
     gateway.num_connections = 1;
     gateway.connections->client.sock = fd;
     gateway.connections->client.receiver.fd = 12;
     gateway.connections->status = DLT_GATEWAY_CONNECTED;
-    ret = dlt_gateway_get_connection_receiver(&gateway, fd);
-    EXPECT_EQ(12, ret->fd);
+    ret = dlt_gateway_get_connection_receiver( &gateway, fd );
+    EXPECT_EQ( 12, ret->fd );
 }
 
-TEST(t_dlt_gateway_get_connection_receiver, abnormal)
+TEST( t_dlt_gateway_get_connection_receiver, abnormal )
 {
-    DltReceiver *ret = NULL;
+    DltReceiver * ret = NULL;
     DltGateway gateway;
     DltGatewayConnection connections;
+
+
     gateway.connections = &connections;
     int fd = 10;
     gateway.num_connections = 1;
     gateway.connections->client.sock = fd;
     gateway.connections->client.receiver.fd = 12;
-    ret = dlt_gateway_get_connection_receiver(&gateway, fd);
-    EXPECT_EQ(NULL, ret);
+    ret = dlt_gateway_get_connection_receiver( &gateway, fd );
+    EXPECT_EQ( NULL, ret );
 }
 
-TEST(t_dlt_gateway_get_connection_receiver, nullpointer)
+TEST( t_dlt_gateway_get_connection_receiver, nullpointer )
 {
     // NULL-Pointer, expect -1
-    DltReceiver *ret;
-    ret = dlt_gateway_get_connection_receiver(NULL, 0);
-    EXPECT_EQ(NULL, ret);
+    DltReceiver * ret;
+
+
+    ret = dlt_gateway_get_connection_receiver( NULL, 0 );
+    EXPECT_EQ( NULL, ret );
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_process_passive_node_messages*/
-TEST(t_dlt_gateway_process_passive_node_messages, normal)
+TEST( t_dlt_gateway_process_passive_node_messages, normal )
 {
     DltDaemon daemon;
     DltDaemonLocal daemon_local;
     DltReceiver receiver;
     DltGatewayConnection connections;
+
+
     daemon_local.pGateway.connections = &connections;
     daemon_local.pGateway.num_connections = 1;
     daemon_local.pGateway.connections->status = DLT_GATEWAY_CONNECTED;
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_process_passive_node_messages(&daemon,&daemon_local,&receiver,1));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_process_passive_node_messages( &daemon, &daemon_local, &receiver, 1 ));
 }
 
-TEST(t_dlt_gateway_process_passive_node_messages, nullpointer)
+TEST( t_dlt_gateway_process_passive_node_messages, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_process_passive_node_messages(NULL, NULL, NULL, 0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_process_passive_node_messages( NULL, NULL, NULL, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_process_gateway_timer*/
-TEST(t_dlt_gateway_process_gateway_timer, normal)
+TEST( t_dlt_gateway_process_gateway_timer, normal )
 {
     char ECUVersionString[] = "12.34";
     DltDaemon daemon;
@@ -401,6 +437,8 @@ TEST(t_dlt_gateway_process_gateway_timer, normal)
     DltReceiver receiver;
     DltGatewayConnection connections;
     DltConnection connections1;
+
+
     daemon_local.pGateway.connections = &connections;
     DltDaemonContext contexts;
     DltDaemonApplication applications;
@@ -417,128 +455,141 @@ TEST(t_dlt_gateway_process_gateway_timer, normal)
 
     daemon_local.pEvent.connections->receiver->fd = -1;
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_process_gateway_timer(&daemon,&daemon_local,daemon_local.pEvent.connections->receiver,1));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_process_gateway_timer( &daemon, &daemon_local, daemon_local.pEvent.connections->receiver, 1 ));
 }
 
-TEST(t_dlt_gateway_process_gateway_timer, nullpointer)
+TEST( t_dlt_gateway_process_gateway_timer, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_process_gateway_timer(NULL, NULL, NULL, 0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_process_gateway_timer( NULL, NULL, NULL, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_process_on_demand_request*/
-TEST(t_dlt_gateway_process_on_demand_request, normal)
+TEST( t_dlt_gateway_process_on_demand_request, normal )
 {
     char node_id[DLT_ID_SIZE] = "123";
     uint32_t connection_status = 1;
 
     DltDaemonLocal daemon_local;
     DltGatewayConnection connections;
+
+
     daemon_local.pGateway.connections = &connections;
     daemon_local.pGateway.num_connections = 1;
     connections.status = DLT_GATEWAY_CONNECTED;
     connections.ecuid = node_id;
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_process_on_demand_request(&daemon_local.pGateway,
-                                              &daemon_local,
-                                              node_id,
-                                              connection_status,
-                                              1));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_process_on_demand_request( &daemon_local.pGateway,
+                                                                     &daemon_local,
+                                                                     node_id,
+                                                                     connection_status,
+                                                                     1 ));
 }
 
-TEST(t_dlt_gateway_process_on_demand_request, abnormal)
+TEST( t_dlt_gateway_process_on_demand_request, abnormal )
 {
     char node_id[DLT_ID_SIZE] = "123";
     uint32_t connection_status = 1;
 
     DltDaemonLocal daemon_local;
     DltGatewayConnection connections;
+
+
     daemon_local.pGateway.connections = &connections;
     daemon_local.pGateway.num_connections = 1;
     connections.status = DLT_GATEWAY_INITIALIZED;
     connections.ecuid = node_id;
 
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_process_on_demand_request(&daemon_local.pGateway,
-                                              &daemon_local,
-                                              node_id,
-                                              connection_status,
-                                              0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_process_on_demand_request( &daemon_local.pGateway,
+                                                                        &daemon_local,
+                                                                        node_id,
+                                                                        connection_status,
+                                                                        0 ));
 }
 
-TEST(t_dlt_gateway_process_on_demand_request, nullpointer)
+TEST( t_dlt_gateway_process_on_demand_request, nullpointer )
 {
     // NULL-Pointer, expect -1
     char node_id[DLT_ID_SIZE] = "123";
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_process_on_demand_request(NULL, NULL, node_id, 1, 0));
+
+
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_process_on_demand_request( NULL, NULL, node_id, 1, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_check_param*/
-TEST(t_dlt_gateway_check_param, normal)
+TEST( t_dlt_gateway_check_param, normal )
 {
     char value_1[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "10.11.22.33";
     char value_2[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "3490";
     DltGateway gateway;
     DltGatewayConnection tmp;
+
+
     gateway.connections = &tmp;
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_param(&gateway,
-                                          &tmp,
-                                          GW_CONF_IP_ADDRESS,
-                                          value_1));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_param( &gateway,
+                                                       &tmp,
+                                                       GW_CONF_IP_ADDRESS,
+                                                       value_1 ));
 
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_check_param(&gateway,
-                                          &tmp,
-                                          GW_CONF_PORT,
-                                          value_2));
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_check_param( &gateway,
+                                                       &tmp,
+                                                       GW_CONF_PORT,
+                                                       value_2 ));
 }
 
-TEST(t_dlt_gateway_check_param, abnormal)
+TEST( t_dlt_gateway_check_param, abnormal )
 {
     char value_1[DLT_CONFIG_FILE_ENTRY_MAX_LEN] = "10.11.22.33";
 
     DltGateway gateway;
     DltGatewayConnection tmp;
+
+
     gateway.connections = &tmp;
 
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_param(&gateway,
-                                          &tmp,
-                                          GW_CONF_PORT,
-                                          value_1));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_param( &gateway,
+                                                          &tmp,
+                                                          GW_CONF_PORT,
+                                                          value_1 ));
 }
 
-TEST(t_dlt_gateway_check_param, nullpointer)
+TEST( t_dlt_gateway_check_param, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_check_param(NULL, NULL, GW_CONF_PORT, 0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_check_param( NULL, NULL, GW_CONF_PORT, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_configure*/
-TEST(t_dlt_gateway_configure, Normal)
+TEST( t_dlt_gateway_configure, Normal )
 {
     DltGateway gateway;
     DltGatewayConnection tmp;
+
+
     gateway.connections = &tmp;
     gateway.num_connections = 1;
     char gatewayConfigFile[DLT_DAEMON_FLAG_MAX];
-    strncpy(gatewayConfigFile, DLT_GATEWAY_CONFIG_PATH, DLT_DAEMON_FLAG_MAX - 1);
-    EXPECT_EQ(DLT_RETURN_OK, dlt_gateway_configure(&gateway, gatewayConfigFile, 0));
+    strncpy( gatewayConfigFile, DLT_GATEWAY_CONFIG_PATH, DLT_DAEMON_FLAG_MAX - 1 );
+    EXPECT_EQ( DLT_RETURN_OK, dlt_gateway_configure( &gateway, gatewayConfigFile, 0 ));
 }
 
-TEST(t_dlt_gateway_configure, nullpointer)
+TEST( t_dlt_gateway_configure, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_configure(NULL, NULL, 0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_configure( NULL, NULL, 0 ));
 }
 
 /* Begin Method: dlt_gateway::t_dlt_gateway_forward_control_message*/
-TEST(t_dlt_gateway_forward_control_message, normal)
+TEST( t_dlt_gateway_forward_control_message, normal )
 {
     int ret = 0;
-    char ecu[DLT_ID_SIZE] = {'E', 'C', 'U', '1'};
+    char ecu[DLT_ID_SIZE] = { 'E', 'C', 'U', '1' };
     DltDaemonLocal daemon_local;
     DltGatewayConnection connections;
     DltConnection connections1;
     DltReceiver receiver1;
+
 
     daemon_local.pGateway.connections = &connections;
     daemon_local.pEvent.connections = &connections1;
@@ -549,30 +600,33 @@ TEST(t_dlt_gateway_forward_control_message, normal)
     daemon_local.pEvent.connections->type = DLT_CONNECTION_CLIENT_MSG_TCP;
 
     DltMessage msg;
-    memset(daemon_local.flags.gatewayConfigFile,0,DLT_DAEMON_FLAG_MAX);
-    strncpy(daemon_local.flags.gatewayConfigFile, "/tmp/dlt_gateway.conf", DLT_DAEMON_FLAG_MAX - 1);
+    memset( daemon_local.flags.gatewayConfigFile, 0, DLT_DAEMON_FLAG_MAX );
+    strncpy( daemon_local.flags.gatewayConfigFile, "/tmp/dlt_gateway.conf", DLT_DAEMON_FLAG_MAX - 1 );
 
-    ret = dlt_gateway_init(&daemon_local, 0);
-    EXPECT_EQ(DLT_RETURN_OK, ret);
+    ret = dlt_gateway_init( &daemon_local, 0 );
+    EXPECT_EQ( DLT_RETURN_OK, ret );
 
-    ret = dlt_gateway_forward_control_message(&daemon_local.pGateway,
-                                                       &daemon_local,
-                                                       &msg,
-                                                       ecu,
-                                                       0);
-    EXPECT_EQ(DLT_RETURN_OK, ret);
+    ret = dlt_gateway_forward_control_message( &daemon_local.pGateway,
+                                               &daemon_local,
+                                               &msg,
+                                               ecu,
+                                               0 );
+    EXPECT_EQ( DLT_RETURN_OK, ret );
 }
 
-TEST(t_dlt_gateway_forward_control_message, nullpointer)
+TEST( t_dlt_gateway_forward_control_message, nullpointer )
 {
     // NULL-Pointer, expect -1
-    EXPECT_EQ(DLT_RETURN_ERROR, dlt_gateway_forward_control_message(NULL, NULL, NULL, NULL, 0));
+    EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_forward_control_message( NULL, NULL, NULL, NULL, 0 ));
 }
 
-int main(int argc, char **argv)
+int main ( int argc, char * * argv )
 {
-    ::testing::InitGoogleTest(&argc, argv);
-//    ::testing::FLAGS_gtest_break_on_failure = true;
-//    ::testing::FLAGS_gtest_filter = "t_dlt_gateway_forward_control_message*";
+    ::testing::InitGoogleTest( &argc, argv );
+
+
+// ::testing::FLAGS_gtest_break_on_failure = true;
+
+// ::testing::FLAGS_gtest_filter = "t_dlt_gateway_forward_control_message*";
     return RUN_ALL_TESTS();
 }

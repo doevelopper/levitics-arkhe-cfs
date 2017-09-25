@@ -79,6 +79,7 @@ function(ADD_CPPCHECK_ANALYSIS target_name bin_folder)
             COMMENT "Static code analysis."
         )
     endif()
+
     add_dependencies(cppcheck ${target_name}-cppcheck)
 
 endfunction(ADD_CPPCHECK_ANALYSIS)

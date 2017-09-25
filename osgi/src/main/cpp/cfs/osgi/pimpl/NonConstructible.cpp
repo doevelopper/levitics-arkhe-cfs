@@ -1,2 +1,2 @@
-#include <cfs/osgi/pimpl/NonConstructible.hpp>
 
+#include <cfs/osgi/pimpl/NonConstructible.hpp>

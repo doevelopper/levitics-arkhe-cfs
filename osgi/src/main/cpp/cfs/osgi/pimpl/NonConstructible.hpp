@@ -5,13 +5,16 @@
 #include <cfs/osgi/pimpl/NonCopyable.hpp>
 #include <cfs/osgi/pimpl/NonMoveable.hpp>
 
-class NonConstructible : NonCopyable, NonMoveable
+class NonConstructible :
+                       NonCopyable, NonMoveable
 {
-public:
-    virtual ~NonConstructible() = default;
-private:
-    NonConstructible() = delete;
+    public:
+
+        virtual ~NonConstructible() = default;
+
+    private:
+
+        NonConstructible() = delete;
 };
 
 #endif
-

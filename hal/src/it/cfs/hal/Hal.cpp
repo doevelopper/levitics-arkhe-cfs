@@ -1,6 +1,6 @@
 
 #include <cfs/hal/Hal.hpp>
 
-Hal::Hal() 
+Hal::Hal()
 {
 }
