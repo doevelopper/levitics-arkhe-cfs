@@ -5,20 +5,24 @@ set(CPPCHECK_TEMPLATE_ARG --template gcc) # --template="[{severity}][{id}] {mess
 set(CPPCHECK_OPTIONS
     ${CONTROVERSIAL}
     --report-progress
-    --platform=native
-#    --enable=warning,performance,portability,information,missingInclude,unusedFunction,style
-    --enable=all
+#    --platform=native
+    --platform=unix64
+    --enable=warning,performance,portability,information,missingInclude,style
+    --project=/home/happyman/Documents/levitics-arkhe-cfs/build/Debug/compile_commands.json
+#    --enable=all
     --std=c++14
     --std=c11
     --std=posix
     --inline-suppr
+    --language=c, c++
 #    --suppress=missingIncludeSystem
 #    --library=qt.cfg 
     --verbose 
 #    --quiet
     --xml-version=2
-    -j${Ncpu}
-#    --error-exitcode=25000
+    -j4
+#    -j${Ncpu}
+    --error-exitcode=25000
 #    -I${INC_DIR}
 )
 
@@ -34,12 +38,13 @@ if(ENABLE_CPPCHECK)
 #        PATHS  
 #        NO_DEFAULT_PATH
     )
+
     if(CPPCHECK)
-        execute_process(
-            COMMAND ${CPPCHECK} --version OUTPUT_VARIABLE CPPCHECK_VERSION
-            OUTPUT_STRIP_TRAILING_WHITESPACE)
-            string(REGEX REPLACE ".+([0-9]+\\.[0-9]+)" "\\1" CPPCHECK_VERSION ${CPPCHECK_VERSION}
-        )
+#        execute_process(
+#            COMMAND ${CPPCHECK} --version OUTPUT_VARIABLE CPPCHECK_VERSION
+#            OUTPUT_STRIP_TRAILING_WHITESPACE)
+#            string(REGEX REPLACE ".+([0-9]+\\.[0-9]+)" "\\1" CPPCHECK_VERSION ${CPPCHECK_VERSION}
+#        )
         message(STATUS "${CPPCHECK} : ${CPPCHECK_VERSION}")
         mark_as_advanced(UNCRUSTIFY)
         set(RUN_CPPCHECK ON)
@@ -59,10 +64,10 @@ function(ADD_CPPCHECK_ANALYSIS target_name bin_folder)
         file(GLOB_RECURSE ALL_HEADER_FILES ${bin_folder} *.hpp)
 
         add_custom_target( ${target_name}-cppcheck
-            COMMAND ${CPPCHECK}  ${CPPCHECK_OPTIONS} ${CPPCHECK_TEMPLATE_ARG} ${ALL_SOURCE_FILES} ${ALL_HEADER_FILES} 
-                    --cppcheck-build-dir=${WORKING_DIR} 2> ${WORKING_DIR}/cppcheck.xml
-            COMMAND ${PYTHON_EXECUTABLE} ${CPPCHECK_HTMLREPORT_GENERATOR} --title=${target_name} --file=${WORKING_DIR}/cppcheck.xml
-                    --source-dir=${bin_folder} --report-dir=${WORKING_DIR}
+#            COMMAND ${CPPCHECK}  ${CPPCHECK_OPTIONS} ${CPPCHECK_TEMPLATE_ARG} ${ALL_SOURCE_FILES} ${ALL_HEADER_FILES} 
+#                    --cppcheck-build-dir=${WORKING_DIR} 2> ${WORKING_DIR}/cppcheck.xml
+#            COMMAND ${PYTHON_EXECUTABLE} ${CPPCHECK_HTMLREPORT_GENERATOR} --title=${target_name} --file=${WORKING_DIR}/cppcheck.xml
+#                    --source-dir=${bin_folder} --report-dir=${WORKING_DIR}
             WORKING_DIRECTORY ${bin_folder}
             COMMENT "[CPPCHECK-Target] ${bin_folder}"
         )

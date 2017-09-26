@@ -85,7 +85,9 @@ namespace cfs
 
     enum CfsError : std::uint32_t
     {
-        LARGE_VALUE = 0x0e000000UL
+        LARGE_VALUE = 0x0e000000UL,
+        VALUE = 0x0e000000UL, LARGEVALUE = 0x0e000000UL,
+        LARGE = 0x0e000000UL
     };
 
 // https://stackoverflow.com/questions/18335861/why-is-enum-class-preferred-over-plain-enum

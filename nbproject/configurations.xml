@@ -282,6 +282,7 @@ Contributor(s):
           </df>
         </df>
       </df>
+      <in>Jenkinsfile</in>
       <in>Makefile</in>
       <in>codecov.yml</in>
     </df>
@@ -387,6 +388,8 @@ Contributor(s):
       <item path=".travis.yml" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CONTRIBUTING.md" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Jenkinsfile" ex="false" tool="3" flavor2="0">
       </item>
       <item path="conduct.md" ex="false" tool="3" flavor2="0">
       </item>
@@ -839,6 +842,8 @@ Contributor(s):
       <item path=".travis.yml" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CONTRIBUTING.md" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Jenkinsfile" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>

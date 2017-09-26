@@ -29,11 +29,12 @@ list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_SOURCE_DIR}/src/test/resources/config/modules"
 )
 
+include(buildLifeCycle)
 include(CodingStyle)
 include(cppcheck)
 #include(cpplint)
-include(cyclomatic)
-include(CpplintWrapper)
+#include(cyclomatic)
+#include(CpplintWrapper)
 
 option(ENABLE_QA_CHECK                  "Software quality. Conformance to one or more standards"    OFF)
 option(ENABLE_COVERAGE                  "Build the project with coverage support"                   OFF)
@@ -68,7 +69,6 @@ set(INTEG_TEST_THIRD_PARTY_LIB_MAIN cucumber-cpp)
 include(PreventInSourceBuilds)
 include(LibrarySettings)
 include(CompilerOption)
-include(buildLifeCycle)
 include(CMakeSettings)
 include(aol)
 

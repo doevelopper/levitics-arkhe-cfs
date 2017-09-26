@@ -35,7 +35,7 @@ namespace cfs
                         WEAK_BACKTRACE = 0x2, /*! Get backtrace using glibc::backtrace. */
                         TRAP_MANY_SIGNALS = 0x4, /*! Trap a lot of signals not normally trapped. */
                         USE_CURRENT = 0x8, /*! Inherit values already existing in previous handlers. */
-                        LOCAL_VARIABLES = 0x10 /*! Attempt to additionaly display local variables. */
+                        LOCAL_VARIABLES = 0x10/*! Attempt to additionaly display local variables. */
                     };
 
                     public:

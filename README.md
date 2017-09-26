@@ -1,5 +1,8 @@
 # Levitics Arkhe Core Flight System Software
-
+![tbd](https://img.shields.io/badge/development%20status-active-green.svg)
+![tbd](https://img.shields.io/badge/platforms-osx%20|%20win%20|%20linux-lightgrey.svg)
+[![tbd](https://img.shields.io/conda/pn/conda-forge/python.svg?style=plastic)]()
+[![tbd](https://img.shields.io/crates/l/rustc-serialize.svg?style=plastic)]()
 ## Links
 
 * [Web site](http://www.tbd.acme/)
