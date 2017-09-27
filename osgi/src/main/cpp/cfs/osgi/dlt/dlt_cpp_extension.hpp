@@ -37,86 +37,131 @@
 
 template < typename T >
 int32_t
-logToDlt ( DltContextData & log, T const & value ) = delete;
+logToDlt (
+    DltContextData & log,
+    T const & value
+    ) = delete;
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, int8_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    int8_t const & value
+    )
 {
     return dlt_user_log_write_int8( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, int16_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    int16_t const & value
+    )
 {
     return dlt_user_log_write_int16( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, int32_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    int32_t const & value
+    )
 {
     return dlt_user_log_write_int32( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, int64_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    int64_t const & value
+    )
 {
     return dlt_user_log_write_int64( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, uint8_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    uint8_t const & value
+    )
 {
     return dlt_user_log_write_uint8( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, uint16_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    uint16_t const & value
+    )
 {
     return dlt_user_log_write_uint16( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, uint32_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    uint32_t const & value
+    )
 {
     return dlt_user_log_write_uint32( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, uint64_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    uint64_t const & value
+    )
 {
     return dlt_user_log_write_uint64( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, float32_t const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    float32_t const & value
+    )
 {
     return dlt_user_log_write_float32( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, double const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    double const & value
+    )
 {
     return dlt_user_log_write_float64( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, bool const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    bool const & value
+    )
 {
     return dlt_user_log_write_bool( &log, value );
 }
 
-static inline int32_t logToDlt ( DltContextData & log, char const * const value )
+static inline int32_t logToDlt (
+    DltContextData & log,
+    char const * const value
+    )
 {
     return dlt_user_log_write_utf8_string( &log, value );
 }
 
-static inline int32_t logToDlt ( DltContextData & log, char * const value )
+static inline int32_t logToDlt (
+    DltContextData & log,
+    char * const value
+    )
 {
     return dlt_user_log_write_utf8_string( &log, value );
 }
 
 template < >
-inline int32_t logToDlt ( DltContextData & log, std::string const & value )
+inline int32_t logToDlt (
+    DltContextData & log,
+    std::string const & value
+    )
 {
     return dlt_user_log_write_utf8_string( &log, value.c_str());
 }
@@ -124,10 +169,16 @@ inline int32_t logToDlt ( DltContextData & log, std::string const & value )
 /* stl types */
 template < >
 int32_t
-logToDlt ( DltContextData & log, std::string const & value );
+logToDlt (
+    DltContextData & log,
+    std::string const & value
+    );
 
 template < typename _Tp, typename _Alloc = std::allocator < _Tp > >
-static inline int32_t logToDlt ( DltContextData & log, std::vector < _Tp, _Alloc > const & value )
+static inline int32_t logToDlt (
+    DltContextData & log,
+    std::vector < _Tp, _Alloc > const & value
+    )
 {
     int result = 0;
 
@@ -142,7 +193,10 @@ static inline int32_t logToDlt ( DltContextData & log, std::vector < _Tp, _Alloc
 }
 
 template < typename _Tp, typename _Alloc = std::allocator < _Tp > >
-static inline int32_t logToDlt ( DltContextData & log, std::list < _Tp, _Alloc > const & value )
+static inline int32_t logToDlt (
+    DltContextData & log,
+    std::list < _Tp, _Alloc > const & value
+    )
 {
     int result = 0;
 
@@ -158,7 +212,10 @@ static inline int32_t logToDlt ( DltContextData & log, std::list < _Tp, _Alloc >
 
 template < typename _Key, typename _Tp, typename _Compare = std::less < _Key >,
            typename _Alloc = std::allocator < std::pair < const _Key, _Tp > > >
-static inline int32_t logToDlt ( DltContextData & log, std::map < _Key, _Tp, _Compare, _Alloc > const & value )
+static inline int32_t logToDlt (
+    DltContextData & log,
+    std::map < _Key, _Tp, _Compare, _Alloc > const & value
+    )
 {
     int result = 0;
 
@@ -177,13 +234,20 @@ static inline int32_t logToDlt ( DltContextData & log, std::map < _Key, _Tp, _Co
 
 // variadic functions using C11 standard
 template < typename First >
-static inline int32_t logToDltVariadic ( DltContextData & log, First const & valueA )
+static inline int32_t logToDltVariadic (
+    DltContextData & log,
+    First const & valueA
+    )
 {
     return logToDlt( log, valueA );
 }
 
 template < typename First, typename ... Rest >
-static inline int32_t logToDltVariadic ( DltContextData & log, First const & valueA, const Rest & ... valueB )
+static inline int32_t logToDltVariadic (
+    DltContextData & log,
+    First const & valueA,
+    const Rest & ... valueB
+    )
 {
     int result = logToDlt( log, valueA ) + logToDltVariadic( log, valueB ... );
 

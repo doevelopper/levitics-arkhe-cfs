@@ -1,23 +1,25 @@
 #Cyclomatic Complexity Analyzer 
-set(LIZARD_OPTIONS  -l cpp 
-                    --verbose
-#                    --warnings_only
-                    --working_threads ${Ncpu} 
-                    --CCN 15 
-                    --arguments 1 
-                    --modified 
-                    --sort nloc #cyclomatic_complexity, token_count, p#arameter_count
-#                    --Threshold nloc=5
-#                    cyclomatic_complexity --warnings_only
-#                    --input_file=/home/happyman/NetBeansProjects/didactics/build/Debug/qa/cppcheck/SphynxCore/files.txt
-#                    --html
+set(LIZARD_OPTIONS  
+    -l cpp 
+    --verbose
+    --warnings_only
+    --working_threads ${Ncpu} 
+    --CCN 15 
+    --arguments 3 
+    --modified
+    --length 500
+    --sort nloc #cyclomatic_complexity, token_count, p#arameter_count
+   --Threshold nloc=5
+#   cyclomatic_complexity --warnings_only
+#   --input_file=/home/happyman/NetBeansProjects/didactics/build/Debug/qa/cppcheck/SphynxCore/files.txt
+#   --html
 )
 
 if(ENABLE_CYCLOMATIC_COMPLEXITY)
     find_package(PythonInterp)
 
     if(PYTHONINTERP_FOUND)
-        set(LIZARD_SCRIPT "${PROJECT_SOURCE_DIR}/src/main/resources/scripts/lizard-1.12.7/lizard.py")
+        set(LIZARD_SCRIPT "${PROJECT_SOURCE_DIR}/src/main/resources/scripts/lizard-1.12.15/lizard.py")
         mark_as_advanced(LIZARD_SCRIPT LIZARD_OPTIONS)
 
         if(ENABLE_CYCLOMATIC_COMPLEXITY)
@@ -45,7 +47,7 @@ function(CYCLOMATIC_COMPLEXITY_ANALYZER target_name bin_folder)
             file(MAKE_DIRECTORY ${bin_folder})
             file(MAKE_DIRECTORY ${WORKING_DIR})
             add_custom_target(${target_name}-cyclomatic 
-                         COMMAND ${PYTHON_EXECUTABLE} ${LIZARD_SCRIPT} ${LIZARD_OPTIONS}  ${bin_folder} --xml # > ${WORKING_DIR}/lizard.xml#--html #${WORKING_DIR}
+                         COMMAND ${PYTHON_EXECUTABLE} ${LIZARD_SCRIPT} ${LIZARD_OPTIONS}  ${bin_folder} --xml  > ${WORKING_DIR}/lizard.xml#--html #${WORKING_DIR}
 #                         COMMAND ${PYTHON_EXECUTABLE} ${LIZARD_SCRIPT}   ${bin_folder}
 #                         WORKING_DIRECTORY ${bin_folder}
                          WORKING_DIRECTORY ${WORKING_DIR}

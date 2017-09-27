@@ -6,8 +6,8 @@
 #include <string>
 #include <iostream>
 
-#define ERROR_LOCATION std::string ( "(" ) + std::string( __FILE__ ) + std::string ( ":" ) + toString( __LINE__ ) + std::string ( ")" )
-#define RAISE_ERROR( error ) throw Exceptions::prepare( error, __FILE__, __LINE__, __func__ )
+#define ERROR_LOCATION  std::string ( "(" ) + std::string( __FILE__ ) + std::string ( ":" ) + toString( __LINE__ ) + std::string ( ")" )
+#define RAISE_ERROR( error )  throw Exceptions::prepare( error, __FILE__, __LINE__, __func__ )
 
 namespace cfs
 {
@@ -30,12 +30,12 @@ namespace cfs
  */
                     enum TerminateAction
                     {
-                        NOTHING = 0x0,    /*! Do nothing. Don't even install termination handlers. */
-                        BACKTRACE = 0x1,  /*! Load gdb and get a stack dump using gdb bt command.  */
-                        WEAK_BACKTRACE = 0x2, /*! Get backtrace using glibc::backtrace. */
+                        NOTHING = 0x0,           /*! Do nothing. Don't even install termination handlers. */
+                        BACKTRACE = 0x1,         /*! Load gdb and get a stack dump using gdb bt command.  */
+                        WEAK_BACKTRACE = 0x2,    /*! Get backtrace using glibc::backtrace. */
                         TRAP_MANY_SIGNALS = 0x4, /*! Trap a lot of signals not normally trapped. */
-                        USE_CURRENT = 0x8, /*! Inherit values already existing in previous handlers. */
-                        LOCAL_VARIABLES = 0x10/*! Attempt to additionaly display local variables. */
+                        USE_CURRENT = 0x8,       /*! Inherit values already existing in previous handlers. */
+                        LOCAL_VARIABLES = 0x10   /*! Attempt to additionaly display local variables. */
                     };
 
                     public:
@@ -72,7 +72,10 @@ namespace cfs
 /*!
  * @brief Constructs an exeption with message and error code.
  */
-                    Exception( const std::string & msg, int code = 0 );
+                    Exception(
+                        const std::string & msg,
+                        int code = 0
+                        );
 /*!
  * @brief Constructor.
  * @param _method Mothodd s name raising the exception.
@@ -80,7 +83,11 @@ namespace cfs
  * @param _code Error code.
  * @throw std::runtime_error When socket could not be created.
  */
-                    Exception( const std::string & msg, const std::string & arg, int code = 0 );
+                    Exception(
+                        const std::string & msg,
+                        const std::string & arg,
+                        int code = 0
+                        );
 /*!
  * @brief Constructor.
  * @param _method Mothodd s name raising the exception.
@@ -88,7 +95,11 @@ namespace cfs
  * @param _code Error code.
  * @throw std::runtime_error When socket could not be created.
  */
-                    Exception( const std::string & msg, const Exception & nested, int code = 0 );
+                    Exception(
+                        const std::string & msg,
+                        const Exception & nested,
+                        int code = 0
+                        );
 /*!
  * @brief methodName Method raising the exception.
  */
@@ -139,7 +150,10 @@ namespace cfs
                     int m_code;                   ///< Error code
             };
 
-            std::ostream & operator << ( std::ostream & out, const Exception & ex )
+            std::ostream & operator << (
+                std::ostream & out,
+                const Exception & ex
+                )
             {
                 out << "CFS Exception: " << ex.what();
 

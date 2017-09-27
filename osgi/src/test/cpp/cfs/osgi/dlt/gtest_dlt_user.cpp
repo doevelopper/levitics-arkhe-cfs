@@ -108,83 +108,83 @@ extern "C" {
 
 // define some min and max values (if not present in <limits.h>)
 #ifndef UINT8_MIN
-#define UINT8_MIN 0
+#define UINT8_MIN   0
 #endif
 
 #ifndef UINT16_MIN
-#define UINT16_MIN 0
+#define UINT16_MIN  0
 #endif
 
 #ifndef UINT32_MIN
-#define UINT32_MIN 0
+#define UINT32_MIN  0
 #endif
 
 #ifndef UINT64_MIN
-#define UINT64_MIN 0
+#define UINT64_MIN  0
 #endif
 
 #ifndef UINT8_MAX
-#define UINT8_MAX 255
+#define UINT8_MAX   255
 #endif
 
 #ifndef UINT16_MAX
-#define UINT16_MAX 65535
+#define UINT16_MAX  65535
 #endif
 
 #ifndef UINT32_MAX
-#define UINT32_MAX 4294967295
+#define UINT32_MAX  4294967295
 #endif
 
 #ifndef UINT64_MAX
-#define UINT64_MAX 18446744073709551615UL
+#define UINT64_MAX  18446744073709551615UL
 #endif
 
 #ifndef INT8_MIN
-#define INT8_MIN -128
+#define INT8_MIN    -128
 #endif
 
 #ifndef INT16_MIN
-#define INT16_MIN -32768
+#define INT16_MIN   -32768
 #endif
 
 #ifndef INT32_MIN
-#define INT32_MIN -2147483648
+#define INT32_MIN   -2147483648
 #endif
 
 #ifndef INT64_MIN
-#define INT64_MIN -9223372036854775807
+#define INT64_MIN   -9223372036854775807
 #endif
 
 #ifndef INT8_MAX
-#define INT8_MAX 127
+#define INT8_MAX    127
 #endif
 
 #ifndef INT16_MAX
-#define INT16_MAX 32767
+#define INT16_MAX   32767
 #endif
 
 #ifndef INT32_MAX
-#define INT32_MAX 2147483647
+#define INT32_MAX   2147483647
 #endif
 
 #ifndef INT64_MAX
-#define INT64_MAX 9223372036854775807
+#define INT64_MAX   9223372036854775807
 #endif
 
 #ifndef UINT_MIN
-#define UINT_MIN UINT32_MIN
+#define UINT_MIN    UINT32_MIN
 #endif
 
 #ifndef UINT_MAX
-#define UINT_MAX UINT32_MAX
+#define UINT_MAX    UINT32_MAX
 #endif
 
 #ifndef INT_MIN
-#define INT_MIN INT32_MIN
+#define INT_MIN     INT32_MIN
 #endif
 
 #ifndef INT_MAX
-#define INT_MAX INT32_MAX
+#define INT_MAX     INT32_MAX
 #endif
 
 /////////////////////////////////////////
@@ -2551,7 +2551,11 @@ TEST( t_dlt_unregister_context, nullpointer )
 
 /////////////////////////////////////////
 // t_dlt_register_injection_callback
-int dlt_user_injection_callback ( uint32_t /*service_id*/, void */*data*/, uint32_t /*length*/ )
+int dlt_user_injection_callback (
+    uint32_t /*service_id*/,
+    void */*data*/,
+    uint32_t /*length*/
+    )
 {
     return 0;
 }
@@ -2577,7 +2581,11 @@ TEST( t_dlt_register_injection_callback, normal )
 
 /////////////////////////////////////////
 // t_dlt_register_log_level_changed_callback
-void dlt_user_log_level_changed_callback ( char /*context_id*/[DLT_ID_SIZE], uint8_t /*log_level*/, uint8_t /*trace_status*/ )
+void dlt_user_log_level_changed_callback (
+    char /*context_id*/[DLT_ID_SIZE],
+    uint8_t /*log_level*/,
+    uint8_t /*trace_status*/
+    )
 {
 }
 
@@ -2977,7 +2985,10 @@ TEST( t_dlt_user_is_logLevel_enabled, nullpointer )
 
 /////////////////////////////////////////
 // main
-int main ( int argc, char * * argv )
+int main (
+    int argc,
+    char * * argv
+    )
 {
     ::testing::InitGoogleTest( &argc, argv );
 

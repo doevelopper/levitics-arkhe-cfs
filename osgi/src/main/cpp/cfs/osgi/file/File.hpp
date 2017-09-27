@@ -24,13 +24,19 @@ namespace cfs
                 public:
 
                     File();
-                    File( const std::string & fileName, const Mode mode = Mode::both );
+                    File(
+                        const std::string & fileName,
+                        const Mode mode = Mode::both
+                        );
                     virtual ~File();
 
                     void
                     open ( const std::ios_base::openmode accessMode );
                     void
-                    open ( const std::string & fileName, const Mode mode = Mode::both );
+                    open (
+                        const std::string & fileName,
+                        const Mode mode = Mode::both
+                        );
                     template < typename Type, typename = typename std::enable_if < !std::is_same < Type, std::string >::value >::type >
                     Type
                     read ();
@@ -53,7 +59,10 @@ namespace cfs
                     bool
                     endOfFile () const;
                     static void
-                    save ( const std::string & fileName, const std::string & text );
+                    save (
+                        const std::string & fileName,
+                        const std::string & text
+                        );
 
                 private:
 

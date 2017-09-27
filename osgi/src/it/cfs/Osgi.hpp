@@ -13,7 +13,10 @@ class Osgi
     public:
 
         Osgi();
-        Osgi( int argc, char * argv[] );
+        Osgi(
+            int argc,
+            char * argv[]
+            );
         virtual ~Osgi() = default;
 
     private:

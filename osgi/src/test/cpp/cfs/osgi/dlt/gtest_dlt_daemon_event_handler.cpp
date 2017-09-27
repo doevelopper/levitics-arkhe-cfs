@@ -634,7 +634,10 @@ int connectServer ( void )
     return sockfd;
 }
 
-int main ( int argc, char * * argv )
+int main (
+    int argc,
+    char * * argv
+    )
 {
     pid_t cpid;
 

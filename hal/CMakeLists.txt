@@ -13,6 +13,23 @@ if(ENABLE_CPPCHECK)
     )
 endif(ENABLE_CPPCHECK)
 
+if(ENABLE_CPPLINT)
+    CPPLINT_RECURSIVE(
+        ${PROJECT_NAME}-hal
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CORE_MODULE_ROOT_DIRECTORY}
+        ${CMAKE_CURRENT_LIST_DIR} # for namespace guard
+    )
+endif(ENABLE_CPPLINT)
+
+if(ENABLE_CYCLOMATIC_COMPLEXITY)
+    CYCLOMATIC_COMPLEXITY_ANALYZER( 
+        ${PROJECT_NAME}-hal
+        ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+endif(ENABLE_CYCLOMATIC_COMPLEXITY)
+
+
 
 add_subdirectory (src/main/cpp)
 add_subdirectory (src/test/cpp)

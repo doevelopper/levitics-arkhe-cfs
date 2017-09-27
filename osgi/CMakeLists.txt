@@ -16,12 +16,12 @@
 #    )
 #endif(ENABLE_CPPCHECK)
 #
-if(ENABLE_FORMATING_STYLE)
-    apply_style_targets(
-        ${PROJECT_NAME}-Osgi
-        ${CMAKE_CURRENT_BINARY_DIR}
-    )
-endif(ENABLE_FORMATING_STYLE)
+#if(ENABLE_FORMATING_STYLE)
+#    apply_style_targets(
+#        ${PROJECT_NAME}-Osgi
+#        ${CMAKE_CURRENT_BINARY_DIR}
+#    )
+#endif(ENABLE_FORMATING_STYLE)
 #
 #
 #if(ENABLE_CYCLOMATIC_COMPLEXITY)

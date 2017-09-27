@@ -64,9 +64,10 @@ endif(ENABLE_COVERAGE)
 if(ENABLE_QA_CHECK)
     if(NOT TARGET qa-check)
         ADD_CUSTOM_TARGET(qa-check
-            COMMENT "Software quality assurance: Style -> CPPCheck -> Cyclomatic -> CPPlint -> Coverage"
+            COMMENT "Software quality assurance: Style -> Cyclomatic -> CPPlint -> CPPCheck -> Coverage"
+            DEPENDS coverage cppcheck lint cyclomatic style
         )
-        add_dependencies(qa-check coverage style cppcheck cyclomatic lint)
+#        add_dependencies(qa-check coverage cppcheck lint style lint cyclomatic style)
     endif(NOT TARGET qa-check)
 else(ENABLE_QA_CHECK)
     add_custom_target(qa-check 

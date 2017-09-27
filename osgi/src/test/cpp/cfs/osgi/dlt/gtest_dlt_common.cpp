@@ -45,21 +45,52 @@ dlt_buffer_minimize_size ( DltBuffer * );
 int
 dlt_buffer_reset ( DltBuffer * );
 DltReturnValue
-dlt_buffer_push ( DltBuffer *, const unsigned char *, unsigned int );
+dlt_buffer_push (
+    DltBuffer *,
+    const unsigned char *,
+    unsigned int
+    );
 DltReturnValue
-dlt_buffer_push3 ( DltBuffer *, const unsigned char *, unsigned int, const unsigned char *, unsigned int, const unsigned char *, unsigned int );
+dlt_buffer_push3 (
+    DltBuffer *,
+    const unsigned char *,
+    unsigned int,
+    const unsigned char *,
+    unsigned int,
+    const unsigned char *,
+    unsigned int
+    );
 int
-dlt_buffer_get ( DltBuffer *, unsigned char *, int, int );
+dlt_buffer_get (
+    DltBuffer *,
+    unsigned char *,
+    int,
+    int
+    );
 int
-dlt_buffer_pull ( DltBuffer *, unsigned char *, int );
+dlt_buffer_pull (
+    DltBuffer *,
+    unsigned char *,
+    int
+    );
 int
 dlt_buffer_remove ( DltBuffer * );
 void
 dlt_buffer_status ( DltBuffer * );
 void
-dlt_buffer_write_block ( DltBuffer *, int *, const unsigned char *, unsigned int );
+dlt_buffer_write_block (
+    DltBuffer *,
+    int *,
+    const unsigned char *,
+    unsigned int
+    );
 void
-dlt_buffer_read_block ( DltBuffer *, int *, unsigned char *, unsigned int );
+dlt_buffer_read_block (
+    DltBuffer *,
+    int *,
+    unsigned char *,
+    unsigned int
+    );
 void
 dlt_buffer_info ( DltBuffer * );
 }
@@ -4138,7 +4169,10 @@ TEST( dlt_get_minor_version, nullpointer )
 /*##############################################################################################################################*/
 
 
-int main ( int argc, char * * argv )
+int main (
+    int argc,
+    char * * argv
+    )
 {
     ::testing::InitGoogleTest( &argc, argv );
     ::testing::FLAGS_gtest_break_on_failure = true;

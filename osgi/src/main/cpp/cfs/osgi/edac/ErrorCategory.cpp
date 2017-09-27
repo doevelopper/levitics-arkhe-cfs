@@ -60,7 +60,10 @@ ErrorCategory::default_error_condition ( int ev ) const
     }
 }
 
-bool equivalent ( const std::error_code & code, int condition ) const
+bool equivalent (
+    const std::error_code & code,
+    int condition
+    ) const
 {
     return ( *this == code.category() && static_cast < int > ( default_error_condition( code.value()).value()) == condition );
 }

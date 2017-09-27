@@ -20,7 +20,10 @@ class ABIDemangling
         virtual ~ABIDemangling() = default;
 
         bool
-        demangle ( std::string s, std::string & res );
+        demangle (
+            std::string s,
+            std::string & res
+            );
         template < typename T >
         std::string
         gccDemangle ( T & e );
@@ -32,9 +35,16 @@ class ABIDemangling
         std::string
         demangle ( const std::type_info & type );
         size_t
-        demangle ( const std::type_info & type, char * buf, size_t bufSize );
+        demangle (
+            const std::type_info & type,
+            char * buf,
+            size_t bufSize
+            );
         void
-        printExceptionStack ( const std::exception & e, std::ostream & output = std::cerr );
+        printExceptionStack (
+            const std::exception & e,
+            std::ostream & output = std::cerr
+            );
 
     private:
 };

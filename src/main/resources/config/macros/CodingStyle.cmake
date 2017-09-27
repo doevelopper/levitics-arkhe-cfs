@@ -1,5 +1,5 @@
 set (UNCRUSTIFY_CONFIG "${PROJECT_SOURCE_DIR}/src/main/resources/config/style.cfg")
-set(UNCRUSTIFY_FLAGS --no-backup -l CPP  -c ${UNCRUSTIFY_CONFIG})
+set(UNCRUSTIFY_FLAGS -q --if-changed --no-backup -l CPP  -c ${UNCRUSTIFY_CONFIG})
 
 if(ENABLE_FORMATING_STYLE)
     find_program(UNCRUSTIFY uncrustify)

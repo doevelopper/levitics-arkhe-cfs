@@ -42,7 +42,11 @@ Error::throw_error ()
 }
 
 void
-Error::throw_error ( const char * const origin, const char * const format, ... )
+Error::throw_error (
+    const char * const origin,
+    const char * const format,
+    ...
+    )
 {
     va_list args;
 
@@ -53,10 +57,12 @@ Error::throw_error ( const char * const origin, const char * const format, ... )
 }
 
 void
-Error::throw_error ( const int code,
-                     const char * const origin,
-                     const char * const format,
-                     va_list args )
+Error::throw_error (
+    const int code,
+    const char * const origin,
+    const char * const format,
+    va_list args
+    )
 {
     static thread_local std::array < char, 4096 > buffer;
 

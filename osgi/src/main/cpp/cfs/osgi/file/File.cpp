@@ -9,7 +9,10 @@ File::File()
 {
 }
 
-File::File( const std::string & fileName, const Mode mode )
+File::File(
+    const std::string & fileName,
+    const Mode mode
+    )
     : m_fileName( fileName )
 
 // , m_accessMode(mode)
@@ -36,7 +39,10 @@ File::open ( const std::ios_base::openmode accessMode )
     }
 }
 
-void File::open ( const std::string & fileName, const Mode mode )
+void File::open (
+    const std::string & fileName,
+    const Mode mode
+    )
 {
     this->m_fileName = fileName;
 
@@ -108,7 +114,10 @@ bool File::endOfFile () const
     return ( this->m_fileStream.eof )();
 }
 
-void File::save ( const std::string & fileName, const std::string & text )
+void File::save (
+    const std::string & fileName,
+    const std::string & text
+    )
 {
     File file( fileName );
 

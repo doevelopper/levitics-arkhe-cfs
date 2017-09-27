@@ -51,7 +51,7 @@ extern "C" {
 
 /* Name of named pipe to DLT daemon */
 #ifndef DLT_USER_FIFO
-#define DLT_USER_FIFO "/tmp/dlt"
+#define DLT_USER_FIFO  "/tmp/dlt"
 #endif
 
 
@@ -1283,7 +1283,10 @@ TEST( t_dlt_daemon_user_send_log_state, nullpointer )
 /*##############################################################################################################################*/
 
 
-int main ( int argc, char * * argv )
+int main (
+    int argc,
+    char * * argv
+    )
 {
     ::testing::InitGoogleTest( &argc, argv );
     ::testing::FLAGS_gtest_break_on_failure = true;

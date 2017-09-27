@@ -319,6 +319,15 @@ Contributor(s):
           </df>
         </df>
       </df>
+      <df name="src">
+        <df name="main">
+          <df name="resources">
+            <df name="config">
+              <in>CPPLINT.cfg</in>
+            </df>
+          </df>
+        </df>
+      </df>
       <in>.appveyor.yml</in>
       <in>.travis.yml</in>
       <in>CONTRIBUTING.md</in>
@@ -803,6 +812,11 @@ Contributor(s):
       </item>
       <item path="src/main/cpp/cfs/App.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/main/resources/config/CPPLINT.cfg"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/test/cpp/cfs/AppTest.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/test/cpp/cfs/AppTest.hpp" ex="false" tool="3" flavor2="0">
@@ -1254,6 +1268,11 @@ Contributor(s):
       <item path="src/main/cpp/cfs/App.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main/cpp/cfs/App.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main/resources/config/CPPLINT.cfg"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/BullseyeCoverage.cmake"
             ex="false"

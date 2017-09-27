@@ -620,7 +620,10 @@ TEST( t_dlt_gateway_forward_control_message, nullpointer )
     EXPECT_EQ( DLT_RETURN_ERROR, dlt_gateway_forward_control_message( NULL, NULL, NULL, NULL, 0 ));
 }
 
-int main ( int argc, char * * argv )
+int main (
+    int argc,
+    char * * argv
+    )
 {
     ::testing::InitGoogleTest( &argc, argv );
 

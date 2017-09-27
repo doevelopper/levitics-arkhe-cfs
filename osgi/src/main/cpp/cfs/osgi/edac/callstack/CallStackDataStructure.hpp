@@ -15,13 +15,16 @@ class CallStackDataStructure
 
     private:
 
-        std::string m_file;       // filename
-        size_t m_line;            // line number
+        std::string m_file;        // filename
+        size_t m_line;             // line number
         std::string m_lineContent; // line number string (not always set)
-        std::string m_function;   // name of function or method
+        std::string m_function;    // name of function or method
         void * m_address;          // memory address of stack pointer (raw)
         void * m_address2;         // memory address of stack pointer (from dladdr; data segment offset subtracted)
 };
 
-std::ostream & operator << ( std::ostream & out, const CallStackDataStructure & ent );
+std::ostream & operator << (
+    std::ostream & out,
+    const CallStackDataStructure & ent
+    );
 #endif

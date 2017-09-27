@@ -38,7 +38,10 @@ class ErrorCategory :
         virtual std::error_condition
         default_error_condition ( int ev ) const;
         virtual bool
-        equivalent ( const std::error_code & code, int condition ) const;
+        equivalent (
+            const std::error_code & code,
+            int condition
+            ) const;
 
     private:
 };

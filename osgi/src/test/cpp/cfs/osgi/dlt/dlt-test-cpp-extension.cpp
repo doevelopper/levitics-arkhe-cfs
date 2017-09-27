@@ -37,7 +37,10 @@ struct MyStruct
 };
 
 template < >
-inline int logToDlt ( DltContextData & log, MyStruct const & value )
+inline int logToDlt (
+    DltContextData & log,
+    MyStruct const & value
+    )
 {
     int result = 0;
 

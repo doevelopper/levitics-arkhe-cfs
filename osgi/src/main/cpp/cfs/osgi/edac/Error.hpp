@@ -1,5 +1,6 @@
 
 // class error_code;
+
 // class error_condition;
 // class error_category;
 // class system_error;
@@ -21,7 +22,7 @@
 #include <system_error>
 #include <vector>
 
-#define ERRMSG std::cerr << __FILE__ << ":" << __LINE__ << ":" << __FUNCTION__ << "(): "
+#define ERRMSG  std::cerr << __FILE__ << ":" << __LINE__ << ":" << __FUNCTION__ << "(): "
 
 /*
  *
@@ -66,14 +67,14 @@
  *
  */
 
-#define CFS_DECLARE( type )           type
-#define CFS_SUCCESS                 ( 0x00000000L )    //! no error.
-#define CFE_SUCCESS                 ( 0x00000000L )    //! no error.
-#define CFE_ERROR                  ~( CFS_SUCCESS )    //! error.
-#define CFS_ERROR                  ~( CFE_SUCCESS )    //! error.
+#define CFS_DECLARE( type )  type
+#define CFS_SUCCESS  ( 0x00000000L )    //! no error.
+#define CFE_SUCCESS  ( 0x00000000L )    //! no error.
+#define CFE_ERROR    ~( CFS_SUCCESS )   //! error.
+#define CFS_ERROR    ~( CFE_SUCCESS )   //! error.
 
 /// Macro for generating bit masks using bit index from the spec
-#define CFE_BIT_MASK( bit_index, field_bit_count ) ( ( 1 << (( field_bit_count ) - 1 )) >> ( bit_index ) )
+#define CFE_BIT_MASK( bit_index, field_bit_count )  ( ( 1 << (( field_bit_count ) - 1 )) >> ( bit_index ) )
 
 namespace cfs
 {
@@ -127,19 +128,19 @@ namespace cfs
         STATUS_INTERNAL_ERROR = 7,    ///< An internal runtime error has occured.
         STATUS_SECURITY_ERROR = 8,    ///< A security/authentication error has occured.
         STATUS_PARSE_ERROR = 9,       ///< A error has occured while parsing the command.
-        STATUS_IN_PROGRESS = 10,       ///< This operation is in progress.
-        STATUS_NOMEM = 11,             ///< Operation prevented due to memory pressure.
-        STATUS_BUSY = 12,              ///< The device is currently performing a mutually exclusive operation
-        STATUS_PROP_NOT_FOUND = 13,    ///< The given property is not recognized.
-        STATUS_DROPPED = 14,           ///< A/The packet was dropped.
-        STATUS_EMPTY = 15,             ///< The result of the operation is empty.
-        STATUS_CMD_TOO_BIG = 16,       ///< The command was too large to fit in the internal buffer.
-        STATUS_NO_ACK = 17,            ///< The packet was not acknowledged.
-        STATUS_CCA_FAILURE = 18,       ///< The packet was not sent due to a CCA failure.
-        STATUS_ALREADY = 19,           ///< The operation is already in progress.
-        STATUS_ITEM_NOT_FOUND = 20,    ///< The given item could not be found.
+        STATUS_IN_PROGRESS = 10,      ///< This operation is in progress.
+        STATUS_NOMEM = 11,            ///< Operation prevented due to memory pressure.
+        STATUS_BUSY = 12,             ///< The device is currently performing a mutually exclusive operation
+        STATUS_PROP_NOT_FOUND = 13,   ///< The given property is not recognized.
+        STATUS_DROPPED = 14,          ///< A/The packet was dropped.
+        STATUS_EMPTY = 15,            ///< The result of the operation is empty.
+        STATUS_CMD_TOO_BIG = 16,      ///< The command was too large to fit in the internal buffer.
+        STATUS_NO_ACK = 17,           ///< The packet was not acknowledged.
+        STATUS_CCA_FAILURE = 18,      ///< The packet was not sent due to a CCA failure.
+        STATUS_ALREADY = 19,          ///< The operation is already in progress.
+        STATUS_ITEM_NOT_FOUND = 20,   ///< The given item could not be found.
         STATUS_INVALID_COMMAND_FOR_PROP
-            = 21,                      ///< The given command cannot be performed on this property.
+            = 21,                     ///< The given command cannot be performed on this property.
     };
 
     namespace osgi
@@ -164,7 +165,10 @@ namespace cfs
 /*!
  * @brief Constructs a new error with the specified detail message and cause.
  */
-                    Error( std::string & message, int code )  noexcept( false );
+                    Error(
+                        std::string & message,
+                        int code
+                        )  noexcept( false );
 /*!
  * @brief Constructs a new error with the specified detail message, cause,
  *        suppression enabled or disabled, and writable stack trace enabled or disabled.
@@ -172,12 +176,26 @@ namespace cfs
  * @param[in] enableSuppression  - Whether or not suppression is enabled or disabled.
  * @param[in] writableStackTrace   - Whether or not the stack trace should be writable.
  */
-                    Error( std::string & message, bool enableSuppression, bool writableStackTrace ) noexcept( false );
+                    Error(
+                        std::string & message,
+                        bool enableSuppression,
+                        bool writableStackTrace
+                        ) noexcept( false );
                     Error( const std::error_code code ) noexcept;
-                    Error( const std::error_code code, const char * const what ) noexcept;
-                    Error( const int code, const std::error_category & category ) noexcept;
+                    Error(
+                        const std::error_code code,
+                        const char * const what
+                        ) noexcept;
+                    Error(
+                        const int code,
+                        const std::error_category & category
+                        ) noexcept;
                     Error( const int code ) noexcept;
-                    Error( const int code, const std::error_category & category, const char * const what ) noexcept;
+                    Error(
+                        const int code,
+                        const std::error_category & category,
+                        const char * const what
+                        ) noexcept;
 /*!
  * @brief Destructor.
  */
@@ -214,14 +232,20 @@ namespace cfs
 /*!
  *
  */
-                    std::system_error systemError ( int e, const char * msg )
+                    std::system_error systemError (
+                        int e,
+                        const char * msg
+                        )
                     {
                         return std::system_error( std::error_code( e, std::system_category()), msg );
                     }
 /*!
  *
  */
-                    std::system_error systemError ( int e, const std::string & msg )
+                    std::system_error systemError (
+                        int e,
+                        const std::string & msg
+                        )
                     {
                         return systemError( e, msg.c_str());
                     }

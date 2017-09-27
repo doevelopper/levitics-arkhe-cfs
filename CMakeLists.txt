@@ -1,3 +1,25 @@
+#               Copyright (c) 2014-2017 Nicolas J. FURY
+#
+#        Permission is hereby granted, free of charge, to any person obtaining
+#        a copy of this software and associated documentation files (the
+#        "Software"), to deal in the Software without restriction, including
+#        without limitation the rights to use, copy, modify, merge, publish,
+#        distribute, sublicense, and/or sell copies of the Software, and to
+#        permit persons to whom the Software is furnished to do so, subject to
+#        the following conditions:
+#
+#        The above copyright notice and this permission notice shall be
+#        included in all copies or substantial portions of the Software.
+#
+#        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+#        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+#        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+#        LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+#        OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+#        WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
 project(levitics-arkhe-cfs CXX)
 cmake_minimum_required( VERSION 3.8 FATAL_ERROR)
 
@@ -29,12 +51,14 @@ list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_SOURCE_DIR}/src/test/resources/config/modules"
 )
 
+
+include(ProcessorCount)
+ProcessorCount(Ncpu)
 include(buildLifeCycle)
 include(CodingStyle)
 include(cppcheck)
-#include(cpplint)
-#include(cyclomatic)
-#include(CpplintWrapper)
+include(cyclomatic)
+include(CpplintWrapper)
 
 option(ENABLE_QA_CHECK                  "Software quality. Conformance to one or more standards"    OFF)
 option(ENABLE_COVERAGE                  "Build the project with coverage support"                   OFF)

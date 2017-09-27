@@ -30,21 +30,39 @@ namespace cfs
                     Config( std::string filename );
                     virtual ~Config() = default;
                     void
-                    init ( std::string filename, std::string delimiter = "=", std::string comment = "#" );
+                    init (
+                        std::string filename,
+                        std::string delimiter = "=",
+                        std::string comment = "#"
+                        );
                     template < typename T >
                     T
                     read ( const std::string & in_key ) const;
                     template < typename T >
                     T
-                    read ( const std::string & in_key, const T & in_value ) const;
+                    read (
+                        const std::string & in_key,
+                        const T & in_value
+                        ) const;
                     template < typename T >
                     bool
-                    read ( T & out_var, const std::string & in_key ) const;
+                    read (
+                        T & out_var,
+                        const std::string & in_key
+                        ) const;
                     template < typename T >
                     bool
-                    read ( T & out_var, const std::string & in_key, const T & in_value ) const;
+                    read (
+                        T & out_var,
+                        const std::string & in_key,
+                        const T & in_value
+                        ) const;
                     void
-                    read ( std::string & filename, std::string delimiter = "=", std::string comment = "#" );
+                    read (
+                        std::string & filename,
+                        std::string delimiter = "=",
+                        std::string comment = "#"
+                        );
 /*!
  * @brief Retrieves the value of the specified option. If the option is not present, returns an empty string.
  *        The validity of an option may be checked via hasOption.
@@ -62,7 +80,10 @@ namespace cfs
  * @param[in] value
  */
                     void
-                    set ( std::string const & option, std::string const & value );
+                    set (
+                        std::string const & option,
+                        std::string const & value
+                        );
 
                 private:
 
