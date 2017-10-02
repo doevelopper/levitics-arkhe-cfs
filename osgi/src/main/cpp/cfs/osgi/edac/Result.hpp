@@ -1,6 +1,9 @@
 
 #ifndef CFS_OSGI_EDAC_RESULT_HPP
 #define CFS_OSGI_EDAC_RESULT_HPP
+
+#include <cfs/Config.hpp>
+
 /*!
  * @brief  C++ Result<Type, Error> Rust's like.
 

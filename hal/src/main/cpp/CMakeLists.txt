@@ -1,5 +1,7 @@
  set(cppsrc
  	cfs/hal/SystemInfo
+ 	cfs/hal/ResourceUsage
+ 	cfs/hal/ResourceLimit
         cfs/hal/cpu/CpuAffinity
  	cfs/hal/cpu/CpuInfo
  	cfs/hal/cpu/Topology

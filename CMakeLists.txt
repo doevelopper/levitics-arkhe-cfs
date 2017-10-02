@@ -74,33 +74,54 @@ option(ANALYZE_DATAFLOW                 "Dynamic analyzer: general dynamic dataf
 option(WARNINGS_ARE_ERRORS              "Treat warnings as errors"                                  OFF)
 option(WARNINGS_ANSI_ISO                "Issue all the mandatory diagnostics Listed in C standard"  ON)
 
-set (NAMESPACE "CFSA")
+set (NSPACE "CFS")
+#add_definitions(-DNSPACE="CFSA")
 
 set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
 set(TEST_THIRD_PARTY_LIB_MAIN gmock gtest benchmark gmock_main.d)
 set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain)
 set(INTEG_TEST_THIRD_PARTY_LIB_MAIN cucumber-cpp)
 
-#set(CMAKE_C_COMPILER        "/usr/bin/gcc-7")
-#set(CMAKE_C_COMPILER_AR     "/usr/bin/gcc-ar-7")
-#set(CMAKE_C_COMPILER_RANLIB "/usr/bin/gcc-ranlib-7")
-#set(CMAKE_CXX_COMPILER        "/usr/bin/g++-7")
-#set(CMAKE_CXX_COMPILER_AR     "/usr/bin/gcc-ar-7")
-#set(CMAKE_CXX_COMPILER_RANLIB "/usr/bin/gcc-ranlib-7")
+#set(CMAKE_C_COMPILER           "/usr/bin/gcc-7")
+#set(CMAKE_C_COMPILER_AR        "/usr/bin/gcc-ar-7")
+#set(CMAKE_C_COMPILER_RANLIB    "/usr/bin/gcc-ranlib-7")
+#set(CMAKE_CXX_COMPILER         "/usr/bin/g++-7")
+#set(CMAKE_CXX_COMPILER_AR      "/usr/bin/gcc-ar-7")
+#set(CMAKE_CXX_COMPILER_RANLIB  "/usr/bin/gcc-ranlib-7")
 #set(CMAKE_CXX_COMPILER_VERSION "7.0.1")
+#set(CMAKE_AR                   "/usr/bin/gcc-ar-7")
+#set(CMAKE_NM                   "/usr/bin/gcc-nm-7")
+#set(CMAKE_OBJCOPY              "/usr/bin/objcopy")
+#set(CMAKE_OBJDUMP              "/usr/bin/objdump")
+#set(CMAKE_RANLIB 
 
 
 include(PreventInSourceBuilds)
 include(LibrarySettings)
 include(CompilerOption)
 include(CMakeSettings)
+include(macros)
 include(aol)
+include(GccCoverage)
+
+enable_testing()
+
+generateGitInfo()
+getGitInfo()
+#TODAY(APP_BUILD_DATE)
+
+configure_file("${PROJECT_SOURCE_DIR}/src/main/resources/Config.hpp.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/cfs/Config.hpp"
+                @ONLY)
+
+#include_directories(${CMAKE_CURRENT_BINARY_DIR}) # needed for generated files
+#message (STATUS "PROJECT_BINARY_DIR ${PROJECT_BINARY_DIR}")
 
 add_subdirectory (hal)
-add_subdirectory (osal)
-add_subdirectory (osgi)
-add_subdirectory (cf)
-add_subdirectory (cfe)
+#add_subdirectory (osal)
+#add_subdirectory (osgi)
+#add_subdirectory (cf)
+#add_subdirectory (cfe)
 
 add_subdirectory (src/main/cpp)
 add_subdirectory (src/test/cpp)

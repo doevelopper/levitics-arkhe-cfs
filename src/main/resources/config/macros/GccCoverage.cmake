@@ -36,6 +36,12 @@ if(ENABLE_COVERAGE)
             --demangle-cpp
             --title "${PROJECT_NAME}")
 
+    set(CMAKE_CXX_FLAGS_COVERAGE            "${CMAKE_CXX_FLAGS_DEBUG}         --coverage") # == old -fprofile-arcs -ftest-coverage
+
+    set(CMAKE_SHARED_LINKER_FLAGS_COVERAGE  "${CMAKE_SHARED_LINKER_FLAGS_DEBUG}")
+    set(CMAKE_STATIC_LINKER_FLAGS_COVERAGE  "${CMAKE_STATIC_LINKER_FLAGS_DEBUG}")
+    set(CMAKE_MODULE_LINKER_FLAGS_COVERAGE  "${CMAKE_MODULE_LINKER_FLAGS_DEBUG}")
+
     set(COVERAGE_FLAGS "-pg -O0 --coverage -Wall -Wextra -Wpedantic")
     set(COVERAGE_LINK_FLAGS "--coverage -fprofile-arcs -ftest-coverage ") # -lgcov
 
@@ -57,6 +63,12 @@ if(ENABLE_COVERAGE)
         FORCE 
     )
 
+    set(CMAKE_STATIC_LINKER_FLAGS_COVERAGE
+        "${CMAKE_STATIC_LINKER_FLAGS_DEBUG}"
+        CACHE STRING "Flags used by the static libraries linker during coverage builds."
+        FORCE 
+    )
+
     set(CMAKE_SHARED_LINKER_FLAGS_COVERAGE
         "${COVERAGE_LINK_FLAGS}"
         CACHE STRING "Flags used by the shared libraries linker during coverage builds."
@@ -68,6 +80,10 @@ if(ENABLE_COVERAGE)
         CMAKE_C_FLAGS_COVERAGE
         CMAKE_EXE_LINKER_FLAGS_COVERAGE
         CMAKE_SHARED_LINKER_FLAGS_COVERAGE
+        CMAKE_STATIC_LINKER_FLAGS_COVERAGE
+        CMAKE_SHARED_LINKER_FLAGS_COVERAGE
+        CMAKE_STATIC_LINKER_FLAGS_COVERAGE
+        CMAKE_MODULE_LINKER_FLAGS_COVERAGE
     )
 
     if(CMAKE_COMPILER_IS_GNUCXX)
@@ -107,39 +123,45 @@ function(add_coverage_targets TEST_TARGET MODULE_NAME MODULE_DIRECTORY)
         )
     endif()
 
-    add_custom_command(TARGET coverage
+    add_custom_target( ${TEST_TARGET}-coverage
+        WORKING_DIRECTORY ${COVERAGE_WORKING_DIR}
+#        COMMAND ${CMAKE_COMMAND} -E echo "Test coverage is disabled"
+        COMMENT "[CPPCHECK-Target:${MODULE_NAME}] ${MODULE_DIRECTORY}."
+#        DEPENDS
+    )
+    add_custom_command(TARGET ${TEST_TARGET}-coverage
         COMMENT "Cleaning gcda files ${MODULE_DIRECTORY}"
         COMMAND lcov --directory ${MODULE_DIRECTORY} --zerocounters
         WORKING_DIRECTORY ${COVERAGE_WORKING_DIR}
     )
 
-    add_custom_command(TARGET coverage
+    add_custom_command(TARGET ${TEST_TARGET}-coverage
         COMMENT "Running ${TEST_TARGET}"
 #        COMMAND make test
         COMMAND ${CMAKE_BINARY_DIR}/bin/${TEST_TARGET}
         WORKING_DIRECTORY ${COVERAGE_WORKING_DIR}
     )
 
-    add_custom_command(TARGET coverage
+    add_custom_command(TARGET ${TEST_TARGET}-coverage
         COMMENT "Capturing date in ${MODULE_DIRECTORY}"
         COMMAND lcov --directory ${MODULE_DIRECTORY} --capture --output-file ${COVERAGE_WORKING_DIR}/${MODULE_NAME}.info
         COMMAND lcov --remove ${COVERAGE_WORKING_DIR}/${MODULE_NAME}.info 'build/*' '/usr/*' --output-file ${COVERAGE_WORKING_DIR}/${MODULE_NAME}.cleaned.info
         WORKING_DIRECTORY ${COVERAGE_WORKING_DIR}
     )
 
-    add_custom_command(TARGET coverage
+    add_custom_command(TARGET ${TEST_TARGET}-coverage
         COMMENT "Generating html report ${COVERAGE_WORKING_DIR}"
 #        COMMAND genhtml -o ${COVERAGE_WORKING_DIR} ${COVERAGE_WORKING_DIR}/${MODULE_NAME}.info
         COMMAND genhtml --frames --show-details --title ${MODULE_NAME} ${COVERAGE_LIMITS}  -s --legend --highlight --demangle-cpp -o ${COVERAGE_WORKING_DIR} ${COVERAGE_WORKING_DIR}/${MODULE_NAME}.cleaned.info
         WORKING_DIRECTORY ${COVERAGE_WORKING_DIR}
     )
 
-    add_custom_command(TARGET coverage
+    add_custom_command(TARGET ${TEST_TARGET}-coverage
         COMMAND echo "Open ${COVERAGE_WORKING_DIR}/index.html to view the coverage analysis results."
         WORKING_DIRECTORY ${COVERAGE_WORKING_DIR}
     )
 
-#    add_dependencies(coverage ${MODULE_NAME}-coverage)
+    add_dependencies(coverage ${MODULE_NAME}-coverage)
 
 endfunction()
 

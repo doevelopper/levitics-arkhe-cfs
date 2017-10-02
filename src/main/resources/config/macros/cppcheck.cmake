@@ -71,6 +71,7 @@ function(ADD_CPPCHECK_ANALYSIS target_name bin_folder)
             COMMAND ${PYTHON_EXECUTABLE} ${CPPCHECK_HTMLREPORT_GENERATOR} --title=${target_name} --file=${WORKING_DIR}/cppcheck.xml
                     --source-dir=${bin_folder} --report-dir=${WORKING_DIR}
             WORKING_DIRECTORY ${bin_folder}
+            DEPENDS ${ALL_SOURCE_FILES} ${ALL_HEADER_FILES}
             COMMENT "[CPPCHECK-Target] ${bin_folder}"
         )
 

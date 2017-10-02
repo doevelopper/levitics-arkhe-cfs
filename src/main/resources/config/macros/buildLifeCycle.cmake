@@ -62,7 +62,15 @@ endif(ENABLE_COVERAGE)
 
 
 if(ENABLE_QA_CHECK)
+
     if(NOT TARGET qa-check)
+
+        add_definitions(-DENABLE_CPPLINT=ON 
+                        -DENABLE_FORMATING_STYLE=ON  
+                        -DENABLE_CPPCHECK=ON 
+                        -DENABLE_CYCLOMATIC_COMPLEXITY=ON 
+        )
+
         ADD_CUSTOM_TARGET(qa-check
             COMMENT "Software quality assurance: Style -> Cyclomatic -> CPPlint -> CPPCheck -> Coverage"
             DEPENDS coverage cppcheck lint cyclomatic style
@@ -119,7 +127,7 @@ add_custom_target (distclean
     COMMAND find ${CMAKE_SOURCE_DIR} -type f -name CMakeCache.txt | xargs -r rm -vf
     COMMAND find ${CMAKE_SOURCE_DIR} -type d -name CMakeFiles | xargs -r rm -rvf
     COMMAND find ${CMAKE_SOURCE_DIR} -type f -name "*.marks" | xargs -r rm -vf
-    COMMENT "Cleaning target"
+    COMMENT "Cleaning all target's generated files"
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 

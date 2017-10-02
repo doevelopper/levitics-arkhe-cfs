@@ -1,5 +1,6 @@
  set(cppsrc
         cfs/osal/time/HRTimer
+        cfs/osal/time/TimeoutGuard
         cfs/osal/time/TimeSpan
  	cfs/osal/Semaphore
  )

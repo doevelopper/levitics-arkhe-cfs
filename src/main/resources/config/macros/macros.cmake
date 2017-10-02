@@ -23,19 +23,19 @@ function(getGitInfo)
             OUTPUT_STRIP_TRAILING_WHITESPACE)
 
         execute_process( COMMAND ${GIT_EXECUTABLE} config --get remote.origin.url
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
             OUTPUT_VARIABLE GIT_ORIGIN_URL 
-            OUTPUT_STRIP_TRAILING_WHITESPACE
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+            OUTPUT_STRIP_TRAILING_WHITESPACE)
 
         execute_process( COMMAND ${GIT_EXECUTABLE} config --get remote.root.url
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
             OUTPUT_VARIABLE GIT_ROOT_URL 
-            OUTPUT_STRIP_TRAILING_WHITESPACE
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+            OUTPUT_STRIP_TRAILING_WHITESPACE)
 
         execute_process( COMMAND ${GIT_EXECUTABLE} branch --contains HEAD
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
             OUTPUT_VARIABLE GIT_BRANCH 
-            OUTPUT_STRIP_TRAILING_WHITESPACE
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+            OUTPUT_STRIP_TRAILING_WHITESPACE)
 
         execute_process(COMMAND  "${GIT_EXECUTABLE}" log -1 --format=%ad --date=local
             WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
@@ -86,20 +86,21 @@ function(getGitInfo)
         list(REMOVE_DUPLICATES GIT_AUTHORS)
         file(WRITE ${PROJECT_BINARY_DIR}/Authors.txt "${GIT_AUTHORS}")
     endif(EXISTS ${PROJECT_BINARY_DIR}/Authors.txt)
-endfunction()  
+endfunction(getGitInfo)  
 
   
 function(generateGitInfo)
     if(EXISTS ${CMAKE_SOURCE_DIR}/.git)
         set(GIT_EXECUTABLE "git")
-        add_custom_command(OUTPUT ${SRCDIR}/gitrevision.hh
-            COMMAND ${CMAKE_COMMAND} -E echo_append "#define GITREVISION " > ${SRCDIR}/gitrevision.hh
-            COMMAND ${GIT_SCM} log -1 "--pretty=format:%h %ai" >> ${SRCDIR}/gitrevision.hh
-            DEPENDS ${GITDIR}/logs/HEAD
+        add_custom_command(OUTPUT ${TARGET_BUILD_DIRECTORY}/cfs/gitrevision.hpp
+            COMMAND ${CMAKE_COMMAND} -E echo_append "#define GITREVISION " > ${TARGET_BUILD_DIRECTORY}/cfs/gitrevision.hpp
+            COMMAND ${GIT_EXECUTABLE} log -1 "--pretty=format:%h %ai" >> ${TARGET_BUILD_DIRECTORY}/cfs/gitrevision.hpp
+#            DEPENDS ${GITDIR}/logs/HEAD
+            COMMENT "${TARGET_BUILD_DIRECTORY}/cfs/gitrevision.hpp"
             VERBATIM
         )
     endif(EXISTS ${CMAKE_SOURCE_DIR}/.git)
-endfunction(getGitInfo)
+endfunction(generateGitInfo)
 
 function(targetName flag)
     if(${flag})

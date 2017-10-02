@@ -17,7 +17,7 @@ if(ENABLE_CPPLINT)
     CPPLINT_RECURSIVE(
         ${PROJECT_NAME}-hal
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CORE_MODULE_ROOT_DIRECTORY}
+
         ${CMAKE_CURRENT_LIST_DIR} # for namespace guard
     )
 endif(ENABLE_CPPLINT)
@@ -30,6 +30,14 @@ if(ENABLE_CYCLOMATIC_COMPLEXITY)
 endif(ENABLE_CYCLOMATIC_COMPLEXITY)
 
 
+#if(ENABLE_COVERAGE)
+#    add_coverage_targets(
+#        ${PROJECT_NAME}-hal 
+#        ${PROJECT_NAME}-halTest 
+#        ${CMAKE_CURRENT_LIST_DIR}
+#    )
+#
+#endif(ENABLE_COVERAGE)
 
 add_subdirectory (src/main/cpp)
 add_subdirectory (src/test/cpp)
