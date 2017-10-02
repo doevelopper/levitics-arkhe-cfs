@@ -1,5 +1,6 @@
 
  set(cppsrc
+ 	cfs/SystemInfoTest
  	cfs/hal/CpuAffinityTest
  )
 

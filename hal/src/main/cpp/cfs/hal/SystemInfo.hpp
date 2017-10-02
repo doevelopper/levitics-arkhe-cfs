@@ -2,6 +2,7 @@
 #ifndef CFS_HAL_SYSTEMINFO_HPP
 #define CFS_HAL_SYSTEMINFO_HPP
 #include <cstdint>
+
 /*!
  * @brief Static class that collects many pieces of useful system information such as OS,
  *        architecture, supported graphics APIs, etc.

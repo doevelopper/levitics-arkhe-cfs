@@ -11,5 +11,6 @@ target_link_libraries (${PROJECT_NAME}-hal-ItTest
     ${TEST_THIRD_PARTY_LIB}
     ${INTEG_TEST_THIRD_PARTY_LIB_MAIN}
     pthread
+    ${PROJECT_NAME}-halTest
     ${PROJECT_NAME}-hal
 )

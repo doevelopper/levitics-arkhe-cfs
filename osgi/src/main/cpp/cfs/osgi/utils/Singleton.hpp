@@ -4,22 +4,24 @@
 #include <memory>
 #include <mutex>
 
-class Singleton 
+//template<class T>
+class Singleton final
 {
 public:
 
-    virtual ~Singleton() = default;
-    
-    static Singleton& instance();
-
-
+    static Singleton& instance(); //c++11
+    static Singleton& getInstance(); //c++14 guarantees that this will be initialized in a thread-safe way
 
 private:
     Singleton() = default;
-    Singleton(const Singleton& src) = delete;
-    Singleton& operator=(const Singleton& rhs) = delete;
+    virtual ~Singleton() = default;
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
+    Singleton(Singleton&&) = delete;
+    Singleton& operator=(Singleton&&) = delete;
     
     static std::unique_ptr<Singleton> m_instance;
+//    static static T* m_instance;
     static std::once_flag m_onceFlag;
 };
 

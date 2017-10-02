@@ -323,6 +323,9 @@ Contributor(s):
         <df name="main">
           <df name="resources">
             <df name="config">
+              <df name="macros">
+                <in>Cucumber.cmake</in>
+              </df>
               <in>CPPLINT.cfg</in>
             </df>
           </df>
@@ -533,6 +536,8 @@ Contributor(s):
         <ccTool flags="1">
         </ccTool>
       </item>
+      <item path="hal/src/it/cfs/hal/Tips.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="hal/src/main/cpp/cfs/hal/ResourceLimit.cpp"
             ex="false"
             tool="1"
@@ -580,6 +585,16 @@ Contributor(s):
             flavor2="11">
         <ccTool flags="1">
         </ccTool>
+      </item>
+      <item path="hal/src/test/cpp/cfs/SystemInfoTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/test/cpp/cfs/SystemInfoTest.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="hal/src/test/cpp/cfs/hal/CpuAffinityTest.cpp"
             ex="false"
@@ -847,6 +862,11 @@ Contributor(s):
         <ccTool flags="1">
         </ccTool>
       </item>
+      <item path="src/main/resources/config/macros/Cucumber.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/test/cpp/cfs/AppTest.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="1">
         </ccTool>
@@ -900,6 +920,8 @@ Contributor(s):
       <item path="hal/src/it/cfs/hal/Hal.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="hal/src/it/cfs/hal/Hal.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hal/src/it/cfs/hal/Tips.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="hal/src/main/cpp/cfs/hal/ResourceLimit.cpp"
             ex="false"
@@ -957,6 +979,16 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="hal/src/test/cpp/cfs/SystemInfoTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="hal/src/test/cpp/cfs/SystemInfoTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1385,6 +1417,11 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="src/main/resources/config/macros/CpplintWrapper.cmake"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/main/resources/config/macros/Cucumber.cmake"
             ex="false"
             tool="3"
             flavor2="0">
