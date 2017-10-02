@@ -36,19 +36,22 @@ namespace tips
         context->mock = std::make_shared<IFfaceMock>();
     }
     
-    GIVEN("^the tests expects that methodCall is called once$") {
-            ScenarioScope<MockContext> context{};
-            EXPECT_CALL(*context->mock, methodCall());
+    GIVEN("^the tests expects that methodCall is called once$") 
+    {
+        ScenarioScope<MockContext> context{};
+        EXPECT_CALL(*context->mock, methodCall());
     }
 
-    WHEN("^methodCall is called on the mock$") {
-            ScenarioScope<MockContext> context{};
-            context->mock->methodCall();
+    WHEN("^methodCall is called on the mock$") 
+    {
+        ScenarioScope<MockContext> context{};
+        context->mock->methodCall();
     }
 
-    THEN("^the test should pass$") {
-            ScenarioScope<MockContext> context{};
-            ASSERT_TRUE(::testing::Mock::VerifyAndClearExpectations(context->mock.get()));
+    THEN("^the test should pass$") 
+    {
+        ScenarioScope<MockContext> context{};
+        ASSERT_TRUE(::testing::Mock::VerifyAndClearExpectations(context->mock.get()));
     }
 
 }
