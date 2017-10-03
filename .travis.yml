@@ -14,9 +14,11 @@ matrix:
             - cmake-data
             - g++-6
             - cppcheck
+            - libboost1.56-all-dev
           sources:
             - george-edison55-precise-backports
             - ubuntu-toolchain-r-test
+            - boost-latest
 
     - env: GCC_VERSION=6 BUILD_TYPE=Release
       os: linux
@@ -27,14 +29,17 @@ matrix:
       os: linux
       addons: &gcc7
         apt:
-          packages:
-            - cmake
-            - cmake-data
-            - g++-7
-            - cppcheck
-          sources:
-            - george-edison55-precise-backports
-            - ubuntu-toolchain-r-test
+            sources:
+                - boost-latest
+                - ubuntu-toolchain-r-test
+            packages:
+                - cmake
+                - cmake-data
+                - g++-7
+                - cppcheck
+            sources:
+                - george-edison55-precise-backports
+                - ubuntu-toolchain-r-test
 
     - env: GCC_VERSION=6 BUILD_TYPE=Release
       os: linux

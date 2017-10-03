@@ -189,11 +189,11 @@ function(CPPLINT_RECURSIVE target_name src_folder top_level_directory)
                             ${src_folder}
                             > ${WORKING_DIR}/lint.xml 2>&1
                          WORKING_DIRECTORY ${WORKING_DIR}
-                         COMMENT "[CPPLINT-Target:${target_name}] ${WORKING_DIR}"
+                         COMMENT "[CPPLINT-Target:${target_name}] ${src_folder}"
             )
         endif()
     else(RUN_CPPLINT)
-        add_custom_target(${target_name} COMMAND ${CMAKE_COMMAND} -E echo NoLint)
+        add_custom_target(${target_name}-lint COMMAND ${CMAKE_COMMAND} -E echo NoLint)
     endif(RUN_CPPLINT)
 
     if(NOT TARGET lint)

@@ -78,7 +78,7 @@ set (NSPACE "CFS")
 #add_definitions(-DNSPACE="CFSA")
 
 set(TEST_THIRD_PARTY_LIB gmock gtest benchmark)
-set(TEST_THIRD_PARTY_LIB_MAIN gmock gtest benchmark gmock_main.d)
+set(TEST_THIRD_PARTY_LIB_MAIN gmock gtest benchmark gmock_main)
 set(INTEG_TEST_THIRD_PARTY_LIB cucumber-cpp-nomain)
 set(INTEG_TEST_THIRD_PARTY_LIB_MAIN cucumber-cpp)
 

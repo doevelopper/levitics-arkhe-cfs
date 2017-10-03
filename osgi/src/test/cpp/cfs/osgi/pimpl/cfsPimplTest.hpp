@@ -5,8 +5,7 @@
 #include <cfs/osgi/pimpl/cfsPimpl.hpp>
 #include <gmock/gmock.h>
 
-class cfsPimplTest :
-                   public ::testing::Test
+class cfsPimplTest : public ::testing::Test
 {
     public:
 

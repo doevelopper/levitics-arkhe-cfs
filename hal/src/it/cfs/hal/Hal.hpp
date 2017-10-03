@@ -10,7 +10,7 @@
 
 using cucumber::ScenarioScope;
 
-class Hal 
+class Hal
 {
     public:
 
@@ -20,24 +20,28 @@ class Hal
     private:
 };
 
-GIVEN("^a mock HW with method getDeviceId$") {
-    ScenarioScope<Hal> context{};
-//    context->mock = std::make_shared<Mock_Foo>();
+GIVEN( "^a mock HW with method getDeviceId$" ) {
+    ScenarioScope < Hal > context{ };
+
+// context->mock = std::make_shared<Mock_Foo>();
 }
 
-GIVEN("^the tests expects that getDeviceId is called once$") {
-    ScenarioScope<Hal> context{};
-//	EXPECT_CALL(*context->mock, foo());
+GIVEN( "^the tests expects that getDeviceId is called once$" ) {
+    ScenarioScope < Hal > context{ };
+
+// EXPECT_CALL(*context->mock, foo());
 }
 
-WHEN("^getDeviceId is called on the mock$") {
-    ScenarioScope<Hal> context{};
-//	context->mock->foo();
+WHEN( "^getDeviceId is called on the mock$" ) {
+    ScenarioScope < Hal > context{ };
+
+// context->mock->foo();
 }
 
-THEN("^the test should pass$") {
-    ScenarioScope<Hal> context{};
-//	ASSERT_TRUE(::testing::Mock::VerifyAndClearExpectations(context->mock.get()));
+THEN( "^the test should pass$" ) {
+    ScenarioScope < Hal > context{ };
+
+// ASSERT_TRUE(::testing::Mock::VerifyAndClearExpectations(context->mock.get()));
 }
 
 #endif

@@ -536,28 +536,6 @@ Contributor(s):
         <ccTool flags="1">
         </ccTool>
       </item>
-      <item path="hal/src/it/cfs/hal/Tips.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceLimit.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceLimit.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceUsage.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceUsage.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="hal/src/main/cpp/cfs/hal/SystemInfo.cpp"
             ex="false"
             tool="1"
@@ -585,16 +563,6 @@ Contributor(s):
             flavor2="11">
         <ccTool flags="1">
         </ccTool>
-      </item>
-      <item path="hal/src/test/cpp/cfs/SystemInfoTest.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/test/cpp/cfs/SystemInfoTest.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
       <item path="hal/src/test/cpp/cfs/hal/CpuAffinityTest.cpp"
             ex="false"
@@ -627,16 +595,6 @@ Contributor(s):
             flavor2="11">
         <ccTool flags="1">
         </ccTool>
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/time/TimeoutGuard.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/time/TimeoutGuard.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
       <item path="osal/src/test/cpp/cfs/osal/SemaphoreTest.cpp"
             ex="false"
@@ -775,36 +733,6 @@ Contributor(s):
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/CallbackHandler.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/CallbackHandler.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Helpers.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Helpers.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Singleton.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Singleton.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="osgi/src/test/cpp/cfs/osgi/edac/ActivatorTest.cpp"
             ex="false"
             tool="1"
@@ -921,28 +849,6 @@ Contributor(s):
       </item>
       <item path="hal/src/it/cfs/hal/Hal.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="hal/src/it/cfs/hal/Tips.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceLimit.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceLimit.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceUsage.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/main/cpp/cfs/hal/ResourceUsage.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="hal/src/main/cpp/cfs/hal/SystemInfo.cpp"
             ex="false"
             tool="1"
@@ -979,16 +885,6 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="hal/src/main/cpp/cfs/hal/cpu/Topology.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="hal/src/test/cpp/cfs/SystemInfoTest.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="hal/src/test/cpp/cfs/SystemInfoTest.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1039,16 +935,6 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osal/src/main/cpp/cfs/osal/time/TimeSpan.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/time/TimeoutGuard.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osal/src/main/cpp/cfs/osal/time/TimeoutGuard.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1263,36 +1149,6 @@ Contributor(s):
             flavor2="0">
       </item>
       <item path="osgi/src/main/cpp/cfs/osgi/pimpl/cfsPimpl.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/CallbackHandler.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/CallbackHandler.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Helpers.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Helpers.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Singleton.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="osgi/src/main/cpp/cfs/osgi/utils/Singleton.hpp"
             ex="false"
             tool="3"
             flavor2="0">

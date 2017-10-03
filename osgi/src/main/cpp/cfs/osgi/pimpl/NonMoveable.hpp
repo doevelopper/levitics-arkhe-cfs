@@ -12,10 +12,8 @@ class NonMoveable
     private:
 
         NonMoveable( NonMoveable && ) = delete;
-
 // void operator = (NonMoveable &&) = delete;
-        void
-        operator = ( NonCopyable && ) = delete;
+        void operator = ( NonCopyable && ) = delete;
 };
 
 #endif

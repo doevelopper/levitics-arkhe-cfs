@@ -3,8 +3,8 @@ platform: x64
 environment:
     matrix:
     # MinGW-w64
-    - GENERATOR: MinGW Makefiles
-      CXXFLAGS: -std=c++11
+    - GENERATOR: Unix Makefiles
+      CXXFLAGS: -std=c++14
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
 configuration:
