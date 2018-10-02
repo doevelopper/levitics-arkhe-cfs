@@ -43,11 +43,12 @@ SET(CMAKE_CXX_FLAGS "-march=armv6 -mfpu=vfp -mfloat-abi=hard")
 set(CMAKE_FIND_ROOT_PATH ${CROSS_COMPILER_ROOT})
 # Search for programs only in the build host directories
 SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 # Search for libraries and headers only in the target directories
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
+set(RASPBERRY_PI_3_FLAGS "-mcpu=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -funsafe-math-optimizations") 
+set(RASPBERRY_PI_3_FLAGS "${RASPBERRY_PI_3_FLAGS} -pipe -march=armv8-a+crc -mtune=cortex-a53"
 # force compiler flags at startup so we don't forget them
 set(CMAKE_CXX_FLAGS "-std=c++14 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" CACHE STRING "C++ flags" FORCE)
 set(CMAKE_C_FLAGS "-mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" CACHE STRING "C flags" FORCE)

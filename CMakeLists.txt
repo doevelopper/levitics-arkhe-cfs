@@ -1,3 +1,5 @@
+#       CMakeLists.txt
+#
 #               Copyright (c) 2014-2017 Nicolas J. FURY
 #
 #        Permission is hereby granted, free of charge, to any person obtaining
@@ -21,28 +23,26 @@
 
 
 project(levitics-arkhe-cfs CXX)
-cmake_minimum_required( VERSION 3.8 FATAL_ERROR)
 
-set(PROJECT_NAME_MAJOR_VERSION       3)
-set(PROJECT_NAME_MINOR_VERSION       7)
-set(PROJECT_NAME_MICRO_VERSION       0)
-set(PROJECT_NAME_PATCH_VERSION       0)
+cmake_minimum_required( VERSION 3.10 FATAL_ERROR)
+
+set(GIT_REVISION 0)
+set(PROJECT_NAME_MAJOR_VERSION           1)
+set(PROJECT_NAME_MINOR_VERSION           0)
+set(PROJECT_NAME_MICRO_VERSION           0)
+set(PROJECT_NAME_PATCH_VERSION           0)
+set(PROJECT_NAME_BUILD_VERSION ${GIT_REVISION})
+set(PROJECT_NAME_VERSION_EXTENSION      "")
 set(PROJECT_NAME_REVISION_VERSION    "dev")
 
-set(PROJECT_DESCRIPTION "dev")
-set(PROJECT_VERSION_MAJOR       1)
-set(PROJECT_VERSION_MINOR       5)
-set(PROJECT_VERSION_PATCH       2)
-set(PROJECT_VERSION_TWEAK       1101)
+set(PROJECT_DESCRIPTION              "dev")
+set(PROJECT_VERSION_MAJOR                1)
+set(PROJECT_VERSION_MINOR                0)
+set(PROJECT_VERSION_PATCH                0)
+set(PROJECT_VERSION_TWEAK                1)
+
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
 
-add_definitions(-DPROJECT_VERSION_MAJOR=1)
-add_definitions(-DPROJECT_VERSION_MINOR=0)
-add_definitions(-DPROJECT_VERSION_MICRO=0)
-add_definitions(-DPROJECT_VERSION_PATCH=${PROJECT_NAME})
-
-add_definitions(-DAPPLICATIONNAME=${PROJECT_VERSION_PATCH})
-add_definitions(-DAPP_VERSION_STR="${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_MICRO_VERSION}")
 
 list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_SOURCE_DIR}/src/main/resources/config/modules"
@@ -54,6 +54,13 @@ list(APPEND CMAKE_MODULE_PATH
 
 include(ProcessorCount)
 ProcessorCount(Ncpu)
+
+include(TestBigEndian)
+TEST_BIG_ENDIAN(IS_BIG_ENDIAN)
+if(IS_BIG_ENDIAN)
+    message(FATAL_ERROR "Big endian isn't supported !!!")
+endif(IS_BIG_ENDIAN)
+
 include(buildLifeCycle)
 include(CodingStyle)
 include(cppcheck)
@@ -117,12 +124,12 @@ configure_file("${PROJECT_SOURCE_DIR}/src/main/resources/Config.hpp.in"
 #include_directories(${CMAKE_CURRENT_BINARY_DIR}) # needed for generated files
 #message (STATUS "PROJECT_BINARY_DIR ${PROJECT_BINARY_DIR}")
 
-add_subdirectory (hal)
+#add_subdirectory (hal)
 #add_subdirectory (osal)
 #add_subdirectory (osgi)
 #add_subdirectory (cf)
 #add_subdirectory (cfe)
 
-add_subdirectory (src/main/cpp)
-add_subdirectory (src/test/cpp)
-add_subdirectory (src/it)
+#add_subdirectory (src/main/cpp)
+#add_subdirectory (src/test/cpp)
+#add_subdirectory (src/it)

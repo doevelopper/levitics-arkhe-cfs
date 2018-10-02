@@ -1,0 +1,12 @@
+[submodule "cfs-osal"]
+	path = cfs-osal
+	url = git@github.com:doevelopper/cfs-osal.git
+[submodule "cfs-com"]
+	path = cfs-com
+	url = git@github.com:doevelopper/cfs-com.git
+[submodule "cfs-edac"]
+	path = cfs-edac
+	url = git@github.com:doevelopper/cfs-edac.git
+[submodule "cfs-hal"]
+	path = cfs-hal
+	url = git@github.com:doevelopper/cfs-hal.git

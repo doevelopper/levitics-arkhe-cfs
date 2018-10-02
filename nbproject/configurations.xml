@@ -41,6 +41,38 @@ Contributor(s):
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="cfs-hal">
+        <df name="src">
+          <df name="main">
+            <df name="cpp">
+              <df name="cfs">
+                <df name="hal">
+                  <df name="devices">
+                    <in>Hmc5883l.cpp</in>
+                    <in>Hmc5883l.hpp</in>
+                    <in>UbloxNeoM8NGps.cpp</in>
+                    <in>UbloxNeoM8NGps.hpp</in>
+                  </df>
+                  <df name="rpi">
+                    <in>I2c.cpp</in>
+                    <in>I2c.hpp</in>
+                    <in>I2s.cpp</in>
+                    <in>I2s.hpp</in>
+                    <in>Spi.cpp</in>
+                    <in>Spi.hpp</in>
+                    <in>SysFsGPIO.cpp</in>
+                    <in>SysFsGPIO.hpp</in>
+                    <in>Uart.cpp</in>
+                    <in>Uart.hpp</in>
+                  </df>
+                  <in>DeviceManager.cpp</in>
+                  <in>DeviceManager.hpp</in>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
       <df name="hal">
         <df name="src">
           <df name="it">
@@ -97,6 +129,9 @@ Contributor(s):
               <in>AppTest.cpp</in>
             </df>
           </df>
+          <df name="resources">
+            <in>synch.sh</in>
+          </df>
         </df>
       </df>
     </df>
@@ -152,6 +187,86 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/DeviceManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/DeviceManager.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/Hmc5883l.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/Hmc5883l.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/UbloxNeoM8NGps.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/UbloxNeoM8NGps.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2c.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2c.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2s.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2s.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Spi.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Spi.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/SysFsGPIO.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/SysFsGPIO.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Uart.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Uart.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <folder path="0/hal/src/it">
         <ccTool>
           <incDir>
@@ -280,6 +395,8 @@ Contributor(s):
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="src/test/resources/synch.sh" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="0">
       <toolsSet>
@@ -310,6 +427,88 @@ Contributor(s):
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/DeviceManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/DeviceManager.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/Hmc5883l.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/Hmc5883l.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/UbloxNeoM8NGps.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/devices/UbloxNeoM8NGps.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2c.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2c.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2s.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/I2s.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Spi.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Spi.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/SysFsGPIO.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/SysFsGPIO.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Uart.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="cfs-hal/src/main/cpp/cfs/hal/rpi/Uart.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/test/resources/synch.sh" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>
